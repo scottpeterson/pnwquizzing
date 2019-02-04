@@ -18,7 +18,7 @@ With regard to key verses, the CMA rules read:
 
 For PNW, the following shall be true:
 
-The way a key verse is designated at the beginning of the year is the only way it can be asked during the year. Verses designated as QT-only, FT, FTN, F2V, or Q2V (F2V and Q2V verse pairs are denoted simply by a hyphen, e.g. 13-14 or 7-8)  may only be asked as that single question type. Verses designated as generic "key verses" can be asked as either FTV or QT. Any deviation from this by the quizmaster is open to challenge.
+The way a key verse is designated at the beginning of the year is the only way it can be asked during the year. Verses designated as QT-only, FT, FTN, F2V, or Q2V may only be asked as that single question type. F2V and Q2V verse pairs are denoted by a hyphen, for example: 13-14 or 7-8. Verses designated as generic "key verses" can be asked as either FTV or QT. Any deviation from this by the quizmaster is open to challenge.
 
 ### Question Type Requirements
 
