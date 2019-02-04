@@ -18,7 +18,7 @@ With regard to key verses, the CMA rules read:
 
 For PNW, the following shall be true:
 
-The way a key verse is designated at the beginning of the year is the only way it can be asked during the year. Verses designated as QT-only, FT, FTN, F2V, or QT2 may only be asked as that single question type. Verses designated as generic "key verses" can be asked as either FTV or QT. Any deviation from this by the quizmaster is open to challenge.
+The way a key verse is designated at the beginning of the year is the only way it can be asked during the year. Verses designated as QT-only, FT, FTN, F2V, or Q2V (F2V and Q2V verse pairs are denoted simply by a hyphen, e.g. 13-14 or 7-8)  may only be asked as that single question type. Verses designated as generic "key verses" can be asked as either FTV or QT. Any deviation from this by the quizmaster is open to challenge.
 
 ### Question Type Requirements
 
@@ -33,7 +33,7 @@ The following are the question type minimums and maximums for all PNW District M
 | Q    |    1 |    2 |
 | SIT  |    2 |    4 |
 
-FTV, FT2V, FT and FTN count as "F" type questions. QT and Q2V count as "Q" type questions. For the purposes of question type requirements, multiple-answer reference questions will be considered reference questions only, not also multiple-answers.
+FTV, F2V, FT and FTN count as "F" type questions. QT and Q2V count as "Q" type questions. For the purposes of question type requirements, multiple-answer reference questions will be considered reference questions only, not also multiple-answers.
 
 ### Question Distribution
 
@@ -57,7 +57,7 @@ For individuals missing a meet due to weather:
 
 - If missing one of the first 3 meets or District Championships, the individual will receive a 0 average for that meet
 - If missing District Meet 4, the individual will receive a 0 for 10% of that meet and 10% weight applied to District Meet 5
-- If missing District Meet 5, the individual will receive a 0 for 10% of that meet and 10% weight applied to District Championships
+- If missing District Meet 5, the individual will receive a 0 for 10% of that meet and 15% weight applied to District Championships
 
 For teams missing a meet due to weather:
 
@@ -69,9 +69,7 @@ For teams missing a meet due to weather:
 
 Team ties during prelims will not be broken, which is to say, there will be no overtime during prelims.
 
-If teams are tied for 9th or 18th after the preliminary quizzes, a tiebreaker quiz will break the tie. In the event 2 teams are tied, a 15-question, 2-team quiz will occur. In the event 3 teams are tied, a normal 20-question quiz will occur.
-
-If there is a tie for other spots, these criteria will break the tie:
+If teams are tied for any placement after the preliminary quizzes, these criteria will break the tie:
 
 1. Placement if they faced each other
 2. Number of 1st placements
