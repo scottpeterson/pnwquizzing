@@ -76,8 +76,6 @@ The following are some of the duties The District Coordinator should attempt to 
 - Quiz equipment and supplies
 - Statistics management
 
-The District Coordinator shall appoint a person to be the Secret Assistant to the District Coordinator, who will provide advise and council privately to the District Coordinator.
-
 ## Article 5 - Rules Subcommittee
 
 The Rules Subcommittee is a permanent subcommittee of the Board of Directors responsible for the following:

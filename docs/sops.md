@@ -37,6 +37,8 @@ The following are prerequisite requirements for candidates to fill the position 
 - Handle questions about special considerations
 - Arrange and communicate with host churches for the quiz season
 
+The District Coordinator should appoint a person to be a private adviser, someone who can offer candid and independent feedback to the District Coordinator. Ideally, this person should be a former District Coordinator and not sit on the Board of Directors.
+
 ### Rules Subcommittee Leader
 
 In addition to leading the Rules Subcommittee, the Rules Subcommittee Leader shall either do or work through the subcommittee to have done the following:
@@ -152,7 +154,7 @@ Quizzers must declare their intent to attend Internationals by District Meet 5. 
 There is a quoting requirement for all quizzers planning to attend Internationals:
 
 - The quizzer must quote forwards, in order, but is not required to recite the references before each verse
-- The quizzer must maintain >=80% quoting accuracy of the whole material for the quiz season
+- The quizzer must be able to quote all the material, and at least 80% of the quoted material must be word-perfect without prompting
 - Quizzers must complete their quoting between District Meet 5 and District Championships
 
 The head coach has latitude for setting practice requirements. Any dispute shall be decided by the Board of Directors.

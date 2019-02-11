@@ -22,17 +22,6 @@ The way a key verse is designated at the beginning of the year is the only way i
 
 ### Question Type Requirements
 
-The following are the question type minimums and maximums for all PNW District Meets:
-
-| Type | Min. | Max. |
-|------|-----:|-----:|
-| INT  |    8 |   12 |
-| MA   |    2 |    7 |
-| REF  |    3 |    5 |
-| F    |    2 |    3 |
-| Q    |    1 |    2 |
-| SIT  |    2 |    4 |
-
 FTV, F2V, FT and FTN count as "F" type questions. QT and Q2V count as "Q" type questions. For the purposes of question type requirements, multiple-answer reference questions will be considered reference questions only, not also multiple-answers.
 
 ### Question Distribution
