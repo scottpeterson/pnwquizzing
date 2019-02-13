@@ -109,3 +109,10 @@ Final team placements are calculated as follows:
 
 - The team placements at District Championships are the final year placements for teams 1-18
 - The year-to-date team placements after District Meet 5 are the final year team placements for teams 19 and beyond
+
+## Quizmaster Prompts
+
+During the 30-second answering period, the quizmaster prompts rules shall be amended as follows:
+
+- If a quizzer, upon clearly pausing in reply after having attempted a full answer, is missing information required in either the question or answer, the quizmaster will, when the quizzer is not speaking, say, `More.`
+- If a quizzer, upon clearly pausing in reply after having attempted a full answer, has said a word or phrase which is not incorrect but also not yet correct, the quizmaster will, when the quizzer is not speaking, say, `Again.`
