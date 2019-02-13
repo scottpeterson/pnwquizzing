@@ -20,7 +20,7 @@ All quizmasters must be capable and comfortable searching and finding topics and
 
 All quizmasters must be familiar with their laptop and associated software, and keep software and the operating system (OS) up to date such that:
 - Forced updates and/or computer restarts do not delay quizzing
-- Out of date software causes issues with CBQZ
+- Out of date software does not cause issues with CBQZ
 - All required hardware is brought by the quizmaster (e.g. extension power cord, 2 to 3 plug adapters, etc)
 
 All quizmasters will use a question set validated and verified by the Rules Committee Leader loaded into and running through the CBQZ application. All quizmasters must be capable and comfortable using all quizmastery functional aspects of the CBQZ application including:
