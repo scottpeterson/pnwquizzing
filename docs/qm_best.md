@@ -18,10 +18,11 @@ All quizmasters must be prepared for all quizzes with readily available and easi
 
 All quizmasters must be capable and comfortable searching and finding topics and phrases in all the above electronic content.
 
-All quizmasters must be familiar with their laptop and associated software, and keep software and the operating system (OS) up to date such that:
-- Forced updates and/or computer restarts do not delay quizzing
-- Out of date software does not cause issues with CBQZ
-- All required hardware is brought by the quizmaster (e.g. extension power cord, 2 to 3 plug adapters, etc)
+All quizmasters must be familiar with their laptop and associated software. Quizmasters must keep their software and operating system up to date such that:
+
+- Forced updates and computer restarts do not delay quizzing
+- Out-of-date software does not cause issues with the CBQZ application
+- All required hardware is brought to the meet by the quizmaster, such as extension power cords, 2-prong-to-3-prong plug adapters, etc.
 
 All quizmasters will use a question set validated and verified by the Rules Committee Leader loaded into and running through the CBQZ application. All quizmasters must be capable and comfortable using all quizmastery functional aspects of the CBQZ application including:
 
@@ -90,7 +91,7 @@ The ellipses above should be of a short duration and must always be consistent a
 
 The reading of all parts of the standard preamble and the reading of the question content must be at a consistent pace across all questions in a quiz and meet.
 
-Number 5 from above should always be the last thing said by the quizmaster before beginning to read the content of the question.  If the quizmaster needs to pause for any reason during the preamble, needs to warn a quizzer about their light being on, or any other disruption to the preamble, number 5 should be repeated, even if it has already been said. 
+Item number 5 from the above list should always be the last thing said by the quizmaster before beginning to read the content of the question. If the quizmaster needs to pause for any reason during the preamble, needs to warn a quizzer about their light being on, or any other disruption to the preamble, item number 5 should be repeated, even if it has already been said.
 
 The quizmaster should abruptly stop reading and freeze as soon as possible when a quizzer's light illuminates. This abrupt stop must be as close to exactly consistent as possible across all questions in a quiz and meet. The jumping speed of the quizzer should never be anticipated. Only after the abrupt stop and a short pause should the quizmaster move his or her lips or any other part of their body.
 
@@ -107,12 +108,9 @@ When listening to a quizzer answer a question, the quizmaster must remain silent
 - If a quizzer, upon clearly pausing in reply after having attempted a full answer, has said a word or phrase which is not incorrect but also not yet correct, the quizmaster will, when the quizzer is not speaking, say, `Again.`
 - On a SIT question, when the quizzer has completed the quotation required for the question, the quizmaster will say, `Quote is complete.`
 
-In all cases, the quizmaster must prompt and react as close to exactly the same as possible across every question of every quiz in a meet.
+The above are the *only* prompts a quizmaster may say. All other prompts from the quizmaster without exception are illegal.
 
-Prompts a quizmaster is NOT allowed to say:
-- When a quizzer has correctly answered a Quote or Chapter Verse Reference question, but the full reference has not been given (either by the quizmaster or the quizzer), "More on the reference."
-- On Situation questions, "More on the quote" or "More on the answer."
-- On Situation questions, when the quizzer has completed the quotation, "and you answer?"
+In all cases, the quizmaster must prompt and react as close to exactly the same as possible across every question of every quiz in a meet.
 
 ## Question Rulings
 
@@ -122,7 +120,7 @@ Always be open to challenge and be willing to evaluate whatever the captains fee
 
 In all cases, the quizmaster must rule as close to exactly the same as possible across every question of every quiz in a meet.
 
-No question should be thrown out, unless the quizmaster made a mistake, or unless the question is deemed invalid. When faced with a difficult, subjective ruling, make your best ruling - questions should not be thrown out just because the ruling is difficult. 
+No question should be thrown out unless the quizmaster made a mistake or the question is deemed invalid. When faced with a difficult, subjective ruling, quizmasters should make a best ruling possible. Questions cannot be thrown out purely because the ruling will be difficult.
 
 ## Closing a Quiz
 

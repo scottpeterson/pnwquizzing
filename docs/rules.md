@@ -116,3 +116,4 @@ During the 30-second answering period, the quizmaster prompts rules shall be ame
 
 - If a quizzer, upon clearly pausing in reply after having attempted a full answer, is missing information required in either the question or answer, the quizmaster will, when the quizzer is not speaking, say, `More.`
 - If a quizzer, upon clearly pausing in reply after having attempted a full answer, has said a word or phrase which is not incorrect but also not yet correct, the quizmaster will, when the quizzer is not speaking, say, `Again.`
+- If a quizzer provided all the information in the answer except the clarification of a pronoun present which is part of the answer, the quizmaster will say, `Clarify PRONOUN.`
