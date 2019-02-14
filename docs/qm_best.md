@@ -18,11 +18,9 @@ All quizmasters must be prepared for all quizzes with readily available and easi
 
 All quizmasters must be capable and comfortable searching and finding topics and phrases in all the above electronic content.
 
-All quizmasters must be familiar with their laptop and associated software. Quizmasters must keep their software and operating system up to date such that:
+Quizmasters are ultimately responsible for the electronic equipment they use for quizmastery, including laptops, tablets, or other electronic devices. Quizmasters must ensure all equipment they will use has been kept updated in terms of software and operating system status and is not configured in such a way as to prevent the proper execution of the CBQZ application.
 
-- Forced updates and computer restarts do not delay quizzing
-- Out-of-date software does not cause issues with the CBQZ application
-- All required hardware is brought to the meet by the quizmaster, such as extension power cords, 2-prong-to-3-prong plug adapters, etc.
+Quizmasters should think ahead in terms of component needs, such as extension power cords, 2-prong-to-3-prong plug adapters, etc.
 
 All quizmasters will use a question set validated and verified by the Rules Committee Leader loaded into and running through the CBQZ application. All quizmasters must be capable and comfortable using all quizmastery functional aspects of the CBQZ application including:
 
