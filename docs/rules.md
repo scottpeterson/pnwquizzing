@@ -18,11 +18,23 @@ With regard to key verses, the CMA rules read:
 
 For PNW, the following shall be true:
 
-The way a key verse is designated at the beginning of the year is the only way it can be asked during the year. Verses designated as QT-only, FT, FTN, F2V, or Q2V may only be asked as that single question type. F2V and Q2V verse pairs are denoted by a hyphen, for example: 13-14 or 7-8. Verses designated as generic "key verses" can be asked as either FTV or QT. Any deviation from this by the quizmaster is open to challenge.
+- Key verses are assigned specific types of FTV and Q questions at the beginning of the year and may not be asked as any other type.
+- Verses with an FT designation may be asked as either an FT or Q. Two-verse pairs may be asked as an F2V or Q2V.
+- Two-verse pairs with an FTN designation may be asked as either an FTN or Q2V
+- Verses with the Q designation:
+    - Can only be asked as Q questions or Q2V if a two-verse pair
+    - But may never be asked as any type of Finish question
+- Single verses without any specific designation may be asked as either FTV or Q
+
+Any deviation from this by the quizmaster is open to challenge.
 
 ### Question Type Requirements
 
-FTV, F2V, FT and FTN count as "F" type questions. QT and Q2V count as "Q" type questions. For the purposes of question type requirements, multiple-answer reference questions will be considered reference questions only, not also multiple-answers.
+For the purposes of question type requirements:
+
+- FTV, F2V, FT, and FTN count as finish questions
+- Q and Q2V count as quote questions
+- Multiple-answer reference questions will be considered reference questions only, not also multiple-answers
 
 ### Question Distribution
 

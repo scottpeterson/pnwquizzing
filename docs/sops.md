@@ -154,7 +154,11 @@ Quizzers must declare their intent to attend Internationals by District Meet 5. 
 There is a quoting requirement for all quizzers planning to attend Internationals:
 
 - The quizzer must quote forwards, in order, but is not required to recite the references before each verse
-- The quizzer must be able to quote all the material, and at least 80% of the quoted material must be word-perfect without prompting
+- The quizzer must quote at least 80% of the verses in the material word-perfect without any help except for the prompt "again" at the end of the verse
+- The listener will record which verses were not word-perfect
+- The quizzer will be required to start from the beginning if 80% accuracy is not achieved by the end
 - Quizzers must complete their quoting between District Meet 5 and District Championships
+
+If 5 quizzers do not meet the quoting requirement in a given quiz year, the the remaining members of the team will comprise of the top-placing individuals who did not meet the requirement.
 
 The head coach has latitude for setting practice requirements. Any dispute shall be decided by the Board of Directors.
