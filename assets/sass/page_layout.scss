@@ -1,0 +1,45 @@
+$header-height: 50px;
+$div-body-padding: 10px;
+
+%div-body-scroller {
+    height: calc( 100vh - #{ $header-height + $div-body-padding * 2 } );
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+html {
+    margin: 0;
+
+    body {
+        display: grid;
+        grid-template-rows: $header-height auto;
+        grid-template-columns: 250px auto;
+        grid-template-areas: "header header" "nav content";
+
+        div#header {
+            grid-area: header;
+            background-color: black;
+            color: white;
+
+            div#header_title {
+                font-size: 20px;
+                margin: 15px;
+            }
+        }
+
+        div#nav {
+            grid-area: nav;
+            @extend %div-body-scroller;
+            padding: $div-body-padding;
+            background-color: darkslategray;
+            color: lightgray;
+        }
+
+        div#content {
+            grid-area: content;
+            @extend %div-body-scroller;
+            padding: $div-body-padding;
+            background-color: ghostwhite;
+        }
+    }
+}

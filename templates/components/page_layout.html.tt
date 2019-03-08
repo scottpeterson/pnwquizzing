@@ -1,0 +1,19 @@
+<div id="header">
+    <div id="header_title">Pacific Northwest Bible Quizzing</div>
+</div>
+
+<div id="nav">
+    <ul>
+        <li>Something</li>
+        <li>Something</li>
+        <li>Something</li>
+        <li>Something</li>
+        <li>Something</li>
+        <li>Something</li>
+        <li>Something</li>
+    </ul>
+</div>
+
+<div id="content">
+    [% content %]
+</div>

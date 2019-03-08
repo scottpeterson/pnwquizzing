@@ -1,0 +1,19 @@
+[% html %]
+
+[% IF csv %]
+    <table>
+        [% FOR row IN csv %]
+            <tr>
+                [% IF loop.first %]
+                    [% FOR cell IN row %]
+                        <th>[% cell %]</th>
+                    [% END %]
+                [% ELSE %]
+                    [% FOR cell IN row %]
+                        <td>[% cell %]</td>
+                    [% END %]
+                [% END %]
+            </tr>
+        [% END %]
+    </table>
+[% END %]

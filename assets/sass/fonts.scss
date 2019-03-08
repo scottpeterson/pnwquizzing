@@ -1,0 +1,58 @@
+@font-face {
+    font-family: normal;
+    src: url(../../fonts/Roboto/Roboto-Regular.ttf?version=1) format('truetype');
+}
+
+@font-face {
+    font-family: medium;
+    src: url(../../fonts/Roboto/Roboto-Medium.ttf?version=1) format('truetype');
+}
+
+@font-face {
+    font-family: bold;
+    src: url(../../fonts/Roboto/Roboto-Bold.ttf?version=1) format('truetype');
+}
+
+h1, h2, h3, b {
+    font-family: bold;
+    font-weight: normal;
+}
+
+body, input, button, select {
+    font-family: normal, sans-serif;
+    font-size: 12.9px;
+}
+
+h1 {
+    font-size: 27px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+dl dt {
+    font-family: bold;
+    font-weight: normal;
+}
+
+table {
+    font-size: inherit;
+}
+
+pre, code, kbd, samp, tt {
+    font-family: monospace;
+    line-height: 100%;
+}
+
+*:first-child+html pre,  * html pre,
+*:first-child+html code, * html code,
+*:first-child+html kbd,  * html kbd,
+*:first-child+html samp, * html samp,
+*:first-child+html tt,   * html tt {
+    font-size: 108%;
+}

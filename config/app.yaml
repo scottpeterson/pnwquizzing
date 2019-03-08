@@ -1,0 +1,48 @@
+---
+default:
+    logging:
+        log_dir: local
+        log_file: app.log
+        log_level:
+            production: info
+            development: debug
+        alert_email:
+            - example@example.com
+        alert_email_subject: PNW Quizzing Web Site Alert Log Message
+        filter:
+            - email
+    template:
+        compile_ext: .ttc
+        compile_dir: local/ttc
+        web:
+            wrapper: wrapper.html.tt
+            include_path:
+                - templates/pages
+                - templates/components
+        email:
+            include_path:
+                - templates/emails
+    database:
+        dir: local
+        file: app.sqlite
+    mojo_app_lib: PnwQuizzing::Control
+    mojolicious:
+        access_log: access.log
+        secrets:
+            - e292116f05ccaa9b0595b40e8608fb45
+            - 2d6f8404c5900080824c90da48593a09
+        config:
+            hypnotoad:
+                proxy: 1
+                workers: 10
+                pid_file: local/hypnotoad.pid
+                listen:
+                    - http://*:3000
+        session:
+            cookie_name: pnwquizzing_session
+            default_expiration: 0
+            duration: 0
+    # email:
+    #     from: Application <example@example.com>
+    #     active: 0
+optional_include: local/config.yaml

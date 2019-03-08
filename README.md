@@ -1,3 +1,3 @@
 # PNW Bible Quizzing
 
-Documents and other things related to and in support of the **PNW Bible Quizzing** program.
+Web site, documents, statistics, and tools in support of the **PNW Bible Quizzing** program.

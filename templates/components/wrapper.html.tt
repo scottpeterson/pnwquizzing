@@ -1,0 +1,29 @@
+[%-
+    page = {};
+    DEFAULT page.title = '';
+
+    content = BLOCK;
+        PROCESS $template;
+    END;
+
+    page.title =
+        ( NOT page.title ) ? 'PNW Bible Quizzing' :
+        ( NOT page.title.match('^PNWBQ\s') ) ? 'PNWBW: ' _ page.title : page.title;
+-%]
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" type="image/x-icon"
+            href="[% c.url_for('/favicon.ico').query( version => constants.version ) %]" />
+
+        [% c.asset( 'app.css', 'media', 'screen' ) %]
+
+        <title>[% page.title %]</title>
+    </head>
+    <body>
+        [% PROCESS page_layout.html.tt %]
+    </body>
+</html>
