@@ -1,9 +1,9 @@
-package PnwQuizzing::Roles::Template;
+package PnwQuizzing::Role::Template;
 use Mojo::Base -role, -signatures;
 use Role::Tiny::With;
 use Template;
 
-with 'PnwQuizzing::Roles::Conf';
+with 'PnwQuizzing::Role::Conf';
 
 has version => time;
 

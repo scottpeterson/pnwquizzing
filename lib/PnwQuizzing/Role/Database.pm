@@ -1,10 +1,10 @@
-package PnwQuizzing::Roles::Database;
+package PnwQuizzing::Role::Database;
 use Mojo::Base -role, -signatures;
 use Role::Tiny::With;
 use DBIx::Query;
 use File::Path 'make_path';
 
-with 'PnwQuizzing::Roles::Conf';
+with 'PnwQuizzing::Role::Conf';
 
 has dq => sub ($self) {
     my $conf = $self->conf->get('database');

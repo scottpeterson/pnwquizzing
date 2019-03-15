@@ -5,7 +5,7 @@ use parent 'PnwQuizzing';
 use MojoX::Log::Dispatch::Simple;
 use Mojo::Loader 'load_class';
 
-with 'PnwQuizzing::Roles::Template';
+with 'PnwQuizzing::Role::Template';
 
 sub startup ($self) {
     $self->plugin('RequestBase');

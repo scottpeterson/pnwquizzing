@@ -3,9 +3,9 @@ use Mojo::Base -base, -signatures;
 use Role::Tiny::With;
 
 with qw(
-    PnwQuizzing::Roles::Conf
-    PnwQuizzing::Roles::Logging
-    PnwQuizzing::Roles::Database
+    PnwQuizzing::Role::Conf
+    PnwQuizzing::Role::Logging
+    PnwQuizzing::Role::Database
 );
 
 1;

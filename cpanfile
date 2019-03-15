@@ -14,6 +14,7 @@ requires 'CSS::Sass', '>= 3.4.10';
 requires 'CSS::Minifier::XS', '>= 0.09';
 
 requires 'Data::Printer', '>= 0.40';
+requires 'File::Find', '>= 1.34';
 requires 'File::Path', '>= 2.16';
 requires 'Log::Dispatch', '>= 2.68';
 requires 'Log::Dispatch::Email::Mailer', '>= 1.03';

@@ -1,4 +1,4 @@
-package PnwQuizzing::Roles::Logging;
+package PnwQuizzing::Role::Logging;
 use Mojo::Base -role, -signatures;
 use Role::Tiny::With;
 use Log::Dispatch;
@@ -6,7 +6,7 @@ use Term::ANSIColor;
 use Data::Printer return_value => 'dump', colored => 1;
 use File::Path 'make_path';
 
-with 'PnwQuizzing::Roles::Conf';
+with 'PnwQuizzing::Role::Conf';
 
 has log_level    => undef;
 has log_dispatch => sub ($self) {

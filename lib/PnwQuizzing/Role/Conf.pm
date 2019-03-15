@@ -1,4 +1,4 @@
-package PnwQuizzing::Roles::Conf;
+package PnwQuizzing::Role::Conf;
 use Mojo::Base -role, -signatures;
 use Config::App;
 
