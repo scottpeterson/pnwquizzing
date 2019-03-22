@@ -33,6 +33,10 @@ html {
             padding: $div-body-padding;
             background-color: darkslategray;
             color: lightgray;
+
+            a {
+                color: bisque;
+            }
         }
 
         div#content {

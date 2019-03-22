@@ -3,15 +3,27 @@
 </div>
 
 <div id="nav">
-    <ul>
-        <li>Something</li>
-        <li>Something</li>
-        <li>Something</li>
-        <li>Something</li>
-        <li>Something</li>
-        <li>Something</li>
-        <li>Something</li>
-    </ul>
+    [% BLOCK nav %]
+        <ul>
+            [% FOREACH node IN docs %]
+                <li>
+                    [% IF node.folder %]
+                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]">[% END %]
+                        [% node.folder %]
+                        [% IF node.href %]</a>[% END %]
+                    [% ELSIF node.name %]
+                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]">[% END %]
+                        [% node.name %]
+                        [% IF node.href %]</a>[% END %]
+                    [% END %]
+                    [% IF node.nodes %]
+                        [% PROCESS nav docs = node.nodes %]
+                    [% END %]
+                </li>
+            [% END %]
+        </ul>
+    [% END %]
+    [% PROCESS nav docs = docs_nav %]
 </div>
 
 <div id="content">
