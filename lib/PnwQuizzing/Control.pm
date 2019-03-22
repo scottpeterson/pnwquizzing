@@ -4,18 +4,31 @@ use Role::Tiny::With;
 use parent 'PnwQuizzing';
 use MojoX::Log::Dispatch::Simple;
 use Mojo::Loader 'load_class';
+use CSS::Sass;
+use Mojo::File;
 
 with 'PnwQuizzing::Role::Template';
 
 sub startup ($self) {
+    my $root_dir = $self->conf->get( 'config_app', 'root_dir' );
+
     $self->plugin('RequestBase');
 
-    $self->plugin( 'AssetPack' => { pipes => [ qw( Sass Css Combine ExportToDirectory ) ] } );
-    $self->asset->pipe('ExportToDirectory')->export_dir('static/assets');
-    $self->asset->process( 'app.css' => 'sass/app.scss' );
+    # compile sass css from scss
+    Mojo::File->new(
+        $root_dir . '/static/' . $self->conf->get( 'css', 'compile_to' )
+    )->spurt(
+        (
+            CSS::Sass->new(
+                source_comments => 1,
+            )->compile_file(
+                $root_dir . '/' . $self->conf->get( 'css', 'scss_src' )
+            )
+        )[0]
+    );
 
     $self->setup_mojo_logging;
-    $self->setup_templating;
+    $self->setup_templating($root_dir);
 
     $self->static->paths->[0] =~ s|/public$|/static|;
     $self->sessions->cookie_name( $self->conf->get( qw( mojolicious session cookie_name ) ) );
@@ -76,8 +89,8 @@ sub setup_mojo_logging ($self) {
     }
 }
 
-sub setup_templating ($self) {
-    push( @INC, $self->conf->get( 'config_app', 'root_dir' ) );
+sub setup_templating ( $self, $root_dir ) {
+    push( @INC, $root_dir );
     $self->plugin(
         'ToolkitRenderer',
         $self->tt_settings('web'),

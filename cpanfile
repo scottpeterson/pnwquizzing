@@ -8,11 +8,7 @@ requires 'Mojolicious::Plugin::AccessLog', '>= 0.010';
 requires 'Mojolicious::Plugin::RequestBase', '>= 0.3';
 requires 'Mojolicious::Plugin::ToolkitRenderer', '>= 1.08';
 
-requires 'Mojolicious::Plugin::AssetPack', '>= 2.06';
-requires 'Mojolicious::Plugin::AssetPack::Pipe::ExportToDirectory', '>= 0.001003';
 requires 'CSS::Sass', '>= 3.4.10';
-requires 'CSS::Minifier::XS', '>= 0.09';
-
 requires 'Data::Printer', '>= 0.40';
 requires 'File::Find', '>= 1.34';
 requires 'File::Path', '>= 2.16';

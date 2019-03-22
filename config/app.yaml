@@ -42,6 +42,9 @@ default:
             cookie_name: pnwquizzing_session
             default_expiration: 0
             duration: 0
+    css:
+        scss_src: config/assets/sass/app.scss
+        compile_to: app.css
     # email:
     #     from: Application <example@example.com>
     #     active: 0

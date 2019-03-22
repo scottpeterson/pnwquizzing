@@ -19,7 +19,8 @@
         <link rel="shortcut icon" type="image/x-icon"
             href="[% c.url_for('/favicon.ico').query( version => constants.version ) %]" />
 
-        [% c.asset( 'app.css', 'media', 'screen' ) %]
+        <link rel="stylesheet" type="text/css"
+            href="[% c.url_for('/app.css').query( version => constants.version ) %]" />
 
         <title>[% page.title %]</title>
     </head>
