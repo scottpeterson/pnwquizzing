@@ -25,6 +25,9 @@ default:
     database:
         dir: local
         file: app.sqlite
+        settings:
+            sqlite_see_if_its_a_number: 1
+            sqlite_defensive: 1
     mojo_app_lib: PnwQuizzing::Control
     mojolicious:
         access_log: access.log

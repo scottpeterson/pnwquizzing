@@ -14,7 +14,15 @@ has dq => sub ($self) {
     );
     make_path($dir) unless ( -d $dir );
 
-    return DBIx::Query->connect( 'dbi:SQLite:dbname=' . $dir . '/' . $conf->{file} );
+    my $dq = DBIx::Query->connect(
+        'dbi:SQLite:dbname=' . $dir . '/' . $conf->{file},
+        undef,
+        undef,
+        $conf->{settings},
+    );
+
+    $dq->do('PRAGMA foreign_keys = ON');
+    return $dq;
 };
 
 1;

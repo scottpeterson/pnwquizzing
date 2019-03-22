@@ -25,3 +25,11 @@ requires 'DBD::SQLite', '>= 1.62';
 feature 't', 'Testing' => sub {
     requires 'Test::Most', '>= 0.35';
 };
+
+feature 'tools', 'Tools' => sub {
+    requires 'Data::Printer', '>= 0.40';
+};
+
+feature 'deploy', 'Deployment' => sub {
+    requires 'App::Dest', '>= 1.21';
+};

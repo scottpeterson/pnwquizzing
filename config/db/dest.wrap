@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+use Mojo::Base -strict, -signatures;
+use Config::App;
+use Mojo::File;
+use PnwQuizzing;
+
+my $pnw = PnwQuizzing->new;
+$pnw->conf->put( qw( database settings sqlite_allow_multiple_statements ) => 1 );
+
+my $dq  = $pnw->dq;
+my $sql = Mojo::File->new( $ARGV[0] )->slurp;
+
+unless ( $ARGV[1] eq 'verify' ) {
+    $dq->do($sql);
+}
+else {
+    my $sth = $dq->sql($sql)->run;
+    say $sth->value;
+}
