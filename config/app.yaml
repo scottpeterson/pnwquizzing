@@ -48,6 +48,9 @@ default:
     css:
         scss_src: config/assets/sass/app.scss
         compile_to: app.css
+    bcrypt:
+        cost: 1
+        salt: 0741a5d2c6fdf4bc
     # email:
     #     from: Application <example@example.com>
     #     active: 0
