@@ -31,6 +31,8 @@ feature 't', 'Testing' => sub {
 
 feature 'tools', 'Tools' => sub {
     requires 'Data::Printer', '>= 0.40';
+    requires 'Term::ReadKey', '>= 2.37';
+    requires 'Util::CommandLine', '>= 1.03';
 };
 
 feature 'deploy', 'Deployment' => sub {

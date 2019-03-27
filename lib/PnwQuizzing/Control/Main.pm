@@ -5,6 +5,8 @@ use Role::Tiny::With;
 use Mojo::Asset::File;
 use Text::Markdown 'markdown';
 use Text::CSV_XS 'csv';
+use PnwQuizzing::Model::User;
+use TryCatch;
 
 with 'PnwQuizzing::Role::DocsNav';
 
@@ -42,6 +44,41 @@ sub content ($self) {
     $self->res->content->headers($headers);
     $self->res->content->asset($asset);
     return $self->rendered(200);
+}
+
+sub login ($self) {
+    my $user = PnwQuizzing::Model::User->new;
+
+    try {
+        $user = $user->login( map { $self->param($_) } qw( username passwd ) );
+    }
+    catch {
+        $self->info('Login failure (in controller)');
+        $self->flash( message => "Login failed. Please try again." );
+        return $self->redirect_to('/');
+    }
+
+    $self->info( 'Login success for: ' . $user->prop('username') );
+
+    $self->session(
+        'user_id'           => $user->id,
+        'last_request_time' => time,
+    );
+
+    return $self->redirect_to('/');
+}
+
+sub logout ($self) {
+    $self->info(
+        'Logout requested from: ' .
+        ( ( $self->stash('user') ) ? $self->stash('user')->prop('username') : '(Unlogged-in user)' )
+    );
+    $self->session(
+        'user_id'           => undef,
+        'last_request_time' => undef,
+    );
+
+    return $self->redirect_to('/');
 }
 
 1;

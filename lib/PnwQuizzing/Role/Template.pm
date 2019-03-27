@@ -24,10 +24,14 @@ sub tt_settings ( $self, $type = 'web' ) {
 
     return {
         config => {
-            INCLUDE_PATH => $tt_conf->{$type}{include_path},
             COMPILE_EXT  => $tt_conf->{compile_ext},
-            COMPILE_DIR  => $tt_conf->{compile_dir},
+            COMPILE_DIR  => $self->conf->get( 'config_app', 'root_dir' ) . '/' . $tt_conf->{compile_dir},
             WRAPPER      => $tt_conf->{$type}{wrapper},
+            INCLUDE_PATH => [
+                map {
+                    $self->conf->get( 'config_app', 'root_dir' ) . '/' . $_
+                } @{ $tt_conf->{$type}{include_path} }
+            ],
             FILTERS => {
                 ucfirst => sub { return ucfirst shift },
                 round   => sub { return int( $_[0] + 0.5 ) },

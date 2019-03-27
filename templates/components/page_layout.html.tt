@@ -1,5 +1,24 @@
 <div id="header">
-    <div id="header_title">Pacific Northwest Bible Quizzing</div>
+    <div id="header_title">
+        <span class="header_title_long">Pacific Northwest</span>
+        <span class="header_title_short">PNW</span>
+        <span class="header_title_mission">Bible Quizzing</span>
+    </div>
+
+    <div id="header_user">
+        [% UNLESS user %]
+            <form method="post" action="[% c.url_for('/login') %]">
+                <input type="text" name="username" placeholder="Username" size="12">
+                <input type="password" name="passwd" placeholder="Password" size="12">
+                <input type="submit" value="Login">
+            </form>
+        [% ELSE %]
+            <p>
+                Logged in as: <b>[% user.data.username %]</b>
+                (<a href="[% c.url_for('/logout') %]">Logout</a>)
+            </p>
+        [% END %]
+    </div>
 </div>
 
 <div id="nav">
@@ -7,14 +26,12 @@
         <ul>
             [% FOREACH node IN docs %]
                 <li>
-                    [% IF node.folder %]
-                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]">[% END %]
-                        [% node.folder %]
-                        [% IF node.href %]</a>[% END %]
-                    [% ELSIF node.name %]
-                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]">[% END %]
-                        [% node.name %]
-                        [% IF node.href %]</a>[% END %]
+                    [% IF node.folder OR node.name %]
+                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]"
+                            title="[% node.title OR node.folder OR node.name %]"
+                            >[% END %][%
+                            node.folder OR node.name
+                        %][% IF node.href %]</a>[% END %]
                     [% END %]
                     [% IF node.nodes %]
                         [% PROCESS nav docs = node.nodes %]
@@ -25,6 +42,26 @@
     [% END %]
     [% PROCESS nav docs = docs_nav %]
 </div>
+
+[% IF message OR c.session.flash.message %]
+    [% fv = (message) ? message : c.session.flash.message %]
+    <div id="message" class="[% fv.type || 'error' %]">
+        [% UNLESS fv.ref %]
+            [% fv %]
+        [% ELSIF fv.ref == 'HASH' %]
+            [% IF fv.text %][% fv.text %][% END %]
+            [% IF fv.errors %]
+                There [% IF fv.errors.size > 1 %]were[% ELSE %]was[% END %]
+                [% fv.errors.size %] form error[% IF fv.errors.size > 1 %]s[% END %].
+            [% END %]
+
+            [% FOREACH message IN fv.messages %]
+                [% message.text %]
+            [% END %]
+        [% END %]
+        <a href="#" onclick="document.getElementById('message').style.display = 'none'">X</a>
+    </div>
+[% END %]
 
 <div id="content">
     [% content %]

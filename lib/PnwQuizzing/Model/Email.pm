@@ -32,7 +32,7 @@ sub new ( $self, @params ) {
 
     my ($file) =
         grep { -f $_ }
-        map { join( '/', $root_dir, $_, $self->type . '.html.tt' ) }
+        map { join( '/', $_, $self->type . '.html.tt' ) }
         @{ $settings->{config}{INCLUDE_PATH} };
 
     croak( 'Failed to find email template of type: ' . $self->type ) unless ($file);

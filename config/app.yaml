@@ -43,8 +43,7 @@ default:
                     - http://*:3000
         session:
             cookie_name: pnwquizzing_session
-            default_expiration: 0
-            duration: 0
+            default_expiration: 31557600 # 365.25 days
     css:
         scss_src: config/assets/sass/app.scss
         compile_to: app.css

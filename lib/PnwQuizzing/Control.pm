@@ -6,6 +6,8 @@ use MojoX::Log::Dispatch::Simple;
 use Mojo::Loader 'load_class';
 use CSS::Sass;
 use Mojo::File;
+use TryCatch;
+use PnwQuizzing::Model::User;
 
 with 'PnwQuizzing::Role::Template';
 
@@ -19,29 +21,51 @@ sub startup ($self) {
     $self->setup_templating($root_dir);
 
     $self->static->paths->[0] =~ s|/public$|/static|;
-    $self->sessions->cookie_name( $self->conf->get( qw( mojolicious session cookie_name ) ) );
-    $self->secrets( $self->conf->get( 'mojolicious', 'secrets' ) );
     $self->config( $self->conf->get( 'mojolicious', 'config' ) );
+    $self->secrets( $self->conf->get( 'mojolicious', 'secrets' ) );
+    $self->sessions->cookie_name( $self->conf->get( qw( mojolicious session cookie_name ) ) );
     $self->sessions->default_expiration( $self->conf->get( qw( mojolicious session default_expiration ) ) );
 
     if ( $self->mode eq 'production' ) {
         load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main );
     }
 
-    $self->hook( 'before_dispatch' => sub {
-        my $last_request_time = $self->session('last_request_time');
-        my $duration = $self->conf->get( qw( mojolicious session duration ) );
+    $self->hook( 'before_dispatch' => sub ($self) {
+        if ( my $user_id = $self->session('user_id') ) {
+            my $user;
+            try {
+                $user = PnwQuizzing::Model::User->new->load($user_id);
+            }
+            catch {
+                $self->notice( 'Failed user load based on session "user_id" value: "' . $user_id . '"' );
+            }
 
-        if ( $duration and $last_request_time and $last_request_time < time - $duration ) {
-            $self->session( expires => 1 );
-            $self->redirect_to;
+            if ($user) {
+                $self->stash( 'user' => $user );
+            }
+            else {
+                delete $self->session->{'user_id'};
+            }
         }
-        $self->session( 'last_request_time' => time );
     } );
 
-    my $r = $self->routes;
-    $r->any('/')->to('main#content');
-    $r->any('/*name')->to('main#content');
+    my $all = $self->routes;
+
+    # my $users = $anyone->under( sub ($self) {
+    #     return 1 if ( $self->stash('user') );
+    #     $self->info('Login required but not yet met');
+    #     $self->redirect_to('/');
+    #     return 0;
+    # } );
+
+    # $users->any('/register')->to('register#main');
+
+    $all->any( '/' . $_ )->to( controller => 'main', action => $_ ) for ( qw(
+        login logout
+    ) );
+
+    $all->any('/')->to('main#content');
+    $all->any('/*name')->to('main#content');
 }
 
 sub build_css ( $self, $root_dir ) {

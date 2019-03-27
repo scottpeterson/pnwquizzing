@@ -55,6 +55,14 @@ sub prop ( $self, @input ) {
     return $self;
 }
 
+sub id ($self) {
+    croak('Cannot id() without has "name"') unless ( $self->name );
+    croak('Cannot id() on unloaded object') unless ( $self->data );
+    croak('No id available on loaded object') unless ( $self->data->{ $self->name . '_id' } );
+
+    return $self->data->{ $self->name . '_id' };
+}
+
 sub save ( $self, @input ) {
     croak('Cannot save() without has "name"') unless ( $self->name );
 

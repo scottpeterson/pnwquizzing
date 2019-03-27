@@ -1,0 +1,57 @@
+$form_borders: 1px solid silver;
+
+form {
+    fieldset {
+        border: $form_borders;
+        display: inline-block;
+
+        legend {
+            border: $form_borders;
+            background-color: white;
+        }
+
+        label {
+            display: block;
+        }
+    }
+}
+
+input[type="text"],
+input[type="password"] {
+    padding-left: 3px;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"] {
+    border: 1px solid lightgray;
+    padding: 1px 3px 1px 3px;
+
+    &:hover {
+        border-color: gray;
+    }
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    border: 1px solid #999999;
+    background-color: #e0e0e0;
+    padding: 1px 10px 1px 10px;
+    margin: 3px 0px 0px 0px;
+
+    &:hover:enabled {
+        border: 1px solid blue;
+        background-color: #eeeeee;
+    }
+
+    &:disabled {
+        background-color: lightgray;
+    }
+}
+
+select[size] option {
+    margin: 0px;
+    padding: 0px 0px 0px 2px;
+}

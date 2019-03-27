@@ -35,6 +35,7 @@ sub login ( $self, $username, $passwd ) {
         $self->load( { username => $username, passwd => $passwd } );
     }
     catch {
+        $self->info('Login failure (in model)');
         croak('Failed user login');
     }
 

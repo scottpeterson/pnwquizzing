@@ -1,8 +1,8 @@
-$header-height: 50px;
-$div-body-padding: 10px;
+$header_height: 44px;
+$div_body_padding: 10px;
 
-%div-body-scroller {
-    height: calc( 100vh - #{ $header-height + $div-body-padding * 2 } );
+%div_body_scroller {
+    height: calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
     overflow: auto;
     overflow-x: hidden;
 }
@@ -12,9 +12,11 @@ html {
 
     body {
         display: grid;
-        grid-template-rows: $header-height auto;
+        grid-template-rows: $header_height auto;
         grid-template-columns: 250px auto;
         grid-template-areas: "header header" "nav content";
+
+        min-width: 300px;
 
         div#header {
             grid-area: header;
@@ -22,27 +24,141 @@ html {
             color: white;
 
             div#header_title {
+                display: inline-block;
                 font-size: 20px;
-                margin: 15px;
+                margin: 10px 0px 10px 10px;
+
+                span.header_title_short {
+                    display: none;
+                }
+
+                @media screen and (max-width: 610px) {
+                    span.header_title_long {
+                        display: none;
+                    }
+                    span.header_title_short {
+                        display: inline;
+                    }
+                }
+
+                @media screen and (max-width: 500px) {
+                    span.header_title_mission {
+                        display: none;
+                    }
+                }
+
+                @media screen and (max-width: 365px) {
+                    span.header_title_short {
+                        display: none;
+                    }
+                }
+            }
+
+            div#header_user {
+                float: right;
+                margin: 10px 10px 10px 0px;
+
+                form {
+                    input[type="text"],
+                    input[type="password"] {
+                        width: 100px;
+                        border: 1px solid white;
+
+                        &:hover {
+                            border-color: yellow;
+                        }
+                    }
+
+                    input[type="submit"] {
+                        border: 1px solid #e0e0e0;
+
+                        &:hover:enabled {
+                            border-color: yellow;
+                            background-color: #eeeeee;
+                        }
+                    }
+                }
+
+                p {
+                    margin-top: 5px;
+
+                    a {
+                        color: bisque;
+
+                        &:hover {
+                            color: yellow;
+                        }
+                    }
+                }
             }
         }
 
         div#nav {
             grid-area: nav;
-            @extend %div-body-scroller;
-            padding: $div-body-padding;
+            @extend %div_body_scroller;
+            padding: $div_body_padding;
             background-color: darkslategray;
             color: lightgray;
 
+            ul {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: 15px;
+
+                li {
+                    padding: 2px 0px 2px 0px;
+
+                    a {
+                        color: bisque;
+
+                        &:hover {
+                            color: yellow;
+                        }
+                    }
+                }
+            }
+        }
+
+        div#message {
+            position: absolute;
+            top: $header_height + -5px;
+            width: 50%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: white;
+            font-family: bold;
+            padding-right: 20px;
+
             a {
-                color: bisque;
+                color: inherit;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                text-decoration: none;
+                padding: 0px 2px 0px 2px;
+                border: 2px solid;
+                margin: -2px -2px 0px 0px;
+            }
+
+            &.error {
+                border-color: red;
+                color: red;
+            }
+
+            &.success {
+                border-color: green;
+                color: green;
             }
         }
 
         div#content {
             grid-area: content;
-            @extend %div-body-scroller;
-            padding: $div-body-padding;
+            @extend %div_body_scroller;
+            padding: $div_body_padding;
             background-color: ghostwhite;
         }
     }
