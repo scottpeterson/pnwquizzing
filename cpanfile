@@ -12,6 +12,7 @@ requires 'Carp', '>= 1.50';
 requires 'CSS::Sass', '>= 3.4.10';
 requires 'Data::Printer', '>= 0.40';
 requires 'Digest::Bcrypt', '>= 1.209';
+requires 'Email::Mailer', '>= 1.09';
 requires 'File::Find', '>= 1.34';
 requires 'File::Path', '>= 2.16';
 requires 'Log::Dispatch', '>= 2.68';

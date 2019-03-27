@@ -7,7 +7,7 @@ default:
             production: info
             development: debug
         alert_email:
-            - example@example.com
+            - admin@pnwquizzing.org
         alert_email_subject: PNW Quizzing Web Site Alert Log Message
         filter:
             - email
@@ -51,7 +51,12 @@ default:
     bcrypt:
         cost: 1
         salt: 0741a5d2c6fdf4bc
-    # email:
-    #     from: Application <example@example.com>
-    #     active: 0
+    email:
+        from: PNW Bible Quizzing <site@pnwquizzing.org>
+        active: 0
++|+|production:
+    logging:
+        filter: ~
+    email:
+        active: 1
 optional_include: local/config.yaml

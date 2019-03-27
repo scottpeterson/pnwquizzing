@@ -6,6 +6,8 @@ use TryCatch;
 has data => undef;
 
 sub create ( $self, $data ) {
+    croak('Cannot create() without has "name"') unless ( $self->name );
+
     my @columns = keys %$data;
 
     $self->dq->sql(
@@ -20,6 +22,8 @@ sub create ( $self, $data ) {
 }
 
 sub load ( $self, $search ) {
+    croak('Cannot load() without has "name"') unless ( $self->name );
+
     $search = { $self->name . '_id' => $search } unless ( ref $search );
 
     my $data = $self->dq->get( $self->name )->where($search)->run->next;
@@ -52,6 +56,8 @@ sub prop ( $self, @input ) {
 }
 
 sub save ( $self, @input ) {
+    croak('Cannot save() without has "name"') unless ( $self->name );
+
     if (@input) {
         try {
             $self->prop(@input);

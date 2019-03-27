@@ -14,19 +14,7 @@ sub startup ($self) {
 
     $self->plugin('RequestBase');
 
-    # compile sass css from scss
-    Mojo::File->new(
-        $root_dir . '/static/' . $self->conf->get( 'css', 'compile_to' )
-    )->spurt(
-        (
-            CSS::Sass->new(
-                source_comments => 1,
-            )->compile_file(
-                $root_dir . '/' . $self->conf->get( 'css', 'scss_src' )
-            )
-        )[0]
-    );
-
+    $self->build_css($root_dir);
     $self->setup_mojo_logging;
     $self->setup_templating($root_dir);
 
@@ -49,11 +37,25 @@ sub startup ($self) {
             $self->redirect_to;
         }
         $self->session( 'last_request_time' => time );
-    });
+    } );
 
     my $r = $self->routes;
     $r->any('/')->to('main#content');
     $r->any('/*name')->to('main#content');
+}
+
+sub build_css ( $self, $root_dir ) {
+    Mojo::File->new(
+        $root_dir . '/static/' . $self->conf->get( 'css', 'compile_to' )
+    )->spurt(
+        (
+            CSS::Sass->new(
+                source_comments => 1,
+            )->compile_file(
+                $root_dir . '/' . $self->conf->get( 'css', 'scss_src' )
+            )
+        )[0]
+    );
 }
 
 sub setup_mojo_logging ($self) {
