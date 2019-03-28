@@ -56,15 +56,15 @@ sub startup ($self) {
     # my $users = $anyone->under( sub ($self) {
     #     return 1 if ( $self->stash('user') );
     #     $self->info('Login required but not yet met');
+    #     $self->flash( message => 'Login required for the previously requested resource.' );
     #     $self->redirect_to('/');
     #     return 0;
     # } );
 
     # $users->any('/register')->to('register#main');
 
-    $all->any( '/user/' . $_ )->to( controller => 'user', action => $_ ) for ( qw(
-        login logout signup create
-    ) );
+    $all->any( '/user/' . $_ )->to( controller => 'user', action => $_ ) for ( qw( login logout signup ) );
+    $all->any('/user/verify/:verify_user_id/:verify_passwd')->to('user#verify');
 
     $all->any('/')->to('main#content');
     $all->any('/*name')->to('main#content');

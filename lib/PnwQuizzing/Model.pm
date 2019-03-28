@@ -81,11 +81,14 @@ sub save ( $self, @input ) {
 
     $self->dq->sql(
         'UPDATE ' . $self->name .
-        ' SET ' . join( ', ', map { $self->dq->quote($_) . ' = ?' } @columns ) .
+        ' SET ' . join( ', ',
+            map {
+                $self->dq->quote($_) . ' = ' .
+                ( ( ref $data{$_} ) ? ${ $data{$_} } : $self->dq->quote( $data{$_} ) )
+            } @columns
+        ) .
         ' WHERE ' . $self->name . '_id = ?'
-    )->run(
-        ( map { $data{$_} } @columns ), $id
-    );
+    )->run($id);
 
     return $self;
 }

@@ -1,18 +1,49 @@
-[% page.title = 'New User Sign-Up' %]
+[% UNLESS successful_form_submit %]
+    [% page.title = 'New User Sign-Up' %]
+    <h1>Sign-Up for New PNW Quizzing Site Account</h1>
 
-<h1>Sign-Up for New PNW Quizzing Site Account</h1>
+    <p>Use the following form to sign up for a PNW Quizzing site account:</p>
 
-<p>Use the following form to sign up for a PNW Quizzing site account:</p>
+    <form method="post" action="[% c.url_for('/user/signup') %]">
+        <fieldset>
+            <legend>Create User Account</legend>
+            <label>
+                Username:
+                <input type="text" name="username" value="[% username %]"
+                  placeholder="Username" size="20">
+            </label>
+            <label>
+                Password:
+                <input type="password" name="passwd" value="[% passwd %]"
+                    placeholder="Password" size="20">
+            </label>
+            <label>
+                First Name:
+                 <input type="text" name="first_name" value="[% first_name %]"
+                     placeholder="First Name" size="20">
+                </label>
+            <label>
+                Last Name:
+                 <input type="text" name="last_name" value="[% last_name %]"
+                     placeholder="Last Name" size="20">
+                </label>
+            <label>
+                Email:
+                <input type="text" name="email" value="[% email %]"
+                    placeholder="Email Address" size="20">
+            </label>
 
-<form method="post" action="[% c.url_for('/user/create') %]">
-    <fieldset>
-        <legend>Create User Account</legend>
-        <label>Username: <input type="text" name="username" placeholder="Username" size="20"></label>
-        <label>Password: <input type="password" name="passwd" placeholder="Password" size="20"></label>
-        <label>First Name: <input type="text" name="first_name" size="20" placeholder="First Name"></label>
-        <label>Last Name: <input type="text" name="last_name" size="20" placeholder="Last Name"></label>
-        <label>Email: <input type="text" name="email" size="20" placeholder="Email Address"></label>
+            <input id="create_form_submit" type="submit" value="Create User">
+            <input type="hidden" name="form_submit" value="1">
+        </fieldset>
+    </form>
+[% ELSE %]
+    [% page.title = 'Account Created' %]
+    <h1>New PNW Quizzing Site Account Created</h1>
 
-        <input id="create_form_submit" type="submit" value="Create User">
-    </fieldset>
-</form>
+    <p>
+        Your new site account is created, but it is currently inactive. An email
+        was sent to the email address you supplied. Find that email, and click
+        on the link in the email. This will activate your account.
+    </p>
+[% END %]

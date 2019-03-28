@@ -43,30 +43,57 @@ sub logout ($self) {
 }
 
 sub signup ($self) {
+    if ( $self->param('form_submit') ) {
+        my $user;
+        my %form_params = map { $_ => $self->param($_) } qw(
+            username
+            passwd
+            first_name
+            last_name
+            email
+        );
+
+        try {
+            $user = PnwQuizzing::Model::User->new->create( { %form_params, active => 0 });
+        }
+        catch ($e) {
+            $e =~ s/\s+at\s+(?:(?!\s+at\s+).)*[\r\n]*$//;
+            $e =~ s/^"([^""]+)"/ '"' . join( ' ', map { ucfirst($_) } split( '_', $1 ) ) . '"' /e;
+            $e .= '. Please try again.';
+
+            $self->info('User create failure');
+            $self->stash(
+                message => $e,
+                %form_params,
+            );
+        }
+
+        if ( $user and $user->data ) {
+            my $url = $self->req->url->to_abs;
+            $user->verify_email( $url->protocol . '://' . $url->host_port );
+            $self->stash( successful_form_submit => 1 );
+        }
+    }
+
     $self->stash( docs_nav => $self->generate_docs_nav );
 }
 
-sub create ($self) {
-    my $user;
-
-    try {
-        $user = PnwQuizzing::Model::User->new->create({
-            map { $_ => $self->param($_) } qw(
-                username
-                passwd
-                first_name
-                last_name
-                email
-            )
-        });
+sub verify ($self) {
+    if (
+        PnwQuizzing::Model::User->new->verify(
+            $self->stash('verify_user_id'),
+            $self->stash('verify_passwd'),
+        )
+    ) {
+        $self->flash(
+            message => {
+                type => 'success',
+                text => 'Successfully verified this user account. Please now login with your credentials.',
+            }
+        );
     }
-    catch ($e) {
-        $e =~ s/\s+at\s+(?:(?!\s+at\s+).)*[\r\n]*$//;
-
-        $self->info('User create failure');
-        $self->flash( message => $e ); # TODO: cleanup error reporting messaging
-
-        return $self->redirect_to('/user/signup');
+    else {
+        $self->flash( message => 'Unable to verify user account using the link provided.' );
     }
 
     return $self->redirect_to('/');

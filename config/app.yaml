@@ -1,5 +1,6 @@
 ---
 default:
+    base_url: https://pnwquizzing.org
     logging:
         log_dir: local
         log_file: app.log

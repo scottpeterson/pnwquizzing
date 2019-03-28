@@ -1,0 +1,20 @@
+<title>PNW Quizzing: Verify email address</title>
+
+<p>
+    This email address was used to create a new site account on the PNW
+    Quizzing web site.
+</p>
+
+<ul>
+    <li>Username: <b>[% username %]</b></li>
+    <li>Real Name: <b>[% first_name %] [% last_name %]</b></li>
+    <li>Email: <b>[% email %]</b></li>
+</ul>
+
+<p>
+    If this was not you, just delete this email. If this was indeed you, please
+    click on the following link to verify (and unlock) your PNW Quizzing
+    account:
+</p>
+
+<p><a href="[% url %]">[% url %]</a></p>
