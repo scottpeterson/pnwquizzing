@@ -27,7 +27,7 @@ sub startup ($self) {
     $self->sessions->default_expiration( $self->conf->get( qw( mojolicious session default_expiration ) ) );
 
     if ( $self->mode eq 'production' ) {
-        load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main );
+        load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main User );
     }
 
     $self->hook( 'before_dispatch' => sub ($self) {
@@ -51,6 +51,8 @@ sub startup ($self) {
 
     my $all = $self->routes;
 
+    ## TODO:
+
     # my $users = $anyone->under( sub ($self) {
     #     return 1 if ( $self->stash('user') );
     #     $self->info('Login required but not yet met');
@@ -60,8 +62,8 @@ sub startup ($self) {
 
     # $users->any('/register')->to('register#main');
 
-    $all->any( '/' . $_ )->to( controller => 'main', action => $_ ) for ( qw(
-        login logout
+    $all->any( '/user/' . $_ )->to( controller => 'user', action => $_ ) for ( qw(
+        login logout signup create
     ) );
 
     $all->any('/')->to('main#content');

@@ -8,7 +8,7 @@
 
     page.title =
         ( NOT page.title ) ? 'PNW Bible Quizzing' :
-        ( NOT page.title.match('^PNWBQ\s') ) ? 'PNWBW: ' _ page.title : page.title;
+        ( NOT page.title.match('^PNWBQ\s') ) ? 'PNWBQ: ' _ page.title : page.title;
 -%]
 <!DOCTYPE html>
 <html lang="en">

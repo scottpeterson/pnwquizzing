@@ -13,10 +13,10 @@ html {
     body {
         display: grid;
         grid-template-rows: $header_height auto;
-        grid-template-columns: 250px auto;
+        grid-template-columns: 200px auto;
         grid-template-areas: "header header" "nav content";
 
-        min-width: 300px;
+        min-width: 350px;
 
         div#header {
             grid-area: header;
@@ -32,7 +32,7 @@ html {
                     display: none;
                 }
 
-                @media screen and (max-width: 610px) {
+                @media screen and (max-width: 650px) {
                     span.header_title_long {
                         display: none;
                     }
@@ -41,13 +41,13 @@ html {
                     }
                 }
 
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 530px) {
                     span.header_title_mission {
                         display: none;
                     }
                 }
 
-                @media screen and (max-width: 365px) {
+                @media screen and (max-width: 400px) {
                     span.header_title_short {
                         display: none;
                     }
@@ -81,13 +81,13 @@ html {
 
                 p {
                     margin-top: 5px;
+                }
 
-                    a {
-                        color: bisque;
+                a {
+                    color: bisque;
 
-                        &:hover {
-                            color: yellow;
-                        }
+                    &:hover {
+                        color: yellow;
                     }
                 }
             }

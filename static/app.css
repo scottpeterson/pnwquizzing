@@ -222,35 +222,45 @@ pre, code, kbd, samp, tt {
 /* line 4, config/assets/sass/forms.scss */
 form fieldset {
   border: 1px solid silver;
-  display: inline-block; }
-  /* line 8, config/assets/sass/forms.scss */
+  display: inline-block;
+  padding: 10px; }
+  /* line 9, config/assets/sass/forms.scss */
   form fieldset legend {
     border: 1px solid silver;
-    background-color: white; }
-  /* line 13, config/assets/sass/forms.scss */
+    background-color: white;
+    padding: 0px 3px 0px 3px; }
+  /* line 15, config/assets/sass/forms.scss */
   form fieldset label {
-    display: block; }
+    display: block;
+    text-align: right; }
+  /* line 20, config/assets/sass/forms.scss */
+  form fieldset select,
+  form fieldset textarea,
+  form fieldset input[type="text"],
+  form fieldset input[type="password"] {
+    margin-top: 1px;
+    margin-bottom: 1px; }
 
-/* line 19, config/assets/sass/forms.scss */
+/* line 30, config/assets/sass/forms.scss */
 input[type="text"],
 input[type="password"] {
   padding-left: 3px; }
 
-/* line 24, config/assets/sass/forms.scss */
+/* line 35, config/assets/sass/forms.scss */
 select,
 textarea,
 input[type="text"],
 input[type="password"] {
   border: 1px solid lightgray;
   padding: 1px 3px 1px 3px; }
-  /* line 31, config/assets/sass/forms.scss */
+  /* line 42, config/assets/sass/forms.scss */
   select:hover,
   textarea:hover,
   input[type="text"]:hover,
   input[type="password"]:hover {
     border-color: gray; }
 
-/* line 36, config/assets/sass/forms.scss */
+/* line 47, config/assets/sass/forms.scss */
 button,
 input[type="submit"],
 input[type="reset"] {
@@ -258,19 +268,19 @@ input[type="reset"] {
   background-color: #e0e0e0;
   padding: 1px 10px 1px 10px;
   margin: 3px 0px 0px 0px; }
-  /* line 44, config/assets/sass/forms.scss */
+  /* line 55, config/assets/sass/forms.scss */
   button:hover:enabled,
   input[type="submit"]:hover:enabled,
   input[type="reset"]:hover:enabled {
     border: 1px solid blue;
     background-color: #eeeeee; }
-  /* line 49, config/assets/sass/forms.scss */
+  /* line 60, config/assets/sass/forms.scss */
   button:disabled,
   input[type="submit"]:disabled,
   input[type="reset"]:disabled {
     background-color: lightgray; }
 
-/* line 54, config/assets/sass/forms.scss */
+/* line 65, config/assets/sass/forms.scss */
 select[size] option {
   margin: 0px;
   padding: 0px 0px 0px 2px; }
@@ -288,9 +298,9 @@ html {
   html body {
     display: grid;
     grid-template-rows: 44px auto;
-    grid-template-columns: 250px auto;
+    grid-template-columns: 200px auto;
     grid-template-areas: "header header" "nav content";
-    min-width: 300px; }
+    min-width: 350px; }
     /* line 21, config/assets/sass/page_layout.scss */
     html body div#header {
       grid-area: header;
@@ -304,18 +314,18 @@ html {
         /* line 31, config/assets/sass/page_layout.scss */
         html body div#header div#header_title span.header_title_short {
           display: none; }
-        @media screen and (max-width: 610px) {
+        @media screen and (max-width: 650px) {
           /* line 36, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_long {
             display: none; }
           /* line 39, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_short {
             display: inline; } }
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 530px) {
           /* line 45, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_mission {
             display: none; } }
-        @media screen and (max-width: 365px) {
+        @media screen and (max-width: 400px) {
           /* line 51, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_short {
             display: none; } }
@@ -342,12 +352,12 @@ html {
         /* line 82, config/assets/sass/page_layout.scss */
         html body div#header div#header_user p {
           margin-top: 5px; }
-          /* line 85, config/assets/sass/page_layout.scss */
-          html body div#header div#header_user p a {
-            color: bisque; }
-            /* line 88, config/assets/sass/page_layout.scss */
-            html body div#header div#header_user p a:hover {
-              color: yellow; }
+        /* line 86, config/assets/sass/page_layout.scss */
+        html body div#header div#header_user a {
+          color: bisque; }
+          /* line 89, config/assets/sass/page_layout.scss */
+          html body div#header div#header_user a:hover {
+            color: yellow; }
     /* line 96, config/assets/sass/page_layout.scss */
     html body div#nav {
       grid-area: nav;

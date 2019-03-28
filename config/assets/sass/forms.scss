@@ -4,14 +4,25 @@ form {
     fieldset {
         border: $form_borders;
         display: inline-block;
+        padding: 10px;
 
         legend {
             border: $form_borders;
             background-color: white;
+            padding: 0px 3px 0px 3px;
         }
 
         label {
             display: block;
+            text-align: right;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"] {
+            margin-top: 1px;
+            margin-bottom: 1px;
         }
     }
 }
