@@ -11,7 +11,11 @@
                 <input type="text" name="username" placeholder="Username" size="12">
                 <input type="password" name="passwd" placeholder="Password" size="12">
                 <input type="submit" value="Login">
-                <a href="[% c.url_for('/user/signup') %]">Sign-Up</a>
+                <a href="[% c.url_for('/user/signup') %]"
+                    [% IF c.url_for('/user/signup') == c.req.url.to_abs.path %]
+                        class="current"
+                    [% END %]
+                    >Sign-Up</a>
             </form>
         [% ELSE %]
             <p>
@@ -22,6 +26,12 @@
     </div>
 </div>
 
+<input id="nav_toggle" type="checkbox" name="menu">
+<label for="nav_toggle" class="nav_toggle">
+    <span class="close">&laquo;</span>
+    <span class="open">&raquo;</span>
+</label>
+
 <div id="nav">
     [% BLOCK nav %]
         <ul>
@@ -30,7 +40,10 @@
                     [% IF node.folder OR node.name %]
                         [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]"
                             title="[% node.title OR node.folder OR node.name %]"
-                            >[% END %][%
+                            [% IF c.url_for( '/' _ node.href ) == c.req.url.to_abs.path %]
+                                class="current"
+                            [% END %]
+                        >[% END %][%
                             node.folder OR node.name
                         %][% IF node.href %]</a>[% END %]
                     [% END %]
@@ -42,6 +55,10 @@
         </ul>
     [% END %]
     [% PROCESS nav docs = docs_nav %]
+
+    <div id="nav_footer">
+        <a href="[% c.url_for('/tool/hash') %]">Hash Tool</a>
+    </div>
 </div>
 
 [% IF message OR c.session.flash.message %]

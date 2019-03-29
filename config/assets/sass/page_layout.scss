@@ -1,32 +1,54 @@
-$header_height: 44px;
-$div_body_padding: 10px;
+$header_height    : 44px;
+$div_body_padding : 10px;
+$nav_width        : 200px;
 
 %div_body_scroller {
-    height: calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
-    overflow: auto;
-    overflow-x: hidden;
+    height     : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
+    overflow   : auto;
+    overflow-x : hidden;
+}
+
+%a_menu_current {
+    a {
+        color           : bisque;
+        text-decoration : none;
+
+        &.current {
+            color           : red;
+            text-decoration : underline;
+        }
+
+        &:hover {
+            color           : yellow;
+            text-decoration : underline;
+        }
+    }
 }
 
 html {
     margin: 0;
 
     body {
-        display: grid;
-        grid-template-rows: $header_height auto;
-        grid-template-columns: 200px auto;
-        grid-template-areas: "header header" "nav content";
+        display               : grid;
+        grid-template-rows    : $header_height auto;
+        grid-template-columns : $nav_width auto;
+        grid-template-areas   : "header header" "nav content";
+
+        @media screen and (max-width: 650px) {
+            grid-template-areas: "header header" "content content";
+        }
 
         min-width: 350px;
 
         div#header {
-            grid-area: header;
-            background-color: black;
-            color: white;
+            grid-area        : header;
+            background-color : black;
+            color            : white;
 
             div#header_title {
-                display: inline-block;
-                font-size: 20px;
-                margin: 10px 0px 10px 10px;
+                display   : inline-block;
+                font-size : 20px;
+                margin    : 10px 0px 10px 10px;
 
                 span.header_title_short {
                     display: none;
@@ -55,14 +77,16 @@ html {
             }
 
             div#header_user {
-                float: right;
-                margin: 10px 10px 10px 0px;
+                @extend %a_menu_current;
+
+                float  : right;
+                margin : 10px 10px 10px 0px;
 
                 form {
                     input[type="text"],
                     input[type="password"] {
-                        width: 100px;
-                        border: 1px solid white;
+                        width  : 100px;
+                        border : 1px solid white;
 
                         &:hover {
                             border-color: yellow;
@@ -73,8 +97,8 @@ html {
                         border: 1px solid #e0e0e0;
 
                         &:hover:enabled {
-                            border-color: yellow;
-                            background-color: #eeeeee;
+                            border-color     : yellow;
+                            background-color : #eeeeee;
                         }
                     }
                 }
@@ -82,84 +106,127 @@ html {
                 p {
                     margin-top: 5px;
                 }
-
-                a {
-                    color: bisque;
-
-                    &:hover {
-                        color: yellow;
-                    }
-                }
             }
         }
 
         div#nav {
-            grid-area: nav;
             @extend %div_body_scroller;
-            padding: $div_body_padding;
-            background-color: darkslategray;
-            color: lightgray;
+
+            grid-area        : nav;
+            padding          : $div_body_padding;
+            background-color : darkslategray;
+            color            : lightgray;
+
+            @media screen and (max-width: 650px) {
+                display: none;
+            }
 
             ul {
-                margin-top: 0px;
-                margin-bottom: 0px;
-                margin-left: 15px;
+                margin-top    : 0px;
+                margin-bottom : 0px;
+                margin-left   : 15px;
 
                 li {
-                    padding: 2px 0px 2px 0px;
+                    @extend %a_menu_current;
+                    padding: 5px 0px 0px 0px;
+                }
+            }
 
-                    a {
-                        color: bisque;
+            & > ul {
+                margin-bottom: 35px;
+            }
 
-                        &:hover {
-                            color: yellow;
-                        }
-                    }
+            div#nav_footer {
+                display          : block;
+                background-color : #264040;
+                position         : fixed;
+                left             : 0px;
+                bottom           : 0px;
+                width            : $nav_width;
+                height           : 20px;
+
+                @extend %a_menu_current;
+
+                a {
+                    display     : block;
+                    color       : lightgray;
+                    margin-top  : 3px;
+                    margin-left : 3px;
                 }
             }
         }
 
-        div#message {
-            position: absolute;
-            top: $header_height + -5px;
-            width: 50%;
-            left: 0;
-            right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            border: 2px solid black;
-            padding: 5px;
-            background-color: white;
-            font-family: bold;
-            padding-right: 20px;
+        input#nav_toggle,
+        label.nav_toggle {
+            display: none;
+        }
 
-            a {
-                color: inherit;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                text-decoration: none;
-                padding: 0px 2px 0px 2px;
-                border: 2px solid;
-                margin: -2px -2px 0px 0px;
+        @media screen and (max-width: 650px) {
+            label.nav_toggle {
+                position         : absolute;
+                top              : $header_height;
+                left             : 0px;
+                display          : block;
+                width            : 25px;
+                height           : 30px;
+                background-color : darkslategray;
+                cursor           : pointer;
             }
 
-            &.error {
-                border-color: red;
-                color: red;
+            label.nav_toggle span {
+                display    : block;
+                font-size  : 50px;
+                margin-top : -20px;
+                color      : lightgray;
             }
 
-            &.success {
-                border-color: green;
-                color: green;
+            label.nav_toggle:hover span {
+                color: yellow;
+            }
+
+            label.nav_toggle span.close {
+                display: none;
+            }
+
+            input#nav_toggle:checked ~ label.nav_toggle {
+                left: $nav_width;
+            }
+
+            input#nav_toggle:checked ~ label.nav_toggle span.close {
+                display: block;
+            }
+
+            input#nav_toggle:checked ~ label.nav_toggle span.open {
+                display: none;
+            }
+
+            input#nav_toggle:checked ~ div#nav {
+                position : absolute;
+                left     : 0px;
+                top      : $header_height;
+                display  : block;
+                width    : $nav_width - 20px;
+                height   : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 20px );
             }
         }
 
+        @import 'message.scss';
+
         div#content {
-            grid-area: content;
             @extend %div_body_scroller;
-            padding: $div_body_padding;
-            background-color: ghostwhite;
+
+            grid-area        : content;
+            padding          : $div_body_padding;
+            background-color : ghostwhite;
+
+            @import 'content.scss';
+        }
+
+        @media screen and (max-width: 650px) {
+            div#content {
+                padding-top : 35px;
+                height      : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 25px );
+            }
         }
     }
 }

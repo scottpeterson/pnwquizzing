@@ -3,24 +3,40 @@ html {
 }
 
 h1 {
-    font-size: 138.5%;
+    font-size: 140%;
 }
 
 h2 {
-    font-size: 123.1%;
+    font-size: 130%;
 }
 
 h3 {
-    font-size: 108%;
+    font-size: 120%;
+}
+
+h4 {
+    font-size: 110%;
+}
+
+h5 {
+    font-size: 105%;
+}
+
+h6 {
+    font-size: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
     font-weight: bold;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+}
+
 abbr, acronym {
-    border-bottom: 1px dotted #000000;
-    cursor: help;
+    border-bottom : 1px dotted #000000;
+    cursor        : help;
 }
 
 em {
@@ -52,18 +68,18 @@ dl dd {
 }
 
 th, td {
-    border: 1px solid #000000;
-    padding: 0.5em;
+    border  : 1px solid #000000;
+    padding : 0.5em;
 }
 
 th {
-    font-weight: bold;
-    text-align: center;
+    font-weight : bold;
+    text-align  : center;
 }
 
 caption {
-    margin-bottom: 0.5em;
-    text-align: center;
+    margin-bottom : 0.5em;
+    text-align    : center;
 }
 
 p, fieldset, table, pre {

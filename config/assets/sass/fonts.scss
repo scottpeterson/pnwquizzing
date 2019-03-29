@@ -1,26 +1,26 @@
 @font-face {
-    font-family: normal;
-    src: url(../../fonts/Roboto/Roboto-Regular.ttf?version=1) format('truetype');
+    font-family : normal;
+    src         : url(../../fonts/Roboto/Roboto-Regular.ttf?version=1) format('truetype');
 }
 
 @font-face {
-    font-family: medium;
-    src: url(../../fonts/Roboto/Roboto-Medium.ttf?version=1) format('truetype');
+    font-family : medium;
+    src         : url(../../fonts/Roboto/Roboto-Medium.ttf?version=1) format('truetype');
 }
 
 @font-face {
-    font-family: bold;
-    src: url(../../fonts/Roboto/Roboto-Bold.ttf?version=1) format('truetype');
+    font-family : bold;
+    src         : url(../../fonts/Roboto/Roboto-Bold.ttf?version=1) format('truetype');
 }
 
 h1, h2, h3, b {
-    font-family: bold;
-    font-weight: normal;
+    font-family : bold;
+    font-weight : normal;
 }
 
 body, input, button, select {
-    font-family: normal, sans-serif;
-    font-size: 12.9px;
+    font-family : normal, sans-serif;
+    font-size   : 12.9px;
 }
 
 h1 {
@@ -36,8 +36,8 @@ h3 {
 }
 
 dl dt {
-    font-family: bold;
-    font-weight: normal;
+    font-family : bold;
+    font-weight : normal;
 }
 
 table {
@@ -45,8 +45,8 @@ table {
 }
 
 pre, code, kbd, samp, tt {
-    font-family: monospace;
-    line-height: 100%;
+    font-family : monospace;
+    line-height : 100%;
 }
 
 *:first-child+html pre,  * html pre,

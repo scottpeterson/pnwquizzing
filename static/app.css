@@ -87,77 +87,93 @@ html {
 
 /* line 5, config/assets/sass/base.scss */
 h1 {
-  font-size: 138.5%; }
+  font-size: 140%; }
 
 /* line 9, config/assets/sass/base.scss */
 h2 {
-  font-size: 123.1%; }
+  font-size: 130%; }
 
 /* line 13, config/assets/sass/base.scss */
 h3 {
-  font-size: 108%; }
+  font-size: 120%; }
 
 /* line 17, config/assets/sass/base.scss */
+h4 {
+  font-size: 110%; }
+
+/* line 21, config/assets/sass/base.scss */
+h5 {
+  font-size: 105%; }
+
+/* line 25, config/assets/sass/base.scss */
+h6 {
+  font-size: 100%; }
+
+/* line 29, config/assets/sass/base.scss */
 h1, h2, h3, h4, h5, h6, strong {
   font-weight: bold; }
 
-/* line 21, config/assets/sass/base.scss */
+/* line 33, config/assets/sass/base.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em; }
+
+/* line 37, config/assets/sass/base.scss */
 abbr, acronym {
   border-bottom: 1px dotted #000000;
   cursor: help; }
 
-/* line 26, config/assets/sass/base.scss */
+/* line 42, config/assets/sass/base.scss */
 em {
   font-style: italic; }
 
-/* line 30, config/assets/sass/base.scss */
+/* line 46, config/assets/sass/base.scss */
 del {
   text-decoration: line-through; }
 
-/* line 34, config/assets/sass/base.scss */
+/* line 50, config/assets/sass/base.scss */
 blockquote, ul, ol, dl {
   margin: 1em; }
 
-/* line 38, config/assets/sass/base.scss */
+/* line 54, config/assets/sass/base.scss */
 ol, ul, dl {
   margin-left: 2em; }
 
-/* line 42, config/assets/sass/base.scss */
+/* line 58, config/assets/sass/base.scss */
 ol li {
   list-style: decimal outside; }
 
-/* line 46, config/assets/sass/base.scss */
+/* line 62, config/assets/sass/base.scss */
 ul li {
   list-style: disc outside; }
 
-/* line 50, config/assets/sass/base.scss */
+/* line 66, config/assets/sass/base.scss */
 dl dd {
   margin-left: 1em; }
 
-/* line 54, config/assets/sass/base.scss */
+/* line 70, config/assets/sass/base.scss */
 th, td {
   border: 1px solid #000000;
   padding: 0.5em; }
 
-/* line 59, config/assets/sass/base.scss */
+/* line 75, config/assets/sass/base.scss */
 th {
   font-weight: bold;
   text-align: center; }
 
-/* line 64, config/assets/sass/base.scss */
+/* line 80, config/assets/sass/base.scss */
 caption {
   margin-bottom: 0.5em;
   text-align: center; }
 
-/* line 69, config/assets/sass/base.scss */
+/* line 85, config/assets/sass/base.scss */
 p, fieldset, table, pre {
   margin-bottom: 1em; }
 
-/* line 73, config/assets/sass/base.scss */
+/* line 89, config/assets/sass/base.scss */
 input[type=text], input[type=password], textarea {
   width: 12.25em; }
 
-/* line 77, config/assets/sass/base.scss */
+/* line 93, config/assets/sass/base.scss */
 *:first-child + html input[type=text], * html input[type=text],
 *:first-child + html input[type=password], * html input[type=password],
 *:first-child + html textarea, * html textarea {
@@ -285,100 +301,171 @@ select[size] option {
   margin: 0px;
   padding: 0px 0px 0px 2px; }
 
-/* line 4, config/assets/sass/page_layout.scss */
+/* line 5, config/assets/sass/page_layout.scss */
 html body div#nav, html body div#content {
   height: calc( 100vh - 64px);
   overflow: auto;
   overflow-x: hidden; }
 
-/* line 10, config/assets/sass/page_layout.scss */
+/* line 12, config/assets/sass/page_layout.scss */
+html body div#header div#header_user a, html body div#nav ul li a, html body div#nav div#nav_footer a {
+  color: bisque;
+  text-decoration: none; }
+  /* line 16, config/assets/sass/page_layout.scss */
+  html body div#header div#header_user a.current, html body div#nav ul li a.current, html body div#nav div#nav_footer a.current {
+    color: red;
+    text-decoration: underline; }
+  /* line 21, config/assets/sass/page_layout.scss */
+  html body div#header div#header_user a:hover, html body div#nav ul li a:hover, html body div#nav div#nav_footer a:hover {
+    color: yellow;
+    text-decoration: underline; }
+
+/* line 28, config/assets/sass/page_layout.scss */
 html {
   margin: 0; }
-  /* line 13, config/assets/sass/page_layout.scss */
+  /* line 31, config/assets/sass/page_layout.scss */
   html body {
     display: grid;
     grid-template-rows: 44px auto;
     grid-template-columns: 200px auto;
     grid-template-areas: "header header" "nav content";
     min-width: 350px; }
-    /* line 21, config/assets/sass/page_layout.scss */
+    @media screen and (max-width: 650px) {
+      /* line 31, config/assets/sass/page_layout.scss */
+      html body {
+        grid-template-areas: "header header" "content content"; } }
+    /* line 43, config/assets/sass/page_layout.scss */
     html body div#header {
       grid-area: header;
       background-color: black;
       color: white; }
-      /* line 26, config/assets/sass/page_layout.scss */
+      /* line 48, config/assets/sass/page_layout.scss */
       html body div#header div#header_title {
         display: inline-block;
         font-size: 20px;
         margin: 10px 0px 10px 10px; }
-        /* line 31, config/assets/sass/page_layout.scss */
+        /* line 53, config/assets/sass/page_layout.scss */
         html body div#header div#header_title span.header_title_short {
           display: none; }
         @media screen and (max-width: 650px) {
-          /* line 36, config/assets/sass/page_layout.scss */
+          /* line 58, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_long {
             display: none; }
-          /* line 39, config/assets/sass/page_layout.scss */
+          /* line 61, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_short {
             display: inline; } }
         @media screen and (max-width: 530px) {
-          /* line 45, config/assets/sass/page_layout.scss */
+          /* line 67, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_mission {
             display: none; } }
         @media screen and (max-width: 400px) {
-          /* line 51, config/assets/sass/page_layout.scss */
+          /* line 73, config/assets/sass/page_layout.scss */
           html body div#header div#header_title span.header_title_short {
             display: none; } }
-      /* line 57, config/assets/sass/page_layout.scss */
+      /* line 79, config/assets/sass/page_layout.scss */
       html body div#header div#header_user {
         float: right;
         margin: 10px 10px 10px 0px; }
-        /* line 62, config/assets/sass/page_layout.scss */
+        /* line 86, config/assets/sass/page_layout.scss */
         html body div#header div#header_user form input[type="text"],
         html body div#header div#header_user form input[type="password"] {
           width: 100px;
           border: 1px solid white; }
-          /* line 67, config/assets/sass/page_layout.scss */
+          /* line 91, config/assets/sass/page_layout.scss */
           html body div#header div#header_user form input[type="text"]:hover,
           html body div#header div#header_user form input[type="password"]:hover {
             border-color: yellow; }
-        /* line 72, config/assets/sass/page_layout.scss */
+        /* line 96, config/assets/sass/page_layout.scss */
         html body div#header div#header_user form input[type="submit"] {
           border: 1px solid #e0e0e0; }
-          /* line 75, config/assets/sass/page_layout.scss */
+          /* line 99, config/assets/sass/page_layout.scss */
           html body div#header div#header_user form input[type="submit"]:hover:enabled {
             border-color: yellow;
             background-color: #eeeeee; }
-        /* line 82, config/assets/sass/page_layout.scss */
+        /* line 106, config/assets/sass/page_layout.scss */
         html body div#header div#header_user p {
           margin-top: 5px; }
-        /* line 86, config/assets/sass/page_layout.scss */
-        html body div#header div#header_user a {
-          color: bisque; }
-          /* line 89, config/assets/sass/page_layout.scss */
-          html body div#header div#header_user a:hover {
-            color: yellow; }
-    /* line 96, config/assets/sass/page_layout.scss */
+    /* line 112, config/assets/sass/page_layout.scss */
     html body div#nav {
       grid-area: nav;
       padding: 10px;
       background-color: darkslategray;
       color: lightgray; }
-      /* line 103, config/assets/sass/page_layout.scss */
+      @media screen and (max-width: 650px) {
+        /* line 112, config/assets/sass/page_layout.scss */
+        html body div#nav {
+          display: none; } }
+      /* line 124, config/assets/sass/page_layout.scss */
       html body div#nav ul {
         margin-top: 0px;
         margin-bottom: 0px;
         margin-left: 15px; }
-        /* line 108, config/assets/sass/page_layout.scss */
+        /* line 129, config/assets/sass/page_layout.scss */
         html body div#nav ul li {
-          padding: 2px 0px 2px 0px; }
-          /* line 111, config/assets/sass/page_layout.scss */
-          html body div#nav ul li a {
-            color: bisque; }
-            /* line 114, config/assets/sass/page_layout.scss */
-            html body div#nav ul li a:hover {
-              color: yellow; }
-    /* line 122, config/assets/sass/page_layout.scss */
+          padding: 5px 0px 0px 0px; }
+      /* line 135, config/assets/sass/page_layout.scss */
+      html body div#nav > ul {
+        margin-bottom: 35px; }
+      /* line 139, config/assets/sass/page_layout.scss */
+      html body div#nav div#nav_footer {
+        display: block;
+        background-color: #264040;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 200px;
+        height: 20px; }
+        /* line 150, config/assets/sass/page_layout.scss */
+        html body div#nav div#nav_footer a {
+          display: block;
+          color: lightgray;
+          margin-top: 3px;
+          margin-left: 3px; }
+    /* line 159, config/assets/sass/page_layout.scss */
+    html body input#nav_toggle,
+    html body label.nav_toggle {
+      display: none; }
+    @media screen and (max-width: 650px) {
+      /* line 165, config/assets/sass/page_layout.scss */
+      html body label.nav_toggle {
+        position: absolute;
+        top: 44px;
+        left: 0px;
+        display: block;
+        width: 25px;
+        height: 30px;
+        background-color: darkslategray;
+        cursor: pointer; }
+      /* line 176, config/assets/sass/page_layout.scss */
+      html body label.nav_toggle span {
+        display: block;
+        font-size: 50px;
+        margin-top: -20px;
+        color: lightgray; }
+      /* line 183, config/assets/sass/page_layout.scss */
+      html body label.nav_toggle:hover span {
+        color: yellow; }
+      /* line 187, config/assets/sass/page_layout.scss */
+      html body label.nav_toggle span.close {
+        display: none; }
+      /* line 191, config/assets/sass/page_layout.scss */
+      html body input#nav_toggle:checked ~ label.nav_toggle {
+        left: 200px; }
+      /* line 195, config/assets/sass/page_layout.scss */
+      html body input#nav_toggle:checked ~ label.nav_toggle span.close {
+        display: block; }
+      /* line 199, config/assets/sass/page_layout.scss */
+      html body input#nav_toggle:checked ~ label.nav_toggle span.open {
+        display: none; }
+      /* line 203, config/assets/sass/page_layout.scss */
+      html body input#nav_toggle:checked ~ div#nav {
+        position: absolute;
+        left: 0px;
+        top: 44px;
+        display: block;
+        width: 180px;
+        height: calc( 100vh - 64px - 20px); } }
+    /* line 1, config/assets/sass/message.scss */
     html body div#message {
       position: absolute;
       top: 39px;
@@ -392,7 +479,7 @@ html {
       background-color: white;
       font-family: bold;
       padding-right: 20px; }
-      /* line 136, config/assets/sass/page_layout.scss */
+      /* line 15, config/assets/sass/message.scss */
       html body div#message a {
         color: inherit;
         position: absolute;
@@ -402,16 +489,31 @@ html {
         padding: 0px 2px 0px 2px;
         border: 2px solid;
         margin: -2px -2px 0px 0px; }
-      /* line 147, config/assets/sass/page_layout.scss */
+      /* line 26, config/assets/sass/message.scss */
       html body div#message.error {
         border-color: red;
         color: red; }
-      /* line 152, config/assets/sass/page_layout.scss */
+      /* line 31, config/assets/sass/message.scss */
       html body div#message.success {
         border-color: green;
         color: green; }
-    /* line 158, config/assets/sass/page_layout.scss */
+    /* line 215, config/assets/sass/page_layout.scss */
     html body div#content {
       grid-area: content;
       padding: 10px;
       background-color: ghostwhite; }
+      /* line 1, config/assets/sass/content.scss */
+      html body div#content {
+        font-size: 14px; }
+      /* line 5, config/assets/sass/content.scss */
+      html body div#content ul {
+        margin-top: 0px; }
+      /* line 9, config/assets/sass/content.scss */
+      html body div#content li > ul,
+      html body div#content li > ol {
+        margin-bottom: 0px; }
+    @media screen and (max-width: 650px) {
+      /* line 226, config/assets/sass/page_layout.scss */
+      html body div#content {
+        padding-top: 35px;
+        height: calc( 100vh - 64px - 25px); } }
