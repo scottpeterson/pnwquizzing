@@ -4,7 +4,7 @@ use Role::Tiny::With;
 use parent 'PnwQuizzing';
 use MojoX::Log::Dispatch::Simple;
 use Mojo::Loader 'load_class';
-# use CSS::Sass;
+use CSS::Sass;
 use Mojo::File;
 use TryCatch;
 use PnwQuizzing::Model::User;
@@ -71,19 +71,17 @@ sub startup ($self) {
 }
 
 sub build_css ( $self, $root_dir ) {
-    # TODO: reactivate
-
-    # Mojo::File->new(
-    #     $root_dir . '/static/' . $self->conf->get( 'css', 'compile_to' )
-    # )->spurt(
-    #     (
-    #         CSS::Sass->new(
-    #             source_comments => 1,
-    #         )->compile_file(
-    #             $root_dir . '/' . $self->conf->get( 'css', 'scss_src' )
-    #         )
-    #     )[0]
-    # );
+    Mojo::File->new(
+        $root_dir . '/static/' . $self->conf->get( 'css', 'compile_to' )
+    )->spurt(
+        (
+            CSS::Sass->new(
+                source_comments => 1,
+            )->compile_file(
+                $root_dir . '/' . $self->conf->get( 'css', 'scss_src' )
+            )
+        )[0]
+    );
 }
 
 sub setup_mojo_logging ($self) {
