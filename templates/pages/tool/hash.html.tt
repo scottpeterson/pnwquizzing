@@ -1,0 +1,19 @@
+[% page.title = 'Secrets Hashing Tool' %]
+
+<h1>[% page.title %]</h1>
+
+<p>Use the following tool to convert secret components of content into hashes:</p>
+
+<form id="hash_tool" method="post" action="[% c.url_for('/tool/hash') %]">
+    <fieldset>
+        <legend>Secret Content Data Alteration</legend>
+
+        <label><input type="radio" name="action" value="secret" checked> Hash Secret Data</label>
+        <label><input type="radio" name="action" value="transcode"> Transcode Content for Publication</label>
+        <label><input type="radio" name="action" value="translate"> Translate Content with Hashes</label>
+
+        <textarea name="content"></textarea>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
