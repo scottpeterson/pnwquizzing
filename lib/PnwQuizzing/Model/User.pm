@@ -1,7 +1,6 @@
 package PnwQuizzing::Model::User;
 use Mojo::Base 'PnwQuizzing::Model', -signatures;
 use Carp 'croak';
-use Digest;
 use TryCatch;
 use PnwQuizzing::Model::Email;
 
