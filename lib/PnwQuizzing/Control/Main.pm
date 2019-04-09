@@ -28,7 +28,7 @@ sub content ($self) {
     my $asset = Mojo::Asset::File->new( path => $file );
 
     if ( $type eq 'md' or $type eq 'csv' ) {
-        my $payload = $self->transcode( $asset->slurp );
+        my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
 
         return $self->stash( html => markdown($payload) ) if ( $type eq 'md' );
         return $self->stash( csv => csv( in => \$payload ) ) if ( $type eq 'csv' );
