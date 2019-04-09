@@ -4,6 +4,9 @@ use parent 'PnwQuizzing';
 use Mojo::Asset::File;
 use Text::Markdown 'markdown';
 use Text::CSV_XS 'csv';
+use Role::Tiny::With;
+
+with 'PnwQuizzing::Role::Secret';
 
 sub content ($self) {
     my $file = join( '/', grep { defined }
@@ -24,8 +27,12 @@ sub content ($self) {
 
     my $asset = Mojo::Asset::File->new( path => $file );
 
-    return $self->stash( html => markdown( $asset->slurp ) ) if ( $type eq 'md' );
-    return $self->stash( csv => csv( in => $file ) ) if ( $type eq 'csv' );
+    if ( $type eq 'md' or $type eq 'csv' ) {
+        my $payload = $self->transcode( $asset->slurp );
+
+        return $self->stash( html => markdown($payload) ) if ( $type eq 'md' );
+        return $self->stash( csv => csv( in => \$payload ) ) if ( $type eq 'csv' );
+    }
 
     my ($filename) = $file =~ /\/([^\/]+)$/;
     my $content_type = $self->app->types->type($type) || 'application/x-download';
