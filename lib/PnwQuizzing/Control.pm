@@ -8,6 +8,7 @@ use CSS::Sass;
 use Mojo::File;
 use TryCatch;
 use PnwQuizzing::Model::User;
+use File::Path 'make_path';
 
 with qw( PnwQuizzing::Role::Template PnwQuizzing::Role::DocsNav );
 
@@ -87,6 +88,12 @@ sub build_css ( $self, $root_dir ) {
 }
 
 sub setup_mojo_logging ($self) {
+    my $log_dir = join( '/',
+        $self->conf->get( qw( config_app root_dir ) ),
+        $self->conf->get( qw( logging log_dir ) ),
+    );
+    make_path($log_dir) unless ( -d $log_dir );
+
     $self->log->level('error'); # temporarily raise log level to skip AccessLog "warn" status
     $self->plugin(
         'AccessLog',
