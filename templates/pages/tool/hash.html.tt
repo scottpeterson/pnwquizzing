@@ -8,11 +8,11 @@
     <fieldset>
         <legend>Secret Content Data Alteration</legend>
 
-        <label><input type="radio" name="action" value="secret" checked> Hash Secret Data</label>
-        <label><input type="radio" name="action" value="transcode"> Transcode Content for Publication</label>
+        <label><input type="radio" name="action" value="secret"> Hash Secret Data</label>
+        <label><input type="radio" name="action" value="transcode" checked> Transcode Content for Publication</label>
         <label><input type="radio" name="action" value="translate"> Translate Content with Hashes</label>
 
-        <textarea name="content"></textarea>
+        <textarea name="payload">[% payload %]</textarea>
 
         <input type="submit" value="Submit">
     </fieldset>
