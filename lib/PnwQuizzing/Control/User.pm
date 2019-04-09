@@ -1,11 +1,8 @@
 package PnwQuizzing::Control::User;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 use parent 'PnwQuizzing';
-use Role::Tiny::With;
 use PnwQuizzing::Model::User;
 use TryCatch;
-
-with 'PnwQuizzing::Role::DocsNav';
 
 sub login ($self) {
     my $user = PnwQuizzing::Model::User->new;
@@ -74,8 +71,6 @@ sub signup ($self) {
             $self->stash( successful_form_submit => 1 );
         }
     }
-
-    $self->stash( docs_nav => $self->generate_docs_nav );
 }
 
 sub verify ($self) {

@@ -1,12 +1,9 @@
 package PnwQuizzing::Control::Main;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 use parent 'PnwQuizzing';
-use Role::Tiny::With;
 use Mojo::Asset::File;
 use Text::Markdown 'markdown';
 use Text::CSV_XS 'csv';
-
-with 'PnwQuizzing::Role::DocsNav';
 
 sub content ($self) {
     my $file = join( '/', grep { defined }
@@ -26,8 +23,6 @@ sub content ($self) {
     $type ||= '';
 
     my $asset = Mojo::Asset::File->new( path => $file );
-
-    $self->stash( docs_nav => $self->generate_docs_nav ) if ( $type eq 'md' or $type eq 'csv' );
 
     return $self->stash( html => markdown( $asset->slurp ) ) if ( $type eq 'md' );
     return $self->stash( csv => csv( in => $file ) ) if ( $type eq 'csv' );

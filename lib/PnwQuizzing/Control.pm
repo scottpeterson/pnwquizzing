@@ -9,7 +9,7 @@ use Mojo::File;
 use TryCatch;
 use PnwQuizzing::Model::User;
 
-with 'PnwQuizzing::Role::Template';
+with qw( PnwQuizzing::Role::Template PnwQuizzing::Role::DocsNav );
 
 sub startup ($self) {
     my $root_dir = $self->conf->get( 'config_app', 'root_dir' );
@@ -49,7 +49,11 @@ sub startup ($self) {
         }
     } );
 
-    my $all = $self->routes;
+    my $docs_nav = $self->generate_docs_nav;
+
+    my $all = $self->routes->under( sub ($self) {
+        $self->stash( docs_nav => $docs_nav );
+    } );
 
     my $users = $all->under( sub ($self) {
         return 1 if ( $self->stash('user') );
