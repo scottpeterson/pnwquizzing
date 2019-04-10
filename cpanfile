@@ -18,23 +18,14 @@ requires 'File::Path', '>= 2.16';
 requires 'Log::Dispatch', '>= 2.68';
 requires 'Log::Dispatch::Email::Mailer', '>= 1.03';
 requires 'Term::ANSIColor', '>= 4.06';
+requires 'Term::ReadKey', '>= 2.37';
 requires 'Text::CSV_XS', '>= 1.38';
 requires 'Text::Markdown', '>= 1.000031';
 requires 'TryCatch', '>= 1.003002';
+requires 'Util::CommandLine', '>= 1.03';
 
 requires 'DBIx::Query', '>= 1.06';
 requires 'DBD::SQLite', '>= 1.62';
+requires 'App::Dest', '>= 1.21';
 
-feature 't', 'Testing' => sub {
-    requires 'Test::Most', '>= 0.35';
-};
-
-feature 'tools', 'Tools' => sub {
-    requires 'Data::Printer', '>= 0.40';
-    requires 'Term::ReadKey', '>= 2.37';
-    requires 'Util::CommandLine', '>= 1.03';
-};
-
-feature 'deploy', 'Deployment' => sub {
-    requires 'App::Dest', '>= 1.21';
-};
+requires 'Test::Most', '>= 0.35';
