@@ -40,6 +40,9 @@ sub tt_settings ( $self, $type = 'web' ) {
             CONSTANTS => {
                 version => $self->version,
             },
+            VARIABLES => {
+                time => sub { return time },
+            },
         },
         context => sub ($context) {
             $context->define_vmethod( 'scalar', 'lower',   sub { return lc( $_[0] ) } );
