@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<input id="nav_toggle" type="checkbox" name="menu">
+<input id="nav_toggle" type="checkbox">
 <label for="nav_toggle" class="nav_toggle">
     <span class="close">&laquo;</span>
     <span class="open">&raquo;</span>
@@ -63,6 +63,7 @@
 
 [% IF message OR c.session.flash.message %]
     [% fv = (message) ? message : c.session.flash.message %]
+    <input id="message_toggle" type="checkbox" name="[% c %]">
     <div id="message" class="[% fv.type || 'error' %]">
         [% UNLESS fv.ref %]
             [% fv %]
@@ -77,7 +78,8 @@
                 [% message.text %]
             [% END %]
         [% END %]
-        <a href="#" onclick="document.getElementById('message').style.display = 'none'">X</a>
+
+        <label for="message_toggle" class="message_toggle">X</label>
     </div>
 [% END %]
 

@@ -1,3 +1,11 @@
+input#message_toggle {
+    display: none;
+}
+
+input#message_toggle:checked ~ div#message {
+    display: none;
+}
+
 div#message {
     position         : absolute;
     top              : $header_height + -5px;
@@ -12,8 +20,7 @@ div#message {
     font-family      : bold;
     padding-right    : 20px;
 
-    a {
-        color           : inherit;
+    label {
         position        : absolute;
         top             : 0px;
         right           : 0px;
@@ -21,6 +28,11 @@ div#message {
         padding         : 0px 2px 0px 2px;
         border          : 2px solid;
         margin          : -2px -2px 0px 0px;
+    }
+
+    label:hover {
+        cursor : pointer;
+        color  : blue;
     }
 
     &.error {
