@@ -1,0 +1,101 @@
+%a_menu_current {
+    a {
+        color           : bisque;
+        text-decoration : none;
+
+        &.current {
+            color           : red;
+            text-decoration : underline;
+        }
+
+        &:hover {
+            color           : yellow;
+            text-decoration : underline;
+        }
+    }
+}
+
+html {
+    margin: 0;
+
+    body {
+        div#header {
+            background-color : black;
+            color            : white;
+
+            div#header_title {
+                display   : inline-block;
+                font-size : 20px;
+                margin    : 10px 0px 10px 10px;
+            }
+
+            div#header_user {
+                @extend %a_menu_current;
+
+                float  : right;
+                margin : 10px 10px 10px 0px;
+
+                form {
+                    input[type="text"],
+                    input[type="password"] {
+                        width  : 100px;
+                        border : 1px solid white;
+
+                        &:hover {
+                            border-color: yellow;
+                        }
+                    }
+
+                    input[type="submit"] {
+                        border: 1px solid #e0e0e0;
+
+                        &:hover:enabled {
+                            border-color     : yellow;
+                            background-color : #eeeeee;
+                        }
+                    }
+                }
+
+                p {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        div#nav {
+            ul {
+                margin-top    : 0px;
+                margin-bottom : 0px;
+                margin-left   : 15px;
+
+                li {
+                    @extend %a_menu_current;
+                    padding: 5px 0px 0px 0px;
+                }
+            }
+
+            & > ul {
+                margin-bottom: 35px;
+            }
+
+            div#nav_footer {
+                display          : block;
+                background-color : #264040;
+                position         : fixed;
+                left             : 0px;
+                bottom           : 0px;
+                width            : $nav_width;
+                height           : 20px;
+
+                @extend %a_menu_current;
+
+                a {
+                    display     : block;
+                    color       : lightgray;
+                    margin-top  : 3px;
+                    margin-left : 3px;
+                }
+            }
+        }
+    }
+}

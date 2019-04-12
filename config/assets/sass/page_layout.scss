@@ -8,26 +8,7 @@ $nav_width        : 200px;
     overflow-x : hidden;
 }
 
-%a_menu_current {
-    a {
-        color           : bisque;
-        text-decoration : none;
-
-        &.current {
-            color           : red;
-            text-decoration : underline;
-        }
-
-        &:hover {
-            color           : yellow;
-            text-decoration : underline;
-        }
-    }
-}
-
 html {
-    margin: 0;
-
     body {
         display               : grid;
         grid-template-rows    : $header_height auto;
@@ -41,15 +22,9 @@ html {
         min-width: 350px;
 
         div#header {
-            grid-area        : header;
-            background-color : black;
-            color            : white;
+            grid-area : header;
 
             div#header_title {
-                display   : inline-block;
-                font-size : 20px;
-                margin    : 10px 0px 10px 10px;
-
                 span.header_title_short {
                     display: none;
                 }
@@ -75,38 +50,6 @@ html {
                     }
                 }
             }
-
-            div#header_user {
-                @extend %a_menu_current;
-
-                float  : right;
-                margin : 10px 10px 10px 0px;
-
-                form {
-                    input[type="text"],
-                    input[type="password"] {
-                        width  : 100px;
-                        border : 1px solid white;
-
-                        &:hover {
-                            border-color: yellow;
-                        }
-                    }
-
-                    input[type="submit"] {
-                        border: 1px solid #e0e0e0;
-
-                        &:hover:enabled {
-                            border-color     : yellow;
-                            background-color : #eeeeee;
-                        }
-                    }
-                }
-
-                p {
-                    margin-top: 5px;
-                }
-            }
         }
 
         div#nav {
@@ -120,97 +63,10 @@ html {
             @media screen and (max-width: 650px) {
                 display: none;
             }
-
-            ul {
-                margin-top    : 0px;
-                margin-bottom : 0px;
-                margin-left   : 15px;
-
-                li {
-                    @extend %a_menu_current;
-                    padding: 5px 0px 0px 0px;
-                }
-            }
-
-            & > ul {
-                margin-bottom: 35px;
-            }
-
-            div#nav_footer {
-                display          : block;
-                background-color : #264040;
-                position         : fixed;
-                left             : 0px;
-                bottom           : 0px;
-                width            : $nav_width;
-                height           : 20px;
-
-                @extend %a_menu_current;
-
-                a {
-                    display     : block;
-                    color       : lightgray;
-                    margin-top  : 3px;
-                    margin-left : 3px;
-                }
-            }
         }
 
-        input#nav_toggle,
-        label.nav_toggle {
-            display: none;
-        }
-
-        @media screen and (max-width: 650px) {
-            label.nav_toggle {
-                position         : absolute;
-                top              : $header_height;
-                left             : 0px;
-                display          : block;
-                width            : 25px;
-                height           : 30px;
-                background-color : darkslategray;
-                cursor           : pointer;
-            }
-
-            label.nav_toggle span {
-                display    : block;
-                font-size  : 50px;
-                margin-top : -20px;
-                color      : lightgray;
-            }
-
-            label.nav_toggle:hover span {
-                color: yellow;
-            }
-
-            label.nav_toggle span.close {
-                display: none;
-            }
-
-            input#nav_toggle:checked ~ label.nav_toggle {
-                left: $nav_width;
-            }
-
-            input#nav_toggle:checked ~ label.nav_toggle span.close {
-                display: block;
-            }
-
-            input#nav_toggle:checked ~ label.nav_toggle span.open {
-                display: none;
-            }
-
-            input#nav_toggle:checked ~ div#nav {
-                position : absolute;
-                left     : 0px;
-                top      : $header_height;
-                display  : block;
-                width    : $nav_width - 20px;
-                height   : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 20px );
-            }
-        }
-
-        @import 'message.scss';
+        @import 'components/nav_toggle.scss';
+        @import 'components/message.scss';
 
         div#content {
             @extend %div_body_scroller;
@@ -219,7 +75,7 @@ html {
             padding          : $div_body_padding;
             background-color : ghostwhite;
 
-            @import 'content.scss';
+            @import 'components/content.scss';
         }
 
         @media screen and (max-width: 650px) {
@@ -230,3 +86,5 @@ html {
         }
     }
 }
+
+@import 'page_style.scss';

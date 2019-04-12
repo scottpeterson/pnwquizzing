@@ -1,0 +1,53 @@
+input#nav_toggle,
+label.nav_toggle {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    label.nav_toggle {
+        position         : absolute;
+        top              : $header_height;
+        left             : 0px;
+        display          : block;
+        width            : 25px;
+        height           : 30px;
+        background-color : darkslategray;
+        cursor           : pointer;
+    }
+
+    label.nav_toggle span {
+        display    : block;
+        font-size  : 50px;
+        margin-top : -20px;
+        color      : lightgray;
+    }
+
+    label.nav_toggle:hover span {
+        color: yellow;
+    }
+
+    label.nav_toggle span.close {
+        display: none;
+    }
+
+    input#nav_toggle:checked ~ label.nav_toggle {
+        left: $nav_width;
+    }
+
+    input#nav_toggle:checked ~ label.nav_toggle span.close {
+        display: block;
+    }
+
+    input#nav_toggle:checked ~ label.nav_toggle span.open {
+        display: none;
+    }
+
+    input#nav_toggle:checked ~ div#nav {
+        position : absolute;
+        left     : 0px;
+        top      : $header_height;
+        display  : block;
+        width    : $nav_width - 20px;
+        height   : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 20px );
+    }
+}
