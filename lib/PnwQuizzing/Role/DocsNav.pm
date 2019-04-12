@@ -66,13 +66,17 @@ sub generate_docs_nav ($self) {
         else {
             push( @$set, {
                 name  => $name,
-                href  => $href,
+                href  => '/' . $href,
                 title => $title,
             } );
         }
     }
 
     push( @$docs_nav, @{ delete $docs_nav->[0]{nodes} } );
+
+    $docs_nav->[0]{href}  = '/';
+    $docs_nav->[0]{title} = 'PNW Bible Quizzing Home Page';
+
     return $docs_nav;
 }
 

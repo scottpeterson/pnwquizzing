@@ -38,9 +38,9 @@
             [% FOREACH node IN docs %]
                 <li>
                     [% IF node.folder OR node.name %]
-                        [% IF node.href %]<a href="[% c.url_for( '/' _ node.href ) %]"
+                        [% IF node.href %]<a href="[% c.url_for( node.href ) %]"
                             title="[% node.title OR node.folder OR node.name %]"
-                            [% IF c.url_for( '/' _ node.href ) == c.req.url.to_abs.path %]
+                            [% IF c.url_for( node.href ) == c.req.url.to_abs.path %]
                                 class="current"
                             [% END %]
                         >[% END %][%

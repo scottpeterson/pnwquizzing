@@ -1,0 +1,6 @@
+[%
+    page.title      = 'Pacific Northwest Bible Quizzing';
+    # page.body_class = 'no_nav'; # TODO
+%]
+
+<h1>[% page.title %]</h1>

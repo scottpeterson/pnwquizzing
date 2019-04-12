@@ -85,6 +85,14 @@ html {
             }
         }
     }
+
+    body.no_nav {
+        grid-template-areas: "header header" "content content";
+
+        div#nav {
+            display: none;
+        }
+    }
 }
 
 @import 'page_style.scss';

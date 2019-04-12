@@ -69,7 +69,7 @@ sub startup ($self) {
     $all->any( '/user/' . $_ )->to( controller => 'user', action => $_ ) for ( qw( login logout signup ) );
     $all->any('/user/verify/:verify_user_id/:verify_passwd')->to('user#verify');
 
-    $all->any('/')->to('main#content');
+    $all->any('/')->to('main#home_page');
     $all->any('/*name')->to('main#content');
 }
 
