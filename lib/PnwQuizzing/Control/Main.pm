@@ -15,6 +15,13 @@ sub content ($self) {
         $self->stash('name'),
     );
 
+    ( my $name = $self->stash('name') ) =~ s/\.[^\.\/]+$//;
+    $self->stash( 'title' => join( ' / ',
+        map {
+            join( ' ', map { ucfirst } split('_') )
+        } split( '/', $name )
+    ) );
+
     $file .= '/index.md' unless ( -f $file );
     unless ( -f $file ) {
         $self->notice( '404 in Main content: ' . ( $self->stash('name') || '>undef<' ) );

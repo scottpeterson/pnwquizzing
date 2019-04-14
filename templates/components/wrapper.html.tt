@@ -1,6 +1,6 @@
 [%-
     page = {};
-    DEFAULT page.title = '';
+    DEFAULT page.title = title || '';
 
     content = BLOCK;
         PROCESS $template;
@@ -8,7 +8,7 @@
 
     page.title =
         ( NOT page.title ) ? 'PNW Bible Quizzing' :
-        ( NOT page.title.match('^PNWBQ\s') ) ? 'PNWBQ: ' _ page.title : page.title;
+        ( NOT page.title.match('^PNWBQ\s') AND page.title != 'PNW Bible Quizzing' ) ? 'PNWBQ: ' _ page.title : page.title;
 -%]
 <!DOCTYPE html>
 <html lang="en">
