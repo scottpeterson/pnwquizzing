@@ -1,0 +1,27 @@
+form#hash_tool {
+    padding-right: 30px;
+    height: calc( 100% - 100px );
+
+    fieldset {
+        width         : 100%;
+        height        : calc( 100% - 22px );
+        padding-right : 18px;
+    }
+
+    label {
+        text-align: left;
+    }
+
+    textarea {
+        display    : block;
+        width      : 100%;
+        height     : calc( 100% - 80px );
+        min-height : 100px;
+    }
+
+    input[type="submit"] {
+        display      : block;
+        margin-left  : auto;
+        margin-right : -8px;
+    }
+}

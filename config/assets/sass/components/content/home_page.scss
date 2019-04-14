@@ -1,0 +1,33 @@
+div#home_page_nav {
+    h2 {
+        margin-top    : 24px;
+        border-top    : 1px dashed lightgray;
+        padding-top   : 8px;
+        font-size     : 24px;
+        margin-bottom : 12px;
+    }
+
+    div {
+        display        : inline-block;
+        vertical-align : top;
+        margin         : 10px;
+
+        a {
+            display          : table-cell;
+            text-align       : center;
+            vertical-align   : middle;
+            width            : 250px;
+            height           : 100px;
+            padding          : 0px 10px 0px 10px;
+            text-decoration  : none;
+            font-size        : 16px;
+            color            : white;
+            background-color : #48a0a2;
+
+            &:hover {
+                color  : yellow;
+                filter : brightness(115%);
+            }
+        }
+    }
+}

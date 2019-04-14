@@ -1,6 +1,31 @@
 [%
     page.title      = 'Pacific Northwest Bible Quizzing';
-    # page.body_class = 'no_nav'; # TODO
+    page.body_class = 'no_nav';
 %]
 
 <h1>[% page.title %]</h1>
+
+<div id="home_page_nav">
+    [% BLOCK nav %]
+        [% IF node.href %]<a href="[% c.url_for( node.href ) %]"
+            title="[% node.title OR node.folder OR node.name %]"
+            [% IF c.url_for( node.href ) == c.req.url.to_abs.path %]
+                class="current"
+            [% END %]
+        ><span>[% END %][%
+            node.title OR node.folder OR node.name
+        %][% IF node.href %]</span></a>[% END %]
+    [% END %]
+
+    [% FOREACH node IN docs_nav %]
+        [% NEXT IF loop.first %]
+
+        [% IF node.folder OR node.name %]
+            <h2>[% PROCESS nav node = node %]</h2>
+        [% END %]
+
+        [% FOREACH node IN node.nodes %]
+            <div>[% PROCESS nav node = node %]</div>
+        [% END %]
+    [% END %]
+</div>
