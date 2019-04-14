@@ -1,9 +1,18 @@
 [%
-    page.title      = 'Pacific Northwest Bible Quizzing';
+    page.title      = 'PNW Bible Quizzing';
     page.body_class = 'no_nav';
 %]
 
-<h1>[% page.title %]</h1>
+<h1 id="home_page_title">
+    <span class="home_page_title_pnw">
+        <span class="home_page_title_pacific">Pacific</span>
+        <span class="home_page_title_northwest">Northwest</span>
+    </span>
+    <span class="home_page_title_bq">
+        <span class="home_page_title_bible">Bible</span>
+        <span class="home_page_title_quizzing">Quizzing</span>
+    </span>
+</h1>
 
 <div id="home_page_nav">
     [% BLOCK nav %]
