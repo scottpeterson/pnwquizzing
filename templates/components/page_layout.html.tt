@@ -1,8 +1,10 @@
 <div id="header">
     <div id="header_title">
-        <span class="header_title_long">Pacific Northwest</span>
-        <span class="header_title_short">PNW</span>
-        <span class="header_title_mission">Bible Quizzing</span>
+        <a href="[% c.url_for('/') %]">
+            <span class="header_title_long">Pacific Northwest</span>
+            <span class="header_title_short">PNW</span>
+            <span class="header_title_mission">Bible Quizzing</span>
+        </a>
     </div>
 
     <div id="header_user">

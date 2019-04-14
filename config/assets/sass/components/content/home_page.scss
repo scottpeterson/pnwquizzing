@@ -25,8 +25,9 @@ div#home_page_nav {
             background-color : #48a0a2;
 
             &:hover {
-                color  : yellow;
-                filter : brightness(115%);
+                color           : yellow;
+                filter          : brightness(115%);
+                text-decoration : underline;
             }
         }
     }
