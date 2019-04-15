@@ -87,4 +87,5 @@
 
 <div id="content">
     [% content %]
+    [% PROCESS content_footer.html.tt %]
 </div>

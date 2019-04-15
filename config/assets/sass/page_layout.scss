@@ -3,7 +3,7 @@ $div_body_padding : 20px;
 $nav_width        : 200px;
 
 %div_body_scroller {
-    height     : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
+    min-height : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
     overflow   : auto;
     overflow-x : hidden;
 }
@@ -71,6 +71,7 @@ html {
         div#content {
             @extend %div_body_scroller;
 
+            position         : relative;
             grid-area        : content;
             padding          : $div_body_padding;
             background-color : ghostwhite;
@@ -81,7 +82,7 @@ html {
         @media screen and (max-width: 650px) {
             div#content {
                 padding-top : 35px;
-                height      : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 25px );
+                min-height  : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 25px );
             }
         }
     }

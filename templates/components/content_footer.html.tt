@@ -1,0 +1,9 @@
+<div id="content_footer_buffer"></div>
+<div id="content_footer">
+    <p>
+        <a href="[% c.url_for('/') %]">Pacific Northwest Bible Quizzing</a>
+        is a ministry of <a href="http://pnwti.org">Pacific Northwest Theological Institute</a>
+        and is affiliated with
+        <a href="http://cmabiblequizzing.org/">Christian and Missionary Alliance Bible Quizzing</a>.
+    </p>
+</div>
