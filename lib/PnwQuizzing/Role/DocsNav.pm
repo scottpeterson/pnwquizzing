@@ -16,7 +16,7 @@ sub generate_docs_nav ($self) {
                 sort {
                     ( $a eq 'index.md' and $b ne 'index.md' ) ? 0 :
                     ( $a ne 'index.md' and $b eq 'index.md' ) ? 1 :
-                    $a cmp $b
+                    lc $a cmp lc $b
                 } @_;
             },
         },
