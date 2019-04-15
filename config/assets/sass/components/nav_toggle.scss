@@ -3,7 +3,7 @@ label.nav_toggle {
     display: none;
 }
 
-@media screen and (max-width: 650px) {
+@media (max-width: 650px) {
     label.nav_toggle {
         z-index          : 100;
         position         : absolute;

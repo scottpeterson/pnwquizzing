@@ -15,7 +15,7 @@ html {
         grid-template-columns : $nav_width auto;
         grid-template-areas   : "header header" "nav content";
 
-        @media screen and (max-width: 650px) {
+        @media (max-width: 650px) {
             grid-template-areas: "header header" "content content";
         }
 
@@ -29,7 +29,7 @@ html {
                     display: none;
                 }
 
-                @media screen and (max-width: 650px) {
+                @media (max-width: 650px) {
                     span.header_title_long {
                         display: none;
                     }
@@ -38,13 +38,13 @@ html {
                     }
                 }
 
-                @media screen and (max-width: 530px) {
+                @media (max-width: 530px) {
                     span.header_title_mission {
                         display: none;
                     }
                 }
 
-                @media screen and (max-width: 400px) {
+                @media (max-width: 400px) {
                     span.header_title_short {
                         display: none;
                     }
@@ -60,7 +60,7 @@ html {
             background-color : darkslategray;
             color            : lightgray;
 
-            @media screen and (max-width: 650px) {
+            @media (max-width: 650px) {
                 display: none;
             }
         }
@@ -74,7 +74,7 @@ html {
             @import 'components/content.scss';
         }
 
-        @media screen and (max-width: 650px) {
+        @media (max-width: 650px) {
             div#content {
                 padding-top : 35px;
                 min-height  : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 15px );
