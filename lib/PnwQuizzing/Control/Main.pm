@@ -8,6 +8,16 @@ use Role::Tiny::With;
 
 with 'PnwQuizzing::Role::Secret';
 
+sub home_page ($self) {
+    my $asset = Mojo::Asset::File->new(
+        path => $self->conf->get( qw( config_app root_dir ) ) . '/docs/index.md'
+    );
+    my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
+    my $title   = ( $payload =~ s/^#\s*([^#]+?)\s*$//ms ) ? $1 : '';
+
+    $self->stash( payload => markdown($payload), title => $title );
+}
+
 sub content ($self) {
     my $file = join( '/', grep { defined }
         $self->conf->get( qw( config_app root_dir ) ),
