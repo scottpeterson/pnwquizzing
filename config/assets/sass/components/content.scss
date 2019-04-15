@@ -1,7 +1,10 @@
 & {
-    font-size: 14px;
-    line-height: 150%;
-    padding-left: 25px;
+    position         : relative;
+    background-color : ghostwhite;
+    font-size        : 14px;
+    line-height      : 150%;
+    padding          : $div_body_padding;
+    padding-left     : 25px;
 }
 
 h1 { margin-left: -10px }
@@ -11,11 +14,11 @@ h4 { margin-left: -4px }
 h5 { margin-left: -2px }
 
 pre, code {
-    border: 1px solid #e0e0e0;
-    background-color: #f0f0f0;
-    padding-left: 2px;
-    padding-right: 2px;
-    font-size: 16px;
+    border           : 1px solid #e0e0e0;
+    background-color : #f0f0f0;
+    padding-left     : 2px;
+    padding-right    : 2px;
+    font-size        : 16px;
 }
 
 ul {
@@ -29,3 +32,4 @@ li > ol {
 
 @import 'content/hash_tool.scss';
 @import 'content/home_page.scss';
+@import 'content/content_footer.scss';
