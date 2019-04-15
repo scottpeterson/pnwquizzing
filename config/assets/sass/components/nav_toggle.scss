@@ -3,7 +3,7 @@ label.nav_toggle {
     display: none;
 }
 
-@media (max-width: 650px) {
+@mixin nav_toggle {
     label.nav_toggle {
         z-index          : 100;
         position         : absolute;
@@ -52,4 +52,12 @@ label.nav_toggle {
         width    : $nav_width - 40px;
         height   : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 20px );
     }
+}
+
+@media (max-width: 650px) {
+    @include nav_toggle;
+}
+
+&.no_nav {
+    @include nav_toggle;
 }
