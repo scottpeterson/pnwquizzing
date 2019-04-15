@@ -5,6 +5,7 @@ label.nav_toggle {
 
 @media screen and (max-width: 650px) {
     label.nav_toggle {
+        z-index          : 100;
         position         : absolute;
         top              : $header_height;
         left             : 0px;
@@ -43,11 +44,12 @@ label.nav_toggle {
     }
 
     input#nav_toggle:checked ~ div#nav {
+        z-index  : 100;
         position : absolute;
         left     : 0px;
         top      : $header_height;
         display  : block;
-        width    : $nav_width - 20px;
+        width    : $nav_width - 40px;
         height   : calc( 100vh - #{ $header_height + $div_body_padding * 2 } - 20px );
     }
 }

@@ -1,7 +1,10 @@
 & {
-    font-size    : 14px;
-    line-height  : 150%;
-    padding-left : 25px;
+    position         : relative;
+    background-color : ghostwhite;
+    font-size        : 14px;
+    line-height      : 150%;
+    padding          : $div_body_padding;
+    padding-left     : 25px;
 }
 
 h1 { margin-left: -10px }
