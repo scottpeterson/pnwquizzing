@@ -33,3 +33,18 @@ li > ol {
 @import 'content/hash_tool';
 @import 'content/home_page';
 @import 'content/content_footer';
+
+@media print {
+    & {
+        background-color: transparent;
+    }
+
+    .no_print {
+        display: none;
+    }
+
+    pre, code {
+        border           : none;
+        background-color : transparent;
+    }
+}

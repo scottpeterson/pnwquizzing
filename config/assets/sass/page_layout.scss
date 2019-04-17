@@ -89,6 +89,20 @@ html {
             display: none;
         }
     }
+
+    @media print {
+        body {
+            grid-template-areas: "content content" "content content" !important;
+
+            div#header {
+                display: none;
+            }
+
+            div#nav {
+                display: none;
+            }
+        }
+    }
 }
 
 @import 'page_style';

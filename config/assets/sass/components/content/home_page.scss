@@ -1,73 +1,75 @@
-h1#home_page_title {
-    margin-top    : $div_body_padding * -1;
-    margin-left   : $div_body_padding * -1 - 5px;
-    margin-right  : $div_body_padding * -1;
-    margin-bottom : 18px;
+@media screen {
+    h1#home_page_title {
+        margin-top    : $div_body_padding * -1;
+        margin-left   : $div_body_padding * -1 - 5px;
+        margin-right  : $div_body_padding * -1;
+        margin-bottom : 18px;
 
-    width  : calc( 100vw + #{ $div_body_padding * 2 } - 40px );
-    height : 400px;
+        width  : calc( 100vw + #{ $div_body_padding * 2 } - 40px );
+        height : 400px;
 
-    background-image    : url( graphics/quizzing_header_background.jpg );
-    background-repeat   : no-repeat;
-    background-size     : cover;
-    background-position : 0px calc( 100vw / -3 + 200px );
+        background-image    : url( graphics/quizzing_header_background.jpg );
+        background-repeat   : no-repeat;
+        background-size     : cover;
+        background-position : 0px calc( 100vw / -3 + 200px );
 
-    border-bottom: 1px solid black;
+        border-bottom: 1px solid black;
 
-    @media (max-width: 650px) {
-        margin-top          : $div_body_padding * -1 - 15px;
-        background-position : 0px 0px;
-    }
-
-    text-align     : center;
-    color          : white;
-    text-transform : uppercase;
-    font-family    : normal;
-
-    span {
-        &.home_page_title_pnw {
-            display        : block;
-            font-size      : 41px;
-            line-height    : 41px;
-            padding-top    : 120px;
-            padding-left   : 20px;
-            letter-spacing : 23px;
+        @media (max-width: 650px) {
+            margin-top          : $div_body_padding * -1 - 15px;
+            background-position : 0px 0px;
         }
 
-        &.home_page_title_bq {
-            display        : block;
-            font-size      : 100px;
-            line-height    : 100px;
-            letter-spacing : 3px;
-        }
+        text-align     : center;
+        color          : white;
+        text-transform : uppercase;
+        font-family    : normal;
 
-        &.home_page_title_quizzing {
-            font-family : bold;
-        }
-    }
-
-    @media (max-width: 890px) {
-        span {
-            display: block;
-
-            &.home_page_title_pnw {
-                padding-top: 50px;
-            }
-        }
-    }
-
-    @media (max-width: 540px) {
         span {
             &.home_page_title_pnw {
-                font-size      : 35px;
-                line-height    : 35px;
-                padding-top    : 90px;
-                letter-spacing : 11px;
+                display        : block;
+                font-size      : 41px;
+                line-height    : 41px;
+                padding-top    : 120px;
+                padding-left   : 20px;
+                letter-spacing : 23px;
             }
 
             &.home_page_title_bq {
-                font-size      : 70px;
-                line-height    : 70px;
+                display        : block;
+                font-size      : 100px;
+                line-height    : 100px;
+                letter-spacing : 3px;
+            }
+
+            &.home_page_title_quizzing {
+                font-family : bold;
+            }
+        }
+
+        @media (max-width: 890px) {
+            span {
+                display: block;
+
+                &.home_page_title_pnw {
+                    padding-top: 50px;
+                }
+            }
+        }
+
+        @media (max-width: 540px) {
+            span {
+                &.home_page_title_pnw {
+                    font-size      : 35px;
+                    line-height    : 35px;
+                    padding-top    : 90px;
+                    letter-spacing : 11px;
+                }
+
+                &.home_page_title_bq {
+                    font-size      : 70px;
+                    line-height    : 70px;
+                }
             }
         }
     }
@@ -105,5 +107,11 @@ div#home_page_nav {
                 text-decoration : underline;
             }
         }
+    }
+}
+
+@media print {
+    div#home_page_nav {
+        display: none;
     }
 }

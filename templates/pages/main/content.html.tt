@@ -2,7 +2,9 @@
 
 [% IF csv %]
     <h1>[% title %]</h1>
-    <p><a href="[% c.url_with.query( download => 1 ) %]">Download "[% title %]" data in CSV/Excel</a>.</p>
+    <p class="no_print">
+        <a href="[% c.url_with.query( download => 1 ) %]">Download "[% title %]" data in CSV/Excel</a>.
+    </p>
 
     <table class="tabular">
         [% FOR row IN csv %]

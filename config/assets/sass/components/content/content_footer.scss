@@ -32,3 +32,13 @@ div#content_footer {
         }
     }
 }
+
+@media print {
+    div#content_footer_buffer {
+        display: none;
+    }
+
+    div#content_footer {
+        display: none;
+    }
+}

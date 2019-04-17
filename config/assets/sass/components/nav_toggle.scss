@@ -61,3 +61,10 @@ label.nav_toggle {
 &.no_nav {
     @include nav_toggle;
 }
+
+@media print {
+    input#nav_toggle,
+    label.nav_toggle {
+        display: none !important;
+    }
+}
