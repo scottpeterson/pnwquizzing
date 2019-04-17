@@ -1,0 +1,26 @@
+table.tabular,
+table.tabular th,
+table.tabular td {
+    border          : 1px solid silver;
+    padding         : 0px;
+    border-spacing  : 0px;
+    border-collapse : collapse;
+}
+
+table.tabular {
+    th {
+        background-color : lightgray;
+        color            : black;
+        padding          : 2px 5px 2px 5px;
+        font-size        : 13px;
+        text-align       : left;
+        font-family      : bold;
+        font-weight      : normal;
+    }
+
+    td {
+        background-color : white;
+        color            : black;
+        padding          : 1px 3px 1px 3px;
+    }
+}

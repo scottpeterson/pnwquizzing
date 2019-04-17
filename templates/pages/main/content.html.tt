@@ -1,7 +1,10 @@
 [% html %]
 
 [% IF csv %]
-    <table>
+    <h1>[% title %]</h1>
+    <p><a href="[% c.url_with.query( download => 1 ) %]">Download "[% title %]" data in CSV/Excel</a>.</p>
+
+    <table class="tabular">
         [% FOR row IN csv %]
             <tr>
                 [% IF loop.first %]

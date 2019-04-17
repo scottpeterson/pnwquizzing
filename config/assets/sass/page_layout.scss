@@ -65,13 +65,13 @@ html {
             }
         }
 
-        @import 'components/nav_toggle.scss';
-        @import 'components/message.scss';
+        @import 'components/nav_toggle';
+        @import 'components/message';
 
         div#content {
             @extend %div_body_scroller;
             grid-area: content;
-            @import 'components/content.scss';
+            @import 'components/content';
         }
 
         @media (max-width: 650px) {
@@ -91,4 +91,4 @@ html {
     }
 }
 
-@import 'page_style.scss';
+@import 'page_style';

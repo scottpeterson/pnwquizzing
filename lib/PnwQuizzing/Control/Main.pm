@@ -44,7 +44,7 @@ sub content ($self) {
 
     my $asset = Mojo::Asset::File->new( path => $file );
 
-    if ( $type eq 'md' or $type eq 'csv' ) {
+    if ( not $self->param('download') and ( $type eq 'md' or $type eq 'csv' ) ) {
         my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
 
         return $self->stash( html => markdown($payload) ) if ( $type eq 'md' );
