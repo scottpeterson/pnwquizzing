@@ -1,0 +1,5 @@
+[% IF type == 'csv' %]<i class="la la-table"></i>[% END %]
+[% IF type == 'pdf' %]<i class="la la-file-pdf-o"></i>[% END %]
+[% IF type == 'xls' %]<i class="la la-file-excel-o"></i>[% END %]
+[% IF type == 'doc' %]<i class="la la-file-word-o"></i>[% END %]
+[% IF type == 'ppt' %]<i class="la la-file-powerpoint-o"></i>[% END %]

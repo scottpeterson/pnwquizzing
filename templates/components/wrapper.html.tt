@@ -22,6 +22,9 @@
         <link rel="stylesheet" type="text/css"
             href="[% c.url_for('/app.css').query( version => constants.version ) %]" />
 
+        <link rel="stylesheet" type="text/css"
+            href="[% c.url_for('/line-awesome/css/line-awesome.min.css') %]" />
+
         <title>[% page.title %]</title>
     </head>
     <body[% IF page.body_class %] class="[% page.body_class %]"[% END %]>

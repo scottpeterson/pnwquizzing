@@ -48,6 +48,8 @@
                         >[% END %][%
                             node.folder OR node.name
                         %][% IF node.href %]</a>[% END %]
+
+                        [% PROCESS file_type_icons.html.tt type = node.type %]
                     [% END %]
                     [% IF node.nodes %]
                         [% PROCESS nav docs = node.nodes %]

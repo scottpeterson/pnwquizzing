@@ -11,7 +11,11 @@ sub generate_docs_nav ($self) {
     my @files;
     find(
         {
-            wanted     => sub { push( @files, $File::Find::name ) if (/\.md$/i) },
+            wanted => sub {
+                push( @files, $File::Find::name ) if (
+                    /\.(?:md|csv|pdf|xls|xlsx|doc|docx|ppt|pptx)$/i
+                );
+            },
             preprocess => sub {
                 sort {
                     ( $a eq 'index.md' and $b ne 'index.md' ) ? 0 :
@@ -27,17 +31,24 @@ sub generate_docs_nav ($self) {
     my $docs_nav        = [];
 
     for (@files) {
-        my $content = Mojo::File->new($_)->slurp;
-        my @headers = $content =~ /^\s*(#[^\n]*)/msg;
-        my $href    = substr( $_, $docs_dir_length );
-        ( my $title = $headers[0] ) =~ s/^\s*#+\s*//g;
-
+        my $href = substr( $_, $docs_dir_length );
         my @path = ( 'Home Page', map {
             join( ' ', map { ucfirst } split('_') )
-        } split( /\/|\.md$/, $href ) );
+        } split( /\/|\.[^\.]+$/, $href ) );
 
-        my $name = pop @path;
-        my $set  = $docs_nav;
+        my $type = (/\.([^\.]+)$/) ? lc($1) : '';
+        $type =~ s/x$// if ( length $type == 4 );
+
+        my $name  = pop @path;
+        my $title = $name;
+
+        if ( $type eq 'md' ) {
+            my $content = Mojo::File->new($_)->slurp;
+            my @headers = $content =~ /^\s*(#[^\n]*)/msg;
+            ( $title = $headers[0] ) =~ s/^\s*#+\s*//g;
+        }
+
+        my $set = $docs_nav;
         my $parent;
 
         for my $node (@path) {
@@ -68,6 +79,7 @@ sub generate_docs_nav ($self) {
                 name  => $name,
                 href  => '/' . $href,
                 title => $title,
+                type  => $type,
             } );
         }
     }
