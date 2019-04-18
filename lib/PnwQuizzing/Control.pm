@@ -28,7 +28,7 @@ sub startup ($self) {
     $self->sessions->default_expiration( $self->conf->get( qw( mojolicious session default_expiration ) ) );
 
     if ( $self->mode eq 'production' ) {
-        load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main User );
+        load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main Tool User );
     }
 
     $self->hook( 'before_dispatch' => sub ($self) {

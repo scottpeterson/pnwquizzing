@@ -1,4 +1,5 @@
 use Mojo::Base -strict;
+use Config::App;
 use Test::Most;
 use Test::Mojo;
 

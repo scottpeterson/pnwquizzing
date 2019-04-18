@@ -29,6 +29,8 @@ default:
         settings:
             sqlite_see_if_its_a_number: 1
             sqlite_defensive: 1
+            RaiseError: 1
+            PrintError: 0
     mojo_app_lib: PnwQuizzing::Control
     mojolicious:
         access_log: access.log

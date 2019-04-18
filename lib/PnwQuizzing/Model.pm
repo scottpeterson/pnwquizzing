@@ -4,6 +4,7 @@ use Carp 'croak';
 use TryCatch;
 
 has data => undef;
+has name => undef;
 
 sub create ( $self, $data ) {
     croak('Cannot create() without has "name"') unless ( $self->name );
