@@ -94,16 +94,7 @@ sub setup_mojo_logging ($self) {
     );
     make_path($log_dir) unless ( -d $log_dir );
 
-    $self->log->level('error'); # temporarily raise log level to skip AccessLog "warn" status
-    $self->plugin(
-        'AccessLog',
-        {
-            'log' => join( '/',
-                $self->conf->get( 'logging', 'log_dir' ),
-                $self->conf->get( 'mojolicious', 'access_log' ),
-            )
-        },
-    );
+    $self->setup_access_log;
 
     $self->log(
         MojoX::Log::Dispatch::Simple->new(
@@ -124,6 +115,19 @@ sub setup_mojo_logging ($self) {
             return;
         } );
     }
+}
+
+sub setup_access_log ($self) {
+    $self->log->level('error'); # temporarily raise log level to skip AccessLog "warn" status
+    $self->plugin(
+        'AccessLog',
+        {
+            'log' => join( '/',
+                $self->conf->get( 'logging', 'log_dir' ),
+                $self->conf->get( 'mojolicious', 'access_log' ),
+            )
+        },
+    );
 }
 
 sub setup_templating ( $self, $root_dir ) {

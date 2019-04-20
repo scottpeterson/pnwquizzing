@@ -29,3 +29,4 @@ requires 'DBD::SQLite', '>= 1.62';
 requires 'App::Dest', '>= 1.21';
 
 requires 'Test::Most', '>= 0.35';
+requires 'Test::MockModule', '>= 0.170';

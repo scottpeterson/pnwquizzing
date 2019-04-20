@@ -86,8 +86,10 @@ sub generate_docs_nav ($self) {
 
     push( @$docs_nav, @{ delete $docs_nav->[0]{nodes} } );
 
+    $docs_nav->[0]{name}  = delete $docs_nav->[0]{folder};
     $docs_nav->[0]{href}  = '/';
     $docs_nav->[0]{title} = 'PNW Bible Quizzing Home Page';
+    $docs_nav->[0]{type}  = 'md';
 
     return $docs_nav;
 }

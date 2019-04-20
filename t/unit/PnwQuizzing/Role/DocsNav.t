@@ -15,7 +15,7 @@ my $docs_nav;
 lives_ok( sub { $docs_nav = $obj->generate_docs_nav }, 'generate_docs_nav()' );
 
 ok(
-    ( ref $docs_nav eq 'ARRAY' and $docs_nav->[0]{folder} eq 'Home Page' and $docs_nav->[0]{href} eq '/' ),
+    ( ref $docs_nav eq 'ARRAY' and $docs_nav->[0]{name} eq 'Home Page' and $docs_nav->[0]{href} eq '/' ),
     'basic data structure',
 );
 
