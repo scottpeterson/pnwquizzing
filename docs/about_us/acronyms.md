@@ -1,0 +1,24 @@
+# Acronyms of PNW Bible Quizzing
+
+- **B** - Bonus
+- **CMD** - Canadian Midwest Quizzing District
+- **CR** - Chapter Reference
+- **CVR** - Chapter Verse Reference
+- **DC** - District Coordinator or District Championships, depending on context
+- **E** - Error
+- **ECD** - Eastern Canada Quizzing District
+- **FT** - Finish This
+- **FTN** - Finish This and the Next
+- **FTV** - Finish The Verse
+- **FTV2** - Finish These Two Verses
+- **GWI** - Great West Invitational
+- **MA** - Multiple Answer
+- **MACR** - Multiple Answer, Chapter Reference
+- **MACVR** - Multiple Answer, Chapter Verse Reference
+- **PNW** - Pacific Northwest
+- **QM** - Quizmaster
+- **QT** - Quote
+- **QT2** - Quote These Two Verses
+- **SQ** - Straightforward Question
+- **WCD** - Western Canada Quizzing District (WesCan)
+- **WPA** - Western Pennsylvania Quizzing District

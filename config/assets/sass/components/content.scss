@@ -16,9 +16,33 @@ h5 { margin-left: -2px }
 pre, code {
     border           : 1px solid #e0e0e0;
     background-color : #f0f0f0;
-    padding-left     : 2px;
-    padding-right    : 2px;
-    font-size        : 16px;
+}
+
+code {
+    padding-left  : 2px;
+    padding-right : 2px;
+    font-size     : 15px;
+}
+
+pre > code {
+    border           : none;
+    background-color : transparent;
+    padding-left     : 0px;
+    padding-right    : 0px;
+    font-size        : 13px;
+    line-height      : 18px;
+}
+
+pre {
+    padding: 5px 8px 5px 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+blockquote {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-style: italic;
 }
 
 ul {
