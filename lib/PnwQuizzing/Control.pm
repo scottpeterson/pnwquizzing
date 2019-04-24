@@ -50,6 +50,20 @@ sub startup ($self) {
         }
     } );
 
+    $self->hook( 'after_dispatch' => sub ($self) {
+        my $url = $self->req->url->to_string;
+
+        if ( $url =~ m|^/downloads/| ) {
+            my ($type) = lc($url) =~ /\.([^\.\/]+)$/;
+            $type ||= '';
+            my ($filename) = $url =~ /\/([^\/]+)$/;
+
+            $self->res->headers->content_type(
+                ( $self->app->types->type($type) || 'application/x-download' ) . ';name=' . $filename
+            );
+        }
+    } );
+
     my $docs_nav = $self->generate_docs_nav;
 
     my $all = $self->routes->under( sub ($self) {

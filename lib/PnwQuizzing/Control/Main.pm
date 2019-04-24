@@ -52,14 +52,13 @@ sub content ($self) {
     }
 
     my ($filename) = $file =~ /\/([^\/]+)$/;
-    my $content_type = $self->app->types->type($type) || 'application/x-download';
 
-    my $headers = Mojo::Headers->new;
-    $headers->add( 'Content-Type'   => $content_type . ';name=' . $filename );
-    $headers->add( 'Content-Length' => $asset->size                         );
-
-    $self->res->content->headers($headers);
+    $self->res->headers->content_type(
+        ( $self->app->types->type($type) || 'application/x-download' ) . ';name=' . $filename
+    );
+    $self->res->headers->content_length( $asset->size );
     $self->res->content->asset($asset);
+
     return $self->rendered(200);
 }
 

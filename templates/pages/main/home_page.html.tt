@@ -18,13 +18,13 @@
 
 <div id="home_page_nav">
     [% BLOCK nav %]
-        [% IF node.href %]
+        [% IF node.name %]
             <a href="[% c.url_for( node.href ) %]"
                 title="[% node.title OR node.folder OR node.name %]"
             >
-                <span>[% END %][%
+                <span>[%
                     node.title OR node.folder OR node.name
-                %][% IF node.href %]</span>
+                %]</span>
 
                 [% PROCESS file_type_icons.html.tt type = node.type %]
             </a>
@@ -36,7 +36,7 @@
         [% NEXT IF loop.first %]
 
         [% IF node.folder %]
-            <h2>[% PROCESS nav node = node %]</h2>
+            <h2>[% node.folder %]</h2>
         [% ELSIF node.name %]
             [% UNLESS seen_header %]<h2>General</h2>[% END %]
             [% seen_header = 1 %]

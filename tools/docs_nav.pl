@@ -4,8 +4,10 @@ use Config::App;
 use PnwQuizzing;
 use Util::CommandLine 'podhelp';
 
-my $pnw = PnwQuizzing->new;
-$pnw->info( $pnw->with_roles('+DocsNav')->generate_docs_nav );
+my $pnw      = PnwQuizzing->new;
+my $docs_nav = $pnw->with_roles('+DocsNav')->generate_docs_nav;
+
+$pnw->info($docs_nav);
 
 =head1 NAME
 

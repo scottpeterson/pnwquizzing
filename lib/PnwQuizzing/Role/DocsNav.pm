@@ -33,7 +33,9 @@ sub generate_docs_nav ($self) {
     for (@files) {
         my $href = substr( $_, $docs_dir_length );
         my @path = ( 'Home Page', map {
-            join( ' ', map { ucfirst } split('_') )
+            ucfirst( join( ' ', map {
+                ( /^(?:a|an|the|and|but|or|for|nor|on|at|to|from|by)$/i ) ? $_ : ucfirst
+            } split('_') ) )
         } split( /\/|\.[^\.]+$/, $href ) );
 
         my $type = (/\.([^\.]+)$/) ? lc($1) : '';
@@ -45,7 +47,7 @@ sub generate_docs_nav ($self) {
         if ( $type eq 'md' ) {
             my $content = Mojo::File->new($_)->slurp;
             my @headers = $content =~ /^\s*(#[^\n]*)/msg;
-            ( $title = $headers[0] ) =~ s/^\s*#+\s*//g;
+            ( $title = $headers[0] ) =~ s/^\s*#+\s*//g if ( $headers[0] );
         }
 
         my $set = $docs_nav;
@@ -70,7 +72,7 @@ sub generate_docs_nav ($self) {
         }
 
         if ( $name eq 'Index' ) {
-            $parent->[-1]{href}  = $href;
+            $parent->[-1]{href}  = '/' . $href;
             $parent->[-1]{title} = $title;
             delete $parent->[-1]{nodes};
         }

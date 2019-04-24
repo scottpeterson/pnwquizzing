@@ -76,7 +76,7 @@ html {
             ul {
                 margin-top    : 0px;
                 margin-bottom : 0px;
-                margin-left   : 10px;
+                margin-left   : 15px;
 
                 li {
                     @extend %a_menu_current;
@@ -87,7 +87,14 @@ html {
             & > ul {
                 margin-top    : -8px;
                 margin-bottom : 35px;
+                margin-left   : 10px;
+                margin-right  : -40px;
             }
+
+            ul li { list-style-type: disc }
+            ul ul li { list-style-type: circle }
+            ul ul ul li { list-style-type: square }
+            ul ul ul ul li { list-style-type: disc }
 
             div#nav_footer {
                 display          : block;
