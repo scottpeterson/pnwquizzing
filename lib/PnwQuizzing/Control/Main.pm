@@ -4,6 +4,7 @@ use parent 'PnwQuizzing';
 use Mojo::Asset::File;
 use Text::MultiMarkdown 'markdown';
 use Text::CSV_XS 'csv';
+use Encode 'decode_utf8';
 use Role::Tiny::With;
 
 with 'PnwQuizzing::Role::Secret';
@@ -12,7 +13,7 @@ sub home_page ($self) {
     my $asset = Mojo::Asset::File->new(
         path => $self->conf->get( qw( config_app root_dir ) ) . '/docs/index.md'
     );
-    my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
+    my $payload = decode_utf8( ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp );
     my $title   = ( $payload =~ s/^#\s*([^#]+?)\s*$//ms ) ? $1 : '';
 
     $self->stash( payload => markdown($payload), title => $title );
@@ -45,7 +46,9 @@ sub content ($self) {
     my $asset = Mojo::Asset::File->new( path => $file );
 
     if ( not $self->param('download') and ( $type eq 'md' or $type eq 'csv' ) ) {
-        my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
+        my $payload = decode_utf8(
+            ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp
+        );
 
         if ( $type eq 'md' ) {
             $payload =~ s|(\[[^\]]+\]\([^\)]+\.)(\w+)\)|
