@@ -4,7 +4,7 @@ The following are the bylaws of the Pacific Northwest Bible Quizzing non-profit 
 
 - Unified Business ID #: 602-922-314
 - Federal Identification Number: 27-0234408
-- Bylaws Version: 2019-01-02
+- Bylaws Version: 2019-04-26
 
 These bylaws, as adopted by the PNW membership, replace all previously adopted bylaws and amendments.
 
@@ -18,7 +18,7 @@ The leadership of a ministry organization shall be considered to be the coaching
 
 Member ministry organizations are apportioned 2 delegate votes to represent their organization in the PNW General Assembly of Delegates, hereinafter referred to as the Assembly. An organization's leadership may assign these delegate voting rights in any way they choose. A single person is not prohibited from representing multiple votes, even across ministry organizations.
 
-At least 1 in-person meeting of the Assembly must take place annually. Ideally, in-person meetings of the Assembly should take place as often as is practical, as defined as a logistically available break during a PNW event such that the event's overall schedule will not be negatively impacted. All meetings of the Assembly are open to any leaders of any of the member ministry organizations, regardless of their holding a delegate voting right.
+At least 1 in-person meeting of the Assembly must take place annually. Ideally, in-person meetings of the Assembly should take place as often as is practical, as defined as a logistically available break during a PNW event such that the event's overall schedule will not be negatively impacted. All meetings of the Assembly are open to any leaders of any of the member ministry organizations, members of the Board of Directors, and all meet officials (i.e. quizmasters, answer judges, scorekeepers, and statisticians), regardless of their holding a delegate voting right.
 
 Assembly meetings shall be conducted according to parliamentary procedures as directed by the most recent revision of Robert's Rules of Order. Any bylaw which conflicts with the parliamentary authority shall be understood to override the parliamentary authority in that bylaw's specific use case. While only delegates may vote, all attendees have the right to parliamentary privilege. Attendees are excepted from rising to full stature to seek recognition from the chair and from requirements to speak only in the third person and only to the chair. All discussion and debate speech limits are suspended by default. These can be reinstated through a point of privilege raised by any attendee. In addition to amendment types as stipulated by the parliamentary authority, motions to amend may alter their target content by replacing it entirely with new content.
 
@@ -59,6 +59,8 @@ At each Board meeting, the Board will appoint one of its directors to be Secreta
 
 The District Coordinator is appointed by the Assembly for an annual term and will oversee tactical governance, policy implementation leadership, and financial plan execution. While all tactical activities of the PNW are overseen by the District Coordinator, the District Coordinator should as a norm appoint individuals and charter subcommittees to conduct the work and hold these individuals and subcommittees accountable.
 
+The District Coordinator has the responsiblity to lead or delegate the leading of General Assembly Meetings.
+
 The District Coordinator should not, with a small set of exceptions, manage any tactical activity directly without having first attempted and failed to delegate and then only after receiving explicit Board approval. Such Board approval should be considered short-term and no longer than the quizzing season in which it is granted.
 
 The following are duties of the District Coordinator that should not be delegated:
@@ -81,10 +83,9 @@ The following are some of the duties The District Coordinator should attempt to 
 The Rules Subcommittee is a permanent subcommittee of the Board of Directors responsible for the following:
 
 - Set and make adjustments as necessary to the quizzing rules of PNW
-- Recruit, train, and oversee quizmasters and answer judges
-- Produce training opportunities for scorekeepers and statisticians
+- Recruit, train, and oversee all meet officials: quizmasters, answer judges, scorekeepers, and statisticians
 
-The Rules Subcommittee is chaired by the Rules Subcommittee Leader. All quizmasters and answer judges who are active in the current quizzing season sit on the subcommittee, but only those quizmasters and answer judges who have attended at least 50% of the quiz meets in the previous 12 months are voting members. The Rules Subcommittee Leader is a voting member regardless of meet attendance. Quorum will be considered >50% of all current subcommittee members or >50% voting subcommittee members, whichever is fulfilled first.
+The Rules Subcommittee is chaired by the Rules Subcommittee Leader. All meet officials who are active in the current quizzing season sit on the subcommittee, but only those meet officials who have attended at least 50% of the quiz meets in the previous 12 months are voting members. The Rules Subcommittee Leader is a voting member regardless of meet attendance. Quorum will be considered >50% of all current subcommittee members or >50% voting subcommittee members, whichever is fulfilled first.
 
 ## Article 6 - Treasurer
 
