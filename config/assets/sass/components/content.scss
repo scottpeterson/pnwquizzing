@@ -68,6 +68,15 @@ dd {
     margin-left: 1em;
 }
 
+img#header_photo {
+    float: right;
+    max-width: 40%;
+    max-height: 40%;
+    margin-left: 15px;
+    margin-right: 0px;
+    border: 1px solid black;
+}
+
 @import 'content/hash_tool';
 @import 'content/home_page';
 @import 'content/content_footer';

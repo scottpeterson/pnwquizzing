@@ -63,7 +63,11 @@ sub content ($self) {
                     ? ( qq{$1.$2) <i class="la la-} . $icon . q{-o"></i>} )
                     : "$1$2$3)";
             |eg;
-            return $self->stash( html => markdown($payload) );
+
+            my $header_photos = $self->stash('header_photos');
+            my $header_photo  = $header_photos->[ rand @$header_photos ];
+
+            return $self->stash( html => markdown($payload), header_photo => $header_photo );
         }
         return $self->stash( csv => csv( in => \$payload ) ) if ( $type eq 'csv' );
     }

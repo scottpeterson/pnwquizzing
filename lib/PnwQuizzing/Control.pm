@@ -65,9 +65,16 @@ sub startup ($self) {
     } );
 
     my $docs_nav = $self->generate_docs_nav;
+    my $header   = length( $root_dir . '/static' );
+    my $photos   = Mojo::File
+        ->new( $root_dir . '/static/photos' )
+        ->list_tree
+        ->map( sub { substr( $_->to_string, $header ) } )
+        ->grep(qr/\.(?:jpg|png)$/)
+        ->to_array;
 
     my $all = $self->routes->under( sub ($self) {
-        $self->stash( docs_nav => $docs_nav );
+        $self->stash( docs_nav => $docs_nav, header_photos => $photos );
     } );
 
     my $users = $all->under( sub ($self) {

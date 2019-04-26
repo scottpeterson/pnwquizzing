@@ -1,6 +1,10 @@
-[% html %]
+[% IF html %]
+    [% IF header_photo %]
+        <img id="header_photo" class="no_print" src="[% c.url_for(header_photo) %]">
+    [% END %]
 
-[% IF csv %]
+    [% html %]
+[% ELSIF csv %]
     <h1>[% title %]</h1>
     <p class="no_print">
         <a href="[% c.url_with.query( download => 1 ) %]">Download "[% title %]" data in CSV/Excel</a>.
