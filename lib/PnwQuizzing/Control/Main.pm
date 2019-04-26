@@ -2,7 +2,7 @@ package PnwQuizzing::Control::Main;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 use parent 'PnwQuizzing';
 use Mojo::Asset::File;
-use Text::Markdown 'markdown';
+use Text::MultiMarkdown 'markdown';
 use Text::CSV_XS 'csv';
 use Role::Tiny::With;
 

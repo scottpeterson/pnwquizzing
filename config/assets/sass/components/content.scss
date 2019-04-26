@@ -56,6 +56,18 @@ li > ol {
     margin-bottom: 0px;
 }
 
+dl {
+    margin-left: 0px;
+}
+
+dt {
+    margin-top: 1em;
+}
+
+dd {
+    margin-left: 1em;
+}
+
 @import 'content/hash_tool';
 @import 'content/home_page';
 @import 'content/content_footer';

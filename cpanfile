@@ -20,7 +20,7 @@ requires 'Log::Dispatch::Email::Mailer', '>= 1.03';
 requires 'Term::ANSIColor', '>= 4.06';
 requires 'Term::ReadKey', '>= 2.37';
 requires 'Text::CSV_XS', '>= 1.38';
-requires 'Text::Markdown', '>= 1.000031';
+requires 'Text::MultiMarkdown', '>= 1.000035';
 requires 'TryCatch', '>= 1.003002';
 requires 'Util::CommandLine', '>= 1.03';
 

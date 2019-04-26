@@ -6,7 +6,7 @@
         <a href="[% c.url_with.query( download => 1 ) %]">Download "[% title %]" data in CSV/Excel</a>.
     </p>
 
-    <table class="tabular">
+    <table>
         [% FOR row IN csv %]
             <tr>
                 [% IF loop.first %]
