@@ -48,7 +48,18 @@ sub content ($self) {
         my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
 
         if ( $type eq 'md' ) {
-            $payload =~ s|{(\w+):(\w+)}|<i class="la la-$1-$2-o"></i>|g;
+            $payload =~ s|(\[[^\]]+\]\([^\)]+\.)(\w+)\)|
+                my $ft   = lc $2;
+                my $icon =
+                    ( $ft eq 'pdf'  ) ? 'file-pdf'   :
+                    ( $ft eq 'doc'  ) ? 'file-word'  :
+                    ( $ft eq 'docx' ) ? 'file-word'  :
+                    ( $ft eq 'xls'  ) ? 'file-excel' :
+                    ( $ft eq 'xlsx' ) ? 'file-word'  : undef;
+                ($icon)
+                    ? ( qq{$1.$2) <i class="la la-} . $icon . q{-o"></i>} )
+                    : "$1$2$3)";
+            |eg;
             return $self->stash( html => markdown($payload) );
         }
         return $self->stash( csv => csv( in => \$payload ) ) if ( $type eq 'csv' );

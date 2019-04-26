@@ -1,18 +1,18 @@
 # Great West Invitational
 
-- [GWI Career Summations](/downloads/great_west/2001-2018_gwi_summaries.pdf) {file:pdf}
-- [2001-2018 Individuals](/downloads/great_west/2001-2018_gwi.pdf) {file:pdf}
-- 2018 - [Individual](/downloads/great_west/2018_gwi_individuals.pdf) {file:pdf} - [Team](/downloads/great_west/2018_gwi_teams.pdf) {file:pdf}
-- 2017 - [Individual](/downloads/great_west/2017_gwi_individuals.pdf) {file:pdf} - [Team](/downloads/great_west/2017_gwi_teams.pdf) {file:pdf}
-- 2016 - [Individual](/downloads/great_west/2016_gwi_ind.pdf) {file:pdf} - [Team](/downloads/great_west/2016_gwi_team.pdf) {file:pdf}
-- 2015 - [Individual](/downloads/great_west/2015_gwi_individual.pdf) {file:pdf} - [Team](/downloads/great_west/2015_gwi_team.pdf) {file:pdf} - [Team Prelim](/downloads/great_west/2015_gwi_team_prelim.pdf) {file:pdf}
-- 2014 - [Individual](/downloads/great_west/2014_gwi_ind.pdf) {file:pdf} - [Team](/downloads/great_west/2014_gwi_team.pdf) {file:pdf} - [Team Prelim](/downloads/great_west/2014_gwi_team_prelim.pdf) {file:pdf}
-- [2013](/downloads/great_west/great_west_invitational_2013_individual_statistics.pdf) {file:pdf}
-- [2012](/downloads/great_west/gwigwi.pdf) {file:pdf}
-- [2011](/downloads/great_west/2011_gwi.pdf) {file:pdf}
-- [2010](/downloads/great_west/2010_gwi.pdf) {file:pdf}
-- [2009](/downloads/great_west/2009_gwi.pdf) {file:pdf}
-- [2008](/downloads/great_west/2008_gwi.pdf) {file:pdf}
+- [GWI Career Summations](/downloads/great_west/2001-2018_gwi_summaries.pdf)
+- [2001-2018 Individuals](/downloads/great_west/2001-2018_gwi.pdf)
+- 2018 - [Individual](/downloads/great_west/2018_gwi_individuals.pdf) - [Team](/downloads/great_west/2018_gwi_teams.pdf)
+- 2017 - [Individual](/downloads/great_west/2017_gwi_individuals.pdf) - [Team](/downloads/great_west/2017_gwi_teams.pdf)
+- 2016 - [Individual](/downloads/great_west/2016_gwi_ind.pdf) - [Team](/downloads/great_west/2016_gwi_team.pdf)
+- 2015 - [Individual](/downloads/great_west/2015_gwi_individual.pdf) - [Team](/downloads/great_west/2015_gwi_team.pdf) - [Team Prelim](/downloads/great_west/2015_gwi_team_prelim.pdf)
+- 2014 - [Individual](/downloads/great_west/2014_gwi_ind.pdf) - [Team](/downloads/great_west/2014_gwi_team.pdf) - [Team Prelim](/downloads/great_west/2014_gwi_team_prelim.pdf)
+- [2013](/downloads/great_west/great_west_invitational_2013_individual_statistics.pdf)
+- [2012](/downloads/great_west/gwigwi.pdf)
+- [2011](/downloads/great_west/2011_gwi.pdf)
+- [2010](/downloads/great_west/2010_gwi.pdf)
+- [2009](/downloads/great_west/2009_gwi.pdf)
+- [2008](/downloads/great_west/2008_gwi.pdf)
 
 | Year | Sum    | # of Quizzers | Average |
 |-----:|-------:|--------------:|--------:|
