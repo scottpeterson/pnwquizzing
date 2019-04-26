@@ -2,17 +2,17 @@
 
 ## Statistics
 
-- 2016 - [All](/downloads/internationals/statistics/internationals_2016.pdf) <i class="la la-file-pdf-o"></i>
-- 2015 - [All](/downloads/internationals/statistics/internationals_2015.pdf) <i class="la la-file-pdf-o"></i>
-- 2014 - [Team](/downloads/internationals/statistics/internationals_2014_team.pdf) <i class="la la-file-pdf-o"></i>, [Individual](/downloads/internationals/statistics/internationals_2014_individual.pdf) <i class="la la-file-pdf-o"></i>
-- 2013 - [Team](/downloads/internationals/statistics/internationals_2013_team.doc) <i class="la la-file-word-o"></i>, [Individual](/downloads/internationals/statistics/internationals_2013_individual.xlsx) <i class="la la-file-excel-o"></i>
-- 2012 - [All](/downloads/internationals/statistics/internationals_2012.pdf) <i class="la la-file-pdf-o"></i>
-- 2011 - [Team](/downloads/internationals/statistics/internationals_2011_team.xlsx) <i class="la la-file-excel-o"></i>, [Individual](/downloads/internationals/statistics/internationals_2011_individual.xlsx) <i class="la la-file-excel-o"></i>
-- 2010 - [All](/downloads/internationals/statistics/internationals_2010.pdf) <i class="la la-file-pdf-o"></i>
-- 2007 - [Individual](/downloads/internationals/statistics/internationals_2007_individual.xlsx) <i class="la la-file-excel-o"></i>
-- 2006 - [Individual](/downloads/internationals/statistics/internationals_2006_individual.docx) <i class="la la-file-word-o"></i>
-- 2005 - [Individual](/downloads/internationals/statistics/internationals_2005_individual.docx) <i class="la la-file-word-o"></i>
-- 2004 - [Individual](/downloads/internationals/statistics/internationals_2004_individual.docx) <i class="la la-file-word-o"></i>
+- 2016 - [All](/downloads/internationals/statistics/internationals_2016.pdf) {file:pdf}
+- 2015 - [All](/downloads/internationals/statistics/internationals_2015.pdf) {file:pdf}
+- 2014 - [Team](/downloads/internationals/statistics/internationals_2014_team.pdf) {file:pdf}, [Individual](/downloads/internationals/statistics/internationals_2014_individual.pdf) {file:pdf}
+- 2013 - [Team](/downloads/internationals/statistics/internationals_2013_team.doc) {file:word}, [Individual](/downloads/internationals/statistics/internationals_2013_individual.xlsx) {file:excel}
+- 2012 - [All](/downloads/internationals/statistics/internationals_2012.pdf) {file:pdf}
+- 2011 - [Team](/downloads/internationals/statistics/internationals_2011_team.xlsx) {file:excel}, [Individual](/downloads/internationals/statistics/internationals_2011_individual.xlsx) {file:excel}
+- 2010 - [All](/downloads/internationals/statistics/internationals_2010.pdf) {file:pdf}
+- 2007 - [Individual](/downloads/internationals/statistics/internationals_2007_individual.xlsx) {file:excel}
+- 2006 - [Individual](/downloads/internationals/statistics/internationals_2006_individual.docx) {file:word}
+- 2005 - [Individual](/downloads/internationals/statistics/internationals_2005_individual.docx) {file:word}
+- 2004 - [Individual](/downloads/internationals/statistics/internationals_2004_individual.docx) {file:word}
 
 ## Quizmasters at Internationals
 

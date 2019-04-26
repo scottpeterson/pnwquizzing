@@ -47,7 +47,10 @@ sub content ($self) {
     if ( not $self->param('download') and ( $type eq 'md' or $type eq 'csv' ) ) {
         my $payload = ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp;
 
-        return $self->stash( html => markdown($payload) ) if ( $type eq 'md' );
+        if ( $type eq 'md' ) {
+            $payload =~ s|{(\w+):(\w+)}|<i class="la la-$1-$2-o"></i>|g;
+            return $self->stash( html => markdown($payload) );
+        }
         return $self->stash( csv => csv( in => \$payload ) ) if ( $type eq 'csv' );
     }
 

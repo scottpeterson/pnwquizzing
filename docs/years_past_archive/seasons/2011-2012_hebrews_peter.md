@@ -38,26 +38,26 @@
 
 ## Team Statistics
 
-- [District Meet #1](/downloads/past_seasons/2011-2012/2011-12_district_meet_1_-_team_semis.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #2](/downloads/past_seasons/2011-2012/team2.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #3](/downloads/past_seasons/2011-2012/2011-12_district_meet_3_team.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #4](/downloads/past_seasons/2011-2012/20112-2012_district_4_team.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #5](/downloads/past_seasons/2011-2012/teammeet5.pdf) <i class="la la-file-pdf-o"></i>
-- [District Championships ](/downloads/past_seasons/2011-2012/dischampsteam.pdf) <i class="la la-file-pdf-o"></i>
-- [Team Year-To-Date](/downloads/past_seasons/2011-2012/final_team.pdf) <i class="la la-file-pdf-o"></i>
-- [Great West Invitational](/downloads/past_seasons/2011-2012/2012_gwi.pdf) <i class="la la-file-pdf-o"></i>
+- [District Meet #1](/downloads/past_seasons/2011-2012/2011-12_district_meet_1_-_team_semis.pdf) {file:pdf}
+- [District Meet #2](/downloads/past_seasons/2011-2012/team2.pdf) {file:pdf}
+- [District Meet #3](/downloads/past_seasons/2011-2012/2011-12_district_meet_3_team.pdf) {file:pdf}
+- [District Meet #4](/downloads/past_seasons/2011-2012/20112-2012_district_4_team.pdf) {file:pdf}
+- [District Meet #5](/downloads/past_seasons/2011-2012/teammeet5.pdf) {file:pdf}
+- [District Championships ](/downloads/past_seasons/2011-2012/dischampsteam.pdf) {file:pdf}
+- [Team Year-To-Date](/downloads/past_seasons/2011-2012/final_team.pdf) {file:pdf}
+- [Great West Invitational](/downloads/past_seasons/2011-2012/2012_gwi.pdf) {file:pdf}
 
 ## Individual Statistics
 
-- [Scramble Meet](/downloads/past_seasons/2011-2012/scramble_meet_2011-2012.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #1](/downloads/past_seasons/2011-2012/2011-12_district_meet_1_-_individual.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #2](/downloads/past_seasons/2011-2012/2011-2012_district_2_.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #3](/downloads/past_seasons/2011-2012/2011-12_district_meet_3.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #4](/downloads/past_seasons/2011-2012/2011-12_district_meet_4.pdf) <i class="la la-file-pdf-o"></i>
-- [District Meet #5](/downloads/past_seasons/2011-2012/meet5.pdf) <i class="la la-file-pdf-o"></i>
-- [District Championships ](/downloads/past_seasons/2011-2012/dischampsind.pdf) <i class="la la-file-pdf-o"></i>
-- [Individual Year-To-Date](/downloads/past_seasons/2011-2012/final_ind.pdf) <i class="la la-file-pdf-o"></i>
-- [Great West Invitational](/downloads/past_seasons/2011-2012/2012_gwi_indiv.pdf) <i class="la la-file-pdf-o"></i>
+- [Scramble Meet](/downloads/past_seasons/2011-2012/scramble_meet_2011-2012.pdf) {file:pdf}
+- [District Meet #1](/downloads/past_seasons/2011-2012/2011-12_district_meet_1_-_individual.pdf) {file:pdf}
+- [District Meet #2](/downloads/past_seasons/2011-2012/2011-2012_district_2_.pdf) {file:pdf}
+- [District Meet #3](/downloads/past_seasons/2011-2012/2011-12_district_meet_3.pdf) {file:pdf}
+- [District Meet #4](/downloads/past_seasons/2011-2012/2011-12_district_meet_4.pdf) {file:pdf}
+- [District Meet #5](/downloads/past_seasons/2011-2012/meet5.pdf) {file:pdf}
+- [District Championships ](/downloads/past_seasons/2011-2012/dischampsind.pdf) {file:pdf}
+- [Individual Year-To-Date](/downloads/past_seasons/2011-2012/final_ind.pdf) {file:pdf}
+- [Great West Invitational](/downloads/past_seasons/2011-2012/2012_gwi_indiv.pdf) {file:pdf}
 
 ## 2012 Internationals
 
