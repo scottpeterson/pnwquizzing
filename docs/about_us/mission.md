@@ -3,8 +3,8 @@
 Pacific Northwest Bible Quizzing is affilitated with Christian and Missionary
 Alliance (CMA) Bible Quizzing. The PNW district consists of, and is open to,
 all theologically traditional Christian churches in Washington and Oregon. See
-[our bylaws](../governance/bylaws.md "PNW Bible Quizzing Bylaws") for more
-information.
+[our bylaws](/district_governance/bylaws.md "PNW Bible Quizzing Bylaws") for
+more information.
 
 The CMA Bible Quizzing Mission Statement reads:
 

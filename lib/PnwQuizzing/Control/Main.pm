@@ -34,10 +34,16 @@ sub content ($self) {
     ) );
 
     $file .= '/index.md' unless ( -f $file );
+
     unless ( -f $file ) {
         $self->notice( '404 in Main content: ' . ( $self->stash('name') || '>undef<' ) );
+
+        my $default_handler = $self->app->renderer->default_handler;
         $self->app->renderer->default_handler('ep');
-        return $self->reply->not_found;
+        $self->reply->not_found;
+        $self->rendered(404);
+        $self->app->renderer->default_handler($default_handler);
+        return;
     }
 
     my ($type) = lc($file) =~ /\.([^\.\/]+)$/;
@@ -60,7 +66,7 @@ sub content ($self) {
                     ( $ft eq 'xls'  ) ? 'file-excel' :
                     ( $ft eq 'xlsx' ) ? 'file-word'  : undef;
                 ($icon)
-                    ? ( qq{$1.$2) <i class="la la-} . $icon . q{-o"></i>} )
+                    ? ( qq{$1$2) <i class="la la-} . $icon . q{-o"></i>} )
                     : "$1$2$3)";
             |eg;
 

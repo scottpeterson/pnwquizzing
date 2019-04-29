@@ -2,34 +2,33 @@
 
 ## District Coordinator
 
-- 2018-2019 season: Scott Peterson, Alliance Bible Church
-- 2019-2020 season: Gryphon Shafer, Port Orchard
+- Gryphon Shafer, PNWTI
 
 ## Quizmasters
 
 - Cutty Welt, North Seattle Alliance Church
-- Scott Peterson, Alliance Bible Church
-- Gryphon Shafer, Port Orchard
+- Gryphon Shafer, PNWTI
+- Jessica Monroe, Dallas
 - Kendra Gross, Grays Harbor
 - Micah Hollen, Grays Harbor
-- Jessica Monroe, Dallas
 
 ## Scorekeeper
 
-- Lawrence Kim, NSA
-- Dave Beatty, Spanaway
-- Kim Rigg, Madras
 - Ben Hoefs, Grays Harbor
 - Daniel Newman, NSA
+- Dave Beatty, Spanaway
+- Kim Rigg, Madras
+- Lawrence Kim, NSA
+- Sharalyn Shafer, PNWTI
 
 ## Statistics
 
-- Head Statistician: Lillian Peterson, Alliance Bible Church
+- Statisticians: Scott and Lillian Peterson, somewhere in the midwest
 
-## Committees
+## Board of Directors
 
-- Rules Committee: Comprised of the District Coordinator and 4 quizmasters; Chair: Gryphon Shafer
-- Finance Committee: Sharalyn Shafer, Port Orchard
-- Meet Logistics Committee: Kristine Delamarter, Madras
-- Technology Committee: Sarah Davis, Dallas Alliance Church
-- Steering Committee: Scott Peterson, Gryphon Shafer, Sharalyn Shafer, Kristine Delamarter, Sarah Davis
+- Gryphon Shafer, PNWTI (Chair by virtue of being District Coordinator)
+- Jeremy Swingle, Trinitas (Vice-Chair by virtue of being Rules Commmittee Chair)
+- Sharalyn Shafer, PNWTI (Treasurer)
+- Kristine Delamarter, Madras
+- Sarah Davis, Dallas Alliance Church
