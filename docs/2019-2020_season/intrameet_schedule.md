@@ -1,20 +1,24 @@
-# Proposed Intrameet Schedule
+# Intrameet Schedule
 
-The following is a proposed intrameet schedule for 2019-2020:
+The following is a new intrameet schedule we're going to try out for 2019-2020.
+Feedback and criticisms are welcomed.
 
-- Friday
-    - Registration 6:00pm-6:30pm
-    - Announcements 6:30pm-6:40pm
-    - Quizzing: Prelims 1-32 (9 quizzes) 6:40pm-9:00pm
-- Saturday
-    - Worship, Devotions 8:15am-8:50am
-    - Announcements 8:50am-9:00am
-    - Quizzing: Prelims 33-50 (9 quizzes) 9:00am-11:20am
-    - Lunch, Leadership Meeting, Fellowship 11:20am-12:30pm
-    - Announcements 12:30pm-12:40pm
-    - Quizzing: Brackets (9 quizzes) 12:40pm-3:00pm
-    - Quizzing: Championships (1 quiz) 3:00pm-3:20pm
-    - Awards, Closing 3:20pm-3:40pm
+## Friday
+
+- Registration *6:00 PM-6:30 PM*
+- Announcements *6:30 PM-6:40 PM*
+- Quizzing: Prelims 1-32 (9 quizzes) *6:40 PM-9:00 PM*
+
+## Saturday
+
+- Worship, Devotions *8:15 AM-8:50 AM*
+- Announcements *8:50 AM-9:00 AM*
+- Quizzing: Prelims 33-50 (9 quizzes) *9:00 AM-11:20 AM*
+- Lunch, Leadership Meeting, Fellowship *11:20 AM-12:30 PM*
+- Announcements *12:30 PM-12:40 PM*
+- Quizzing: Brackets (9 quizzes) *12:40 PM-3:00 PM*
+- Quizzing: Championships (1 quiz) *3:00 PM-3:20 PM*
+- Awards, Closing *3:20 PM-3:40 PM*
 
 In addition, there won't be any synchronized quizzing. There will not be any
 posted scheduled start times for quizzes. When a team completes a quiz, it
