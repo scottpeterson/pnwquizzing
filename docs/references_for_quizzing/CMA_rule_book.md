@@ -20,5 +20,6 @@ made after many solicitations of input and recommendations from every district,
 and discussed at length by a Rule Book Sub-Committee composed of 5 members from
 5 different districts (2 Canada, 3 US).
 
-- [2017 CMA Bible Quizzing Rule Book](CMA_rule_book_2017.pdf)
+- [2018 CMA Bible Quizzing Rule Book](CMA_rule_book_2018.docx)
+- [2017 CMA Bible Quizzing Rule Book](/downloads/CMA_rule_book_2017.pdf)
 - [2013 CMA Bible Quizzing Rule Book](/downloads/CMA_rule_book_2013.pdf)
