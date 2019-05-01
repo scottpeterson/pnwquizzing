@@ -83,7 +83,7 @@ img#header_photo {
 
 @media print {
     & {
-        background-color: transparent;
+        background-color: transparent !important;
     }
 
     .no_print {

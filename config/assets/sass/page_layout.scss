@@ -91,7 +91,7 @@ html {
 
     @media print {
         body {
-            grid-template-areas: "content content" "content content" !important;
+            display: inherit !important;
 
             div#header {
                 display: none;
@@ -99,6 +99,10 @@ html {
 
             div#nav {
                 display: none;
+            }
+
+            div#content {
+                min-height: inherit !important;
             }
         }
     }
