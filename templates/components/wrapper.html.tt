@@ -8,7 +8,9 @@
 
     page.title =
         ( NOT page.title ) ? 'PNW Bible Quizzing' :
-        ( NOT page.title.match('^PNWBQ\s') AND page.title != 'PNW Bible Quizzing' ) ? 'PNWBQ: ' _ page.title : page.title;
+        (
+            NOT page.title.match('^PNWBQ\s') AND page.title != 'PNW Bible Quizzing'
+        ) ? 'PNWBQ: ' _ page.title : page.title;
 -%]
 <!DOCTYPE html>
 <html lang="en">
@@ -30,4 +32,31 @@
     <body[% IF page.body_class %] class="[% page.body_class %]"[% END %]>
         [% PROCESS page_layout.html.tt %]
     </body>
+
+    <script type="text/javascript">
+        var nav;
+        var content;
+        var header;
+
+        function nav_content_align() {
+            if ( nav.offsetHeight < content.offsetHeight ) {
+                var height = content.scrollHeight - header.scrollHeight;
+
+                nav.style.maxHeight = height + "px";
+                nav.style.height    = height + "px";
+            }
+        }
+
+        window.addEventListener( 'load', function() {
+            nav     = document.getElementById("nav");
+            content = document.getElementById("content");
+            header  = document.getElementById("header");
+
+            nav_content_align();
+        } );
+
+        window.addEventListener( 'resize', function() {
+            nav_content_align();
+        } );
+    </script>
 </html>

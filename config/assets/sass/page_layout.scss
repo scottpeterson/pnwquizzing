@@ -2,12 +2,6 @@ $header_height    : 44px;
 $div_body_padding : 20px;
 $nav_width        : 200px;
 
-%div_body_scroller {
-    min-height : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
-    overflow   : auto;
-    overflow-x : hidden;
-}
-
 html {
     body {
         display               : grid;
@@ -53,7 +47,9 @@ html {
         }
 
         div#nav {
-            @extend %div_body_scroller;
+            overflow-x : hidden;
+            overflow-y : auto;
+            max-height : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
 
             grid-area        : nav;
             padding          : $div_body_padding;
@@ -69,7 +65,10 @@ html {
         @import 'components/message';
 
         div#content {
-            @extend %div_body_scroller;
+            overflow-x : hidden;
+            overflow-y : auto;
+            min-height : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
+
             grid-area: content;
             @import 'components/content';
         }
