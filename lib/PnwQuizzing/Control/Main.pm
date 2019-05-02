@@ -65,7 +65,7 @@ sub content ($self) {
                     ( $ft eq 'docx' ) ? 'file-word'  :
                     ( $ft eq 'xls'  ) ? 'file-excel' :
                     ( $ft eq 'xlsm' ) ? 'file-excel' :
-                    ( $ft eq 'xlsx' ) ? 'file-word'  : undef;
+                    ( $ft eq 'xlsx' ) ? 'file-excel' : undef;
                 ($icon)
                     ? ( qq{$1$2) <i class="la la-} . $icon . q{-o"></i>} )
                     : "$1$2$3)";

@@ -19,10 +19,18 @@
 
 ## Team Statistics
 
-- [District #1, Prelim Data](/downloads/past_seasons/2013-2014/team_prelims.pdf)
-- [District #2, Prelim Data](/downloads/past_seasons/2013-2014/2013-2014_dist_2_team.pdf)
-- [District #3, Prelim Data](/downloads/past_seasons/2013-2014/district_3_prelim_data_2014.pdf)
-- [District #4, Prelim Data](/downloads/past_seasons/2013-2014/meet_4_prelim_data.pdf)
+- District #1
+  [All](/downloads/past_seasons/2013-2014/2013-14_meet_1_statistics.pdf),
+  [Prelim](/downloads/past_seasons/2013-2014/team_prelims.pdf)
+- District #2
+  [All](/downloads/past_seasons/2013-2014/2013-2014_dist_2_team.pdf),
+  [Prelim](/downloads/past_seasons/2013-2014/2013-2014_dist_2_team_prelim.pdf)
+- District #3
+  [All](/downloads/past_seasons/2013-2014/district_3_team_2014.pdf),
+  [Prelim](/downloads/past_seasons/2013-2014/district_3_prelim_data_2014.pdf)
+- District #4
+  [All](/downloads/past_seasons/2013-2014/meet_4_team.pdf),
+  [Prelim](/downloads/past_seasons/2013-2014/meet_4_prelim_data.pdf)
 - [District #5](/downloads/past_seasons/2013-2014/meet_5_2013-2014_team_stats.pdf)
 - [District Championships](/downloads/past_seasons/2013-2014/2014_dis_champs_team.pdf)
 - [Final Year Team Statistics](/downloads/past_seasons/2013-2014/2014_ytd_team.pdf)
