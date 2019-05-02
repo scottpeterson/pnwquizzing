@@ -13,7 +13,7 @@ html {
             grid-template-areas: "header header" "content content";
         }
 
-        min-width: 350px;
+        min-width: 365px;
 
         div#header {
             grid-area : header;
@@ -23,7 +23,7 @@ html {
                     display: none;
                 }
 
-                @media (max-width: 650px) {
+                @media (max-width: 665px) {
                     span.header_title_long {
                         display: none;
                     }
@@ -32,13 +32,13 @@ html {
                     }
                 }
 
-                @media (max-width: 530px) {
+                @media (max-width: 550px) {
                     span.header_title_mission {
                         display: none;
                     }
                 }
 
-                @media (max-width: 400px) {
+                @media (max-width: 417px) {
                     span.header_title_short {
                         display: none;
                     }

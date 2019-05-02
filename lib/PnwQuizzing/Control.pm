@@ -85,11 +85,11 @@ sub startup ($self) {
         return 0;
     } );
 
-    $users->any('/tool/hash')->to('tool#hash');
+    $users->any('/tool/:action')->to( controller => 'tool' );
 
-    $all->any( '/user/' . $_ )->to( controller => 'user', action => $_ ) for ( qw( login logout signup ) );
     $all->any('/user/verify/:verify_user_id/:verify_passwd')->to('user#verify');
-
+    $all->any( '/user/:action')->to( controller => 'user' );
+    $all->any('/search')->to('tool#search');
     $all->any('/')->to('main#home_page');
     $all->any('/*name')->to('main#content');
 }

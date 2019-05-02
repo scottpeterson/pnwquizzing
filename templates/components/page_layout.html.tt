@@ -8,6 +8,11 @@
     </div>
 
     <div id="header_user">
+        <i id="search_icon" class="la la-search"></i>
+        <form id="search_form" method="get" action="[% c.url_for('/search') %]">
+            <input type="text" name="for">
+        </form>
+
         [% UNLESS user %]
             <form method="post" action="[% c.url_for('/user/login') %]">
                 <input type="text" name="username" placeholder="Username" size="12">

@@ -1,0 +1,17 @@
+<h1>Search Results</h1>
+
+[% IF files.size %]
+    <p>
+        Searching for "[% c.req.param('for') %]" resulted in
+        [% files.size %] match[% IF files.size > 1 %]es[% END %]:
+    </p>
+    <ul>
+        [% FOREACH file IN files %]
+            <li><a href="[% c.url_for( file.path ) %]">[% file.title.join(' :: ') %]</a></li>
+        [% END %]
+    </ul>
+[% ELSE %]
+    <p>
+        Searching for "[% c.req.param('for') %]" resulted in no matches.
+    </p>
+[% END %]

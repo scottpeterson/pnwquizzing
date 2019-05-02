@@ -45,7 +45,23 @@ html {
                 float  : right;
                 margin : 10px 10px 10px 0px;
 
+                i#search_icon {
+                    display      : inline-block;
+                    margin-right : 5px;
+
+                    &:hover {
+                        color: yellow;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+
+                form#search_form {
+                    display: none;
+                }
+
                 form {
+                    display: inline-block;
                     input[type="text"],
                     input[type="password"] {
                         width  : 100px;
@@ -67,6 +83,7 @@ html {
                 }
 
                 p {
+                    display: inline-block;
                     margin-top: 5px;
                 }
             }
@@ -118,12 +135,12 @@ html {
     }
 }
 
-i.la {
+.hover_expand {
     font-size: 120%;
     margin-top: -1em;
 }
 
-i.la:hover {
+.hover_expand:hover {
     font-size: 200%;
     margin-left: -0.2em;
     margin-right: -0.2em;
