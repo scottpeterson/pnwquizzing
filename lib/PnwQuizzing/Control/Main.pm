@@ -27,9 +27,12 @@ sub content ($self) {
     );
 
     ( my $name = $self->stash('name') ) =~ s/\.[^\.\/]+$//;
+    $name =~ s|/_|/|g;
     $self->stash( 'title' => join( ' / ',
         map {
-            join( ' ', map { ucfirst } split('_') )
+            ucfirst( join( ' ', map {
+                ( /^(?:a|an|the|and|but|or|for|nor|on|at|to|from|by)$/i ) ? $_ : ucfirst
+            } split('_') ) )
         } split( '/', $name )
     ) );
 

@@ -31,6 +31,8 @@ sub generate_docs_nav ($self) {
     my $docs_nav        = [];
 
     for (@files) {
+        next if (m|/_|);
+
         my $href = substr( $_, $docs_dir_length );
         my @path = ( 'Home Page', map {
             ucfirst( join( ' ', map {
