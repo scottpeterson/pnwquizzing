@@ -61,7 +61,9 @@ sub content ($self) {
 
         if ( $type eq 'md' ) {
             $payload =~ s|(\[[^\]]+\]\([^\)]+\.)(\w+)\)|
-                my $ft   = lc $2;
+                my ( $x, $y, $z ) = map { $_ // '' } $1, $2, $3;
+
+                my $ft   = lc $y;
                 my $icon =
                     ( $ft eq 'pdf'  ) ? 'file-pdf'   :
                     ( $ft eq 'doc'  ) ? 'file-word'  :
@@ -69,9 +71,10 @@ sub content ($self) {
                     ( $ft eq 'xls'  ) ? 'file-excel' :
                     ( $ft eq 'xlsm' ) ? 'file-excel' :
                     ( $ft eq 'xlsx' ) ? 'file-excel' : undef;
+
                 ($icon)
-                    ? ( qq{$1$2) <i class="la la-} . $icon . q{-o"></i>} )
-                    : "$1$2$3)";
+                    ? ( qq{$x$y) <i class="la la-} . $icon . q{-o"></i>} )
+                    : "$x$y$z)";
             |eg;
 
             my $header_photos = $self->stash('header_photos');
