@@ -1,11 +1,18 @@
 # PNW Bible Quizzing
 
+<iframe
+    class="youtube"
+    src="https://www.youtube.com/embed/3kiATsWA9kE"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+
 ## What is Bible Quizzing?
 
 Bible Quizzing is a Christian sport in which teams of participants compete on
 Bible memorization in a context that requires a combination of speed, accuracy,
 and strategy and a culture that inspires collaboration, fellowship, and mutual
 encouragement.
+
 
 At its core, Quizzing has always been about writing God's Word on hearts. By
 appealing to the transformational power of Scripture, Quizzing is the catalyst

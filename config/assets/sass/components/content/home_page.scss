@@ -111,8 +111,42 @@ div#home_page_nav {
     }
 }
 
+iframe.youtube {
+    float        : right;
+    margin-left  : 15px;
+    margin-right : 0px;
+    border       : 1px solid black;
+
+    width      : calc( 100vw * 0.5 );
+    height     : calc( 100vw * 0.5 * 315 / 560 );
+    max-width  : 560px;
+    max-height : 315px;
+}
+
+@media (max-width: 810px) {
+    iframe.youtube {
+        float       : none;
+        margin-left : -8px;
+        width       : 560px;
+        height      : 315px;
+    }
+}
+
+@media (max-width: 594px) {
+    iframe.youtube {
+        width      : calc( 100vw - 35px );
+        height     : calc( ( 100vw - 35px ) * 315 / 560 );
+        min-width  : $min_width - 35px;
+        min-height : ( $min_width - 35px ) * 315 / 560;
+    }
+}
+
 @media print {
     div#home_page_nav {
+        display: none;
+    }
+
+    iframe.youtube {
         display: none;
     }
 }
