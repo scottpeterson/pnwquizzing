@@ -1,0 +1,7 @@
+<div id="nav_footer">
+    <a href="mailto:contact@pnwquizzing.org">Contact</a> <i class="la la-envelope"></i>
+    [% IF user %]
+        |
+        <a href="[% c.url_for('/tool/hash') %]">Hash</a>
+    [% END %]
+</div>

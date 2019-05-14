@@ -64,10 +64,7 @@
         </ul>
     [% END %]
     [% PROCESS nav docs = docs_nav %]
-
-    <div id="nav_footer">
-        <a href="[% c.url_for('/tool/hash') %]">Hash Tool</a>
-    </div>
+    [% PROCESS nav_footer.html.tt %]
 </div>
 
 [% IF message OR c.session.flash.message %]

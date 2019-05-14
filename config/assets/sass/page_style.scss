@@ -125,7 +125,7 @@ html {
                 @extend %a_menu_current;
 
                 a {
-                    display     : block;
+                    display     : inline-block;
                     color       : lightgray;
                     margin-top  : 3px;
                     margin-left : 3px;
