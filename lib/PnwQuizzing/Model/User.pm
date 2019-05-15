@@ -144,4 +144,16 @@ sub verify ( $self, $user_id, $passwd ) {
     return $verified;
 }
 
+sub roles_to_emails ( $self, $roles ) {
+    return [ map { sprintf( '%s %s <%s>', @$_ ) } @{
+        $self->dq->sql(q{
+            SELECT u.first_name, u.last_name, u.email
+            FROM user AS u
+            JOIN user_role USING (user_id)
+            JOIN role AS r USING (role_id)
+            WHERE r.name IN ( } . join( ', ', map { $self->dq->quote($_) } @$roles ) . q{ )
+        })->run->all
+    } ];
+}
+
 1;

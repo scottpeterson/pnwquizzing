@@ -26,7 +26,7 @@
             </form>
         [% ELSE %]
             <p>
-                Logged in as: <b>[% user.data.username %]</b>
+                Logged in as: <b>[% user.data.username | html %]</b>
                 (<a href="[% c.url_for('/user/logout') %]">Logout</a>)
 
                 <br>

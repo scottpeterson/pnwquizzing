@@ -1,0 +1,12 @@
+form#email_tool {
+    fieldset#email_tool_content {
+        input[name="subject"] {
+            width: 300px;
+        }
+
+        textarea {
+            width  : calc( 100vw - 400px );
+            height : 500px;
+        }
+    }
+}

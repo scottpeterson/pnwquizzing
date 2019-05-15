@@ -12,7 +12,7 @@
         <label><input type="radio" name="action" value="transcode" checked> Transcode Content for Publication</label>
         <label><input type="radio" name="action" value="translate"> Translate Content with Hashes</label>
 
-        <textarea name="payload">[% payload %]</textarea>
+        <textarea name="payload">[% payload | html %]</textarea>
 
         <input type="submit" value="Submit">
     </fieldset>

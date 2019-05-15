@@ -1,17 +1,23 @@
 <div id="nav_footer">
-    <a href="mailto:contact@pnwquizzing.org">Contact</a> <i class="la la-envelope"></i>
-    [% IF user %]
+    [% UNLESS user %]
+        <a href="mailto:contact@pnwquizzing.org">Contact</a> <i class="la la-envelope"></i>
         |
+        <a href="[% c.url_for('/user/account') %]"
+            [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
+                class="current"
+            [% END %]
+            >Sign-Up</a>
+    [% ELSE %]
         <a href="[% c.url_for('/tool/hash') %]"
             [% IF c.url_for('/tool/hash') == c.req.url.to_abs.path %]
                 class="current"
             [% END %]
             >Hash</a>
+        |
+        <a href="[% c.url_for('/tool/email') %]"
+            [% IF c.url_for('/tool/email') == c.req.url.to_abs.path %]
+                class="current"
+            [% END %]
+            >Email</a>
     [% END %]
-    |
-    <a href="[% c.url_for('/user/account') %]"
-        [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
-            class="current"
-        [% END %]
-        >[% IF user %]Account[% ELSE %]Sign-Up[% END %]</a>
 </div>

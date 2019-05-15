@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS user (
     passwd TEXT DEFAULT NULL,
     first_name TEXT DEFAULT NULL,
     last_name TEXT DEFAULT NULL,
-    email TEXT DEFAULT NULL,
+    email TEXT DEFAULT NULL UNIQUE,
     last_login TEXT NULL DEFAULT NULL,
     last_modified TEXT NOT NULL DEFAULT ( STRFTIME( '%Y-%m-%d %H:%M:%S:%s', 'NOW', 'LOCALTIME' ) ),
     created TEXT NOT NULL DEFAULT ( STRFTIME( '%Y-%m-%d %H:%M:%S:%s', 'NOW', 'LOCALTIME' ) ),

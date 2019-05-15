@@ -1,0 +1,39 @@
+[% page.title = 'Email User Roles' %]
+
+<h1>[% page.title %]</h1>
+
+<p>
+    Use the following tool send a broadcast email to users within a set of roles.
+    Please use this tool with care, as overuse can easily lead to annoyed users.
+    You can use
+    <a href="https://daringfireball.net/projects/markdown">Markdown</a>
+    and
+    <a href="https://fletcherpenney.net/multimarkdown">MultiMarkdown</a>
+    in the content textarea below.
+</p>
+
+<form id="email_tool" method="post" action="[% c.url_for('/tool/email') %]">
+    <fieldset class="left">
+        <legend>Target Roles</legend>
+        <label><input type="checkbox" name="send_to_self" value="1" checked> Send to Self</label>
+
+        [% FOR role IN roles %]
+            <label>
+                <input type="checkbox" name="role" value="[% role.name %]">
+                [% role.name %]
+            </label>
+        [% END %]
+    </fieldset>
+
+    <fieldset id="email_tool_content">
+        <legend>Email Content</legend>
+
+        Subject: <input type="text" name="subject" value="[% subject %]">
+        <br>
+
+        <textarea name="payload">[% payload | html %]</textarea>
+        <br>
+        <input type="hidden" name="form_submit" value="1">
+        <input type="submit" value="Send Email">
+    </fieldset>
+</form>

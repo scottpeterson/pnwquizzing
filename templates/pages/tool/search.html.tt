@@ -1,8 +1,10 @@
+[% page.title = 'Search Results: "' _ c.req.param('for') _ '"' | html %]
+
 <h1>Search Results</h1>
 
 [% IF files.size %]
     <p>
-        Searching for "[% c.req.param('for') %]" resulted in
+        Searching for "[% c.req.param('for') | html %]" resulted in
         [% files.size %] match[% IF files.size > 1 %]es[% END %]:
     </p>
     <ul>
@@ -12,6 +14,6 @@
     </ul>
 [% ELSE %]
     <p>
-        Searching for "[% c.req.param('for') %]" resulted in no matches.
+        Searching for "[% c.req.param('for') | html %]" resulted in no matches.
     </p>
 [% END %]
