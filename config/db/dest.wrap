@@ -3,6 +3,7 @@ use Mojo::Base -strict, -signatures;
 use Config::App;
 use Mojo::File;
 use PnwQuizzing;
+use TryCatch;
 
 my $pnw = PnwQuizzing->new;
 $pnw->conf->put( qw( database settings sqlite_allow_multiple_statements ) => 1 );
@@ -11,7 +12,20 @@ my $dq  = $pnw->dq;
 my $sql = Mojo::File->new( $ARGV[0] )->slurp;
 
 unless ( $ARGV[1] eq 'verify' ) {
-    $dq->do($sql);
+    $dq->do('PRAGMA foreign_keys = OFF');
+    $dq->begin_work;
+
+    try {
+        $dq->do($sql);
+        $dq->commit;
+    }
+    catch {
+        my $e = $dq->errstr;
+        $dq->rollback;
+        die $e;
+    }
+
+    $dq->do('PRAGMA foreign_keys = ON');
 }
 else {
     my $sth = $dq->sql($sql)->run;

@@ -43,11 +43,13 @@ html {
                 @extend %a_menu_current;
 
                 float  : right;
-                margin : 10px 10px 10px 0px;
+                margin : 0px 10px 10px 0px;
 
                 i#search_icon {
-                    display      : inline-block;
-                    margin-right : 5px;
+                    display        : inline-block;
+                    margin-right   : 5px;
+                    margin-top     : 16px;
+                    vertical-align : top;
 
                     &:hover {
                         color: yellow;
@@ -61,7 +63,9 @@ html {
                 }
 
                 form {
-                    display: inline-block;
+                    display    : inline-block;
+                    margin-top : 10px;
+
                     input[type="text"],
                     input[type="password"] {
                         width  : 100px;
@@ -83,8 +87,9 @@ html {
                 }
 
                 p {
-                    display: inline-block;
-                    margin-top: 5px;
+                    display     : inline-block;
+                    margin-top  : 7px;
+                    margin-left : 5px;
                 }
             }
         }

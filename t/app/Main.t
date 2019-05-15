@@ -12,7 +12,7 @@ my $t = Test::Mojo->new('PnwQuizzing::Control');
 
 my $content = (
     Mojo::File->new( Config::App->new->get( 'config_app', 'root_dir' ) . '/docs/index.md'
-)->slurp =~ /\n\s*##\s*([^\n]+)\n/ms ) ? '<h2>' . quotemeta($1) . '</h2>' : undef;
+)->slurp =~ /\n\s*##\s*([^\n]+)\n/ms ) ? '<h2[^>]*>' . quotemeta($1) . '</h2>' : undef;
 
 $t->get_ok('/')
     ->status_is(200)

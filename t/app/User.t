@@ -9,7 +9,7 @@ my $log = Test::MockModule->new('PnwQuizzing::Control');
 $log->redefine( 'setup_access_log', 1 );
 my $t = Test::Mojo->new('PnwQuizzing::Control');
 
-$t->get_ok('/user/signup')
+$t->get_ok('/user/account')
     ->status_is(200)
     ->text_is( 'title' => 'PNWBQ: New User Sign-Up' )
     ->element_exists('form fieldset label input[name="email"]');
@@ -45,7 +45,7 @@ $t->post_ok('/user/logout')
 $user->redefine( 'create', sub { die 'Failed in automated testing' } );
 $user->redefine( 'verify_email', 1 );
 
-$t->post_ok( '/user/signup' => form => {
+$t->post_ok( '/user/account' => form => {
     form_submit => 1,
 } )
     ->status_is(200)
@@ -59,7 +59,7 @@ $user->redefine( 'create', sub {
     return $self;
 } );
 
-$t->post_ok( '/user/signup' => form => {
+$t->post_ok( '/user/account' => form => {
     username    => 'username',
     passwd      => 'passwd',
     first_name  => 'first_name',

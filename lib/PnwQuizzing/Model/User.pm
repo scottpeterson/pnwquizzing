@@ -6,6 +6,17 @@ use PnwQuizzing::Model::Email;
 
 has name => 'user';
 
+sub _user_data_prep ( $self, $data ) {
+    $data->{passwd}    = $self->bcrypt( $data->{passwd} );
+    $data->{church_id} = $self->dq->sql(q{
+        SELECT church_id FROM church WHERE acronym = ?
+    })->run(
+        delete $data->{church}
+    )->value or croak( q{"church" appears to not be a valid input value} );
+
+    return $data;
+}
+
 sub create ( $self, $data ) {
     for ( qw(
         username
@@ -19,9 +30,70 @@ sub create ( $self, $data ) {
     croak( q{"email" appears to not be a valid input value} )
         unless ( length $data->{email} and $data->{email} =~ /\w\@\w/ );
 
-    $data->{passwd} = $self->bcrypt( $data->{passwd} );
+    return $self->SUPER::create( $self->_user_data_prep($data) );
+}
 
-    return $self->SUPER::create($data);
+sub edit ( $self, $data ) {
+    croak( q{"email" appears to not be a valid input value} )
+        if ( length $data->{email} and $data->{email} !~ /\w\@\w/ );
+    return $self->save( $self->_user_data_prep($data) );
+}
+
+sub roles ( $self, $roles = undef ) {
+    if ( ref $roles eq 'ARRAY' ) {
+        for my $role ( @{ $self->roles } ) {
+            my $selected = grep { $_ eq $role->{name} } @$roles;
+
+            if ( not $role->{has_role} and $selected ) {
+                $self->dq->sql(q{
+                    INSERT INTO user_role ( user_id, role_id )
+                    VALUES ( ?, ( SELECT role_id FROM role WHERE name = ? ) )
+                })->run(
+                    $self->id,
+                    $role->{name},
+                );
+            }
+            elsif ( $role->{has_role} and not $selected ) {
+                $self->dq->sql(q{
+                    DELETE FROM user_role
+                    WHERE user_id = ? AND role_id = ( SELECT role_id FROM role WHERE name = ? )
+                })->run(
+                    $self->id,
+                    $role->{name},
+                );
+            }
+        }
+
+        return $self;
+    }
+    else {
+        return $self->dq->sql(q{
+            SELECT
+                r.name,
+                (
+                    SELECT 1
+                    FROM user_role AS ur
+                    WHERE ur.user_id = ? AND ur.role_id = r.role_id
+                ) AS has_role
+            FROM role AS r
+            ORDER BY r.created
+        })->run( ( $self->data ) ? $self->id : -1 )->all({});
+    }
+}
+
+sub churches ($self) {
+    return $self->dq->sql(q{
+        SELECT
+            c.name,
+            c.acronym,
+            (
+                SELECT 1
+                FROM user AS u
+                WHERE u.user_id = ? AND u.church_id = c.church_id
+            ) AS has_church
+        FROM church AS c
+        ORDER BY c.name
+    })->run( ( $self->data ) ? $self->id : -1 )->all({});
 }
 
 sub login ( $self, $username, $passwd ) {

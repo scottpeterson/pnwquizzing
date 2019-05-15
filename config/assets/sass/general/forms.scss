@@ -2,9 +2,10 @@ $form_borders: 1px solid silver;
 
 form {
     fieldset {
-        border  : $form_borders;
-        display : inline-block;
-        padding : 10px;
+        border         : $form_borders;
+        display        : inline-block;
+        padding        : 10px;
+        vertical-align : top;
 
         legend {
             border           : $form_borders;
@@ -15,6 +16,10 @@ form {
         label {
             display    : block;
             text-align : right;
+        }
+
+        &.left label {
+            text-align: left;
         }
 
         select,

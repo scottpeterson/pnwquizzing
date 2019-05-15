@@ -2,6 +2,16 @@
     <a href="mailto:contact@pnwquizzing.org">Contact</a> <i class="la la-envelope"></i>
     [% IF user %]
         |
-        <a href="[% c.url_for('/tool/hash') %]">Hash</a>
+        <a href="[% c.url_for('/tool/hash') %]"
+            [% IF c.url_for('/tool/hash') == c.req.url.to_abs.path %]
+                class="current"
+            [% END %]
+            >Hash</a>
     [% END %]
+    |
+    <a href="[% c.url_for('/user/account') %]"
+        [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
+            class="current"
+        [% END %]
+        >[% IF user %]Account[% ELSE %]Sign-Up[% END %]</a>
 </div>

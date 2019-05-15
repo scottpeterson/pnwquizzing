@@ -18,8 +18,8 @@
                 <input type="text" name="username" placeholder="Username" size="12">
                 <input type="password" name="passwd" placeholder="Password" size="12">
                 <input type="submit" value="Login">
-                <a href="[% c.url_for('/user/signup') %]"
-                    [% IF c.url_for('/user/signup') == c.req.url.to_abs.path %]
+                <a href="[% c.url_for('/user/account') %]"
+                    [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
                         class="current"
                     [% END %]
                     >Sign-Up</a>
@@ -28,6 +28,14 @@
             <p>
                 Logged in as: <b>[% user.data.username %]</b>
                 (<a href="[% c.url_for('/user/logout') %]">Logout</a>)
+
+                <br>
+
+                <a href="[% c.url_for('/user/account') %]"
+                    [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
+                        class="current"
+                    [% END %]
+                    >Edit Account</a>
             </p>
         [% END %]
     </div>

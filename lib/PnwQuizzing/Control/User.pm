@@ -39,21 +39,20 @@ sub logout ($self) {
     return $self->redirect_to('/');
 }
 
-sub signup ($self) {
+sub account ($self) {
+    my $user = PnwQuizzing::Model::User->new;
+
     if ( $self->param('form_submit') ) {
-        my $user;
         my %form_params = map { $_ => $self->param($_) } qw(
             username
             passwd
             first_name
             last_name
             email
+            church
         );
 
-        try {
-            $user = PnwQuizzing::Model::User->new->create( { %form_params, active => 0 });
-        }
-        catch ($e) {
+        my $handle_user_error = sub ($e) {
             $e =~ s/\s+at\s+(?:(?!\s+at\s+).)*[\r\n]*$//;
             $e =~ s/^"([^""]+)"/ '"' . join( ' ', map { ucfirst($_) } split( '_', $1 ) ) . '"' /e;
             $e .= '. Please try again.';
@@ -63,13 +62,46 @@ sub signup ($self) {
                 message => $e,
                 %form_params,
             );
-        }
+        };
 
-        if ( $user and $user->data ) {
-            my $url = $self->req->url->to_abs;
-            $user->verify_email( $url->protocol . '://' . $url->host_port );
-            $self->stash( successful_form_submit => 1 );
+        unless ( $self->stash('user') ) {
+            try {
+                $user = $user->create( { %form_params, active => 0 });
+                $user->roles( $self->every_param('role') );
+            }
+            catch ($e) {
+                $handle_user_error->($e);
+            }
+
+            if ( $user and $user->data ) {
+                my $url = $self->req->url->to_abs;
+                $user->verify_email( $url->protocol . '://' . $url->host_port );
+                $self->stash( successful_create_user => 1 );
+            }
         }
+        else {
+            try {
+                $self->stash('user')->edit( \%form_params );
+                $self->stash('user')->roles( $self->every_param('role') );
+                $self->stash(
+                    message => {
+                        type => 'success',
+                        text => 'Successfully edited site account profile.',
+                    }
+                );
+            }
+            catch ($e) {
+                $handle_user_error->($e);
+            }
+        }
+    }
+
+    if ( $self->stash('user') or not $self->param('form_submit') ) {
+        $user = $self->stash('user') if ( $self->stash('user') );
+        $self->stash(
+            churches => $user->churches,
+            roles    => $user->roles,
+        );
     }
 }
 
