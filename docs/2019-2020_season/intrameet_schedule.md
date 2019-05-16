@@ -5,7 +5,7 @@ Feedback and criticisms are welcomed.
 
 ## Friday
 
-- Registration *6:00 PM-6:30 PM*
+- Check-In *6:00 PM-6:30 PM*
 - Announcements *6:30 PM-6:40 PM*
 - Quizzing: Prelims 1-32 (9 quizzes) *6:40 PM-9:00 PM*
 
