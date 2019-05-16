@@ -156,4 +156,32 @@ sub roles_to_emails ( $self, $roles ) {
     } ];
 }
 
+sub all_users_data ($self) {
+    return $self->dq->sql(q{
+        SELECT
+            u.username,
+            u.first_name,
+            u.last_name,
+            u.email,
+            u.last_login,
+            c.name AS church_name,
+            c.acronym AS church_acronym,
+            (
+                SELECT GROUP_CONCAT( name, ', ' )
+                FROM (
+                    SELECT ur.user_id, r.role_id, r.name
+                    FROM user_role AS ur
+                    JOIN role AS r USING (role_id)
+                    WHERE ur.user_id = u.user_id
+                    ORDER BY r.name
+                )
+                GROUP BY user_id
+            ) AS roles
+        FROM user AS u
+        JOIN church AS c USING (church_id)
+        WHERE u.active
+        ORDER BY church_acronym, last_name, first_name
+    })->run->all({});
+}
+
 1;

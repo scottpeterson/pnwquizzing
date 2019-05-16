@@ -1,0 +1,23 @@
+[% page.title = 'Accounts List' %]
+<h1>PNW Quizzing Accounts List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Church</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOR users %]
+            <tr>
+                <td>[% first_name %] [% last_name %]</td>
+                <td><a href="mailto:[% email %]">[% email %]</a></td>
+                <td>[% church_acronym %] <i>([% church_name %])</i></td>
+                <td>[% roles %]</td>
+            </tr>
+        [% END %]
+    </tbody>
+</table>

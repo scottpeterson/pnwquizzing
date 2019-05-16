@@ -12,6 +12,8 @@
 
     <table>
         [% FOR row IN csv %]
+            [% IF loop.first %]<thead>[% END %]
+            [% IF loop.index == 1 %]<tbody>[% END %]
             <tr>
                 [% IF loop.first %]
                     [% FOR cell IN row %]
@@ -23,6 +25,8 @@
                     [% END %]
                 [% END %]
             </tr>
+            [% IF loop.last %]</tbody>[% END %]
+            [% IF loop.first %]</thead>[% END %]
         [% END %]
     </table>
 [% END %]

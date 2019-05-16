@@ -126,4 +126,8 @@ sub verify ($self) {
     return $self->redirect_to('/');
 }
 
+sub list ($self) {
+    $self->stash( users => PnwQuizzing::Model::User->new->all_users_data );
+}
+
 1;

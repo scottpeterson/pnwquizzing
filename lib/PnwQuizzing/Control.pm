@@ -87,8 +87,11 @@ sub startup ($self) {
 
     $users->any('/tool/:action')->to( controller => 'tool' );
 
+    $users->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( logout list ) );
+
     $all->any('/user/verify/:verify_user_id/:verify_passwd')->to('user#verify');
-    $all->any( '/user/:action')->to( controller => 'user' );
+    $all->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( login account ) );
+
     $all->any('/search')->to('tool#search');
     $all->any('/')->to('main#home_page');
     $all->any('/*name')->to('main#content');
