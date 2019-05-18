@@ -5,12 +5,19 @@
 
 <h1>Quiz Meet Team/Staff Registration</h1>
 
-<ul>
-    <li>Next Quiz Meet: <b>[% meet %]</b></li>
-    <li>Meet Location: <b>[% location %], <a href="[% address_url %]">[% address %]</a></b></li>
-    <li>Start Date: <b>[% start %]</b></li>
-    <li[% IF past_deadline %] style="color: red"[% END %]>Registration Deadline: <b>[% deadline %]</b>
-</ul>
+[% IF schedule_id %]
+    <ul>
+        <li>Next Quiz Meet: <b>[% meet %]</b></li>
+        <li>Meet Location: <b>[% location %], <a href="[% address_url %]">[% address %]</a></b></li>
+        <li>Start Date: <b>[% start %]</b></li>
+        <li[% IF past_deadline %] style="color: red"[% END %]>Registration Deadline: <b>[% deadline %]</b>
+    </ul>
+[% ELSE %]
+    <p>
+        There doesn't appear to be an upcoming meet scheduled; therefore, it is
+        not currently possible to register.
+    </p>
+[% END %]
 
 <div id="register" v-cloak>
     <h2>Quizzers for {{ church.name }}</h2>

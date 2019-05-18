@@ -119,23 +119,22 @@ sub email ($self) {
 
 sub register ($self) {
     my $next_meet;
+    my $meet = $self->dq->sql(q{
+        SELECT
+            schedule_id,
+            meet, location, address, address_url, start, deadline,
+            STRFTIME( '%s', deadline ) < STRFTIME( '%s', 'now' ) AS past_deadline
+        FROM schedule
+        WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'now' )
+        ORDER BY start
+        LIMIT 1
+    })->run->next;
 
     @$next_meet{ qw(
         schedule_id
         meet location address address_url start deadline
         past_deadline
-    ) } = @{
-        $self->dq->sql(q{
-            SELECT
-                schedule_id,
-                meet, location, address, address_url, start, deadline,
-                STRFTIME( '%s', deadline ) < STRFTIME( '%s', 'now' ) AS past_deadline
-            FROM schedule
-            WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'now' )
-            ORDER BY start
-            LIMIT 1
-        })->run->next->row
-    };
+    ) } = @{ ($meet) ? $meet->row : [] };
 
     if ( $self->param('data') ) {
         my $data = decode_json( $self->param('data') );
@@ -147,6 +146,7 @@ sub register ($self) {
     $self->stash(
         %$next_meet,
         no_edit =>
+            ( not $meet ) ||
             $next_meet->{past_deadline} ||
             grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $self->stash('user')->roles }
     );
