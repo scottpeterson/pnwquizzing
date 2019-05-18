@@ -1,26 +1,31 @@
-( function () {
+var nav_content_align = ( function () {
     var nav;
     var content;
     var header;
 
-    function nav_content_align() {
-        if ( nav.offsetHeight < content.offsetHeight ) {
-            var height = content.scrollHeight - header.scrollHeight;
+    return {
+        setup: function () {
+            nav     = document.getElementById("nav");
+            content = document.getElementById("content");
+            header  = document.getElementById("header");
+        },
 
-            nav.style.maxHeight = height + "px";
-            nav.style.height    = height + "px";
+        align: function () {
+            if ( nav.offsetHeight < content.offsetHeight ) {
+                var height = content.scrollHeight - header.scrollHeight;
+
+                nav.style.maxHeight = height + "px";
+                nav.style.height    = height + "px";
+            }
         }
-    }
+    };
+} )();
 
-    window.addEventListener( 'load', function() {
-        nav     = document.getElementById("nav");
-        content = document.getElementById("content");
-        header  = document.getElementById("header");
+window.addEventListener( 'load', function() {
+    nav_content_align.setup();
+    nav_content_align.align();
+} );
 
-        nav_content_align();
-    } );
-
-    window.addEventListener( 'resize', function() {
-        nav_content_align();
-    } );
-}() );
+window.addEventListener( 'resize', function() {
+    nav_content_align.align();
+} );

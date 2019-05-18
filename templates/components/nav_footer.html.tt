@@ -8,16 +8,22 @@
             [% END %]
             >Sign-Up</a>
     [% ELSE %]
-        <a href="[% c.url_for('/tool/hash') %]"
-            [% IF c.url_for('/tool/hash') == c.req.url.to_abs.path %]
+        <a href="[% c.url_for('/tool/register') %]"
+            [% IF c.url_for('/tool/register') == c.req.url.to_abs.path %]
                 class="current"
             [% END %]
-            >Hash</a>
+            >Registration</a>
         |
         <a href="[% c.url_for('/tool/email') %]"
             [% IF c.url_for('/tool/email') == c.req.url.to_abs.path %]
                 class="current"
             [% END %]
             >Email</a>
+        |
+        <a href="[% c.url_for('/tool/hash') %]"
+            [% IF c.url_for('/tool/hash') == c.req.url.to_abs.path %]
+                class="current"
+            [% END %]
+            >Hash</a>
     [% END %]
 </div>

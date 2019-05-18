@@ -45,4 +45,9 @@ div#message {
         border-color : green;
         color        : green;
     }
+
+    &.notice {
+        border-color : blue;
+        color        : black;
+    }
 }

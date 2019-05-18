@@ -96,6 +96,15 @@ sub churches ($self) {
     })->run( ( $self->data ) ? $self->id : -1 )->all({});
 }
 
+sub church ($self) {
+    return $self->dq->sql(q{
+        SELECT c.church_id, c.name, c.acronym
+        FROM church AS c
+        JOIN user AS u USING (church_id)
+        WHERE u.user_id = ?
+    })->run( $self->id )->all({})->[0];
+}
+
 sub login ( $self, $username, $passwd ) {
     for ( qw( username passwd ) ) {
         croak( qq{"$_" appears to not be a valid input value} ) unless ( length $_ );

@@ -1,6 +1,7 @@
 [%-
     page = {};
     DEFAULT page.title = title || '';
+    DEFAULT page.vue   = '';
 
     content = BLOCK;
         PROCESS $template;
@@ -35,4 +36,18 @@
 
     <script type="text/javascript" src="[% c.url_for('/js/nav_content_align.js') %]"></script>
     <script type="text/javascript" src="[% c.url_for('/js/search_icon.js') %]"></script>
+
+    [% IF page.vue %]
+        <script type="text/javascript" src="[% c.url_for(
+            ( c.app.mode == 'production' ) ? '/js/vue.js' : '/js/vue.min.js'
+        ) %]"></script>
+
+        <script type="text/javascript" src="[% c.url_for('/js/vue-resource.js') %]"></script>
+
+        <script type="text/javascript">
+            var cntlr = "[% c.url_for('/').to_abs %]";
+        </script>
+
+        <script type="text/javascript" src="[% c.url_for( '/js/' _ page.vue _ '.js' ) %]"></script>
+    [% END %]
 </html>

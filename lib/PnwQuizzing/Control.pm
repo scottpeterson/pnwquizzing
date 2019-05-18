@@ -74,6 +74,22 @@ sub startup ($self) {
         ->to_array;
 
     my $all = $self->routes->under( sub ($self) {
+        # TODO: when logged in, church not registered, and we're not on the registration page already
+        if ( $self->stash('user') and 0 ) {
+            $self->stash(
+                message => {
+                    type => 'notice',
+                    text => q{
+                        It appears you
+                        (as a coach representing } . $self->stash('user')->church->{acronym} . q{)
+                        have not registered for the next upcoming quiz meet.
+                        Please register before the deadline. To register, visit the
+                        <a href="} . $self->url_for('/tool/register') . q{">Online Registration System</a>.
+                    },
+                },
+            );
+        }
+
         $self->stash( docs_nav => $docs_nav, header_photos => $photos );
     } );
 

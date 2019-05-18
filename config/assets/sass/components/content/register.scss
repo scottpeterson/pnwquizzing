@@ -1,0 +1,60 @@
+div#register {
+    td input[type="text"] {
+        margin: -1px -3px -1px -3px;
+        height: 20px;
+        border-color: transparent;
+    }
+
+    td input[type="text"]:hover {
+        border-color: blue;
+    }
+
+    td select {
+        margin: -1px -3px -1px -3px;
+        height: 24px;
+        border-color: transparent;
+    }
+
+    td select:hover {
+        border-color: blue;
+    }
+
+    td input[type="text"].short {
+        width: 40px;
+    }
+
+    td.checkbox {
+        padding: 0px;
+        text-align: center;
+    }
+
+    td.checkbox input[type="checkbox"] {
+        margin-top: 5px;
+    }
+
+    td.checkbox input[type="checkbox"]:hover {
+        outline: 1px solid blue;
+    }
+
+    i.la {
+        padding-right: 0.01em;
+    }
+
+    i.la:hover {
+        padding-right: 0px;
+
+        font-weight: bold;
+        color: blue;
+        cursor: pointer;
+    }
+
+    table caption {
+        text-align: right;
+    }
+
+    tr.inactive td,
+    tr.inactive td input,
+    tr.inactive td select {
+        background-color: #f0f0f0;
+    }
+}

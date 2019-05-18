@@ -80,10 +80,13 @@ img#header_photo {
     border: 1px solid black;
 }
 
-@import 'content/hash_tool';
-@import 'content/email_tool';
-@import 'content/home_page';
-@import 'content/content_footer';
+& {
+    @import 'content/hash_tool';
+    @import 'content/email_tool';
+    @import 'content/home_page';
+    @import 'content/content_footer';
+    @import 'content/register';
+}
 
 @media print {
     & {
