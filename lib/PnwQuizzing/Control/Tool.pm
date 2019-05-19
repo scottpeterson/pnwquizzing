@@ -139,16 +139,140 @@ sub register ($self) {
     if ( $self->param('data') ) {
         my $data = decode_json( $self->param('data') );
 
-        # TODO: save the data to `registration`
+        for my $team ( @{ $data->{teams} } ) {
+            for my $quizzer (@$teams) {
+                unless ( $quizzer->{registration_id} ) {
+                    $self->dq->sql(q{
+                        INSERT INTO registration (
+                            church_id,
+                            role,
+                            team
+                            name,
+                            bib,
+                            grade,
+                            rookie,
+                            m_f,
+                            attend,
+                            house,
+                            lunch,
+                            notes
+                        ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                    })->run(
+                        $data->{church}{church_id},
+                        'Quizzer',
+                        'team', # TODO ................................................
+                        ${$quizzer}{ qw(
+                            name
+                            bib
+                            grade
+                            rookie
+                            m_f
+                            attend
+                            house
+                            lunch
+                            note
+                        ) },
+                    );
+                }
+                else {
+                    $self->dq->sql(q{
+                        UPDATE registration SET
+                            team = ?,
+                            name = ?,
+                            bib = ?,
+                            role = ?,
+                            m_f = ?,
+                            attend = ?,
+                            house = ?,
+                            lunch = ?,
+                            note = ?
+                        WHERE registration_id = ?
+                    })->run(
+                        'team', # TODO ................................................
+                        ${$quizzer}{ qw(
+                            name
+                            bib
+                            role
+                            m_f
+                            attend
+                            house
+                            lunch
+                            note
+                        ) },
+                    );
+                }
+            }
+        }
+
+        my $bib;
+        for my $non_quizzer ( @{ $data->{non_quizzers} } ) {
+            unless ( $non_quizzer->{registration_id} ) {
+                $self->dq->sql(q{
+                    INSERT INTO registration (
+                        church_id,
+                        bib,
+                        name,
+                        role,
+                        m_f,
+                        attend,
+                        house,
+                        lunch,
+                        notes
+                    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                })->run(
+                    $data->{church}{church_id},
+                    ++$bib,
+                    ${$non_quizzer}{ qw(
+                        name
+                        role
+                        m_f
+                        attend
+                        house
+                        lunch
+                        note
+                    ) },
+                );
+            }
+            else {
+                $self->dq->sql(q{
+                    UPDATE registration SET
+                        bib = ?,
+                        name = ?,
+                        role = ?,
+                        m_f = ?,
+                        attend = ?,
+                        house = ?,
+                        lunch = ?,
+                        note = ?
+                    WHERE registration_id = ?
+                })->run(
+                    ++$bib,
+                    ${$non_quizzer}{ qw(
+                        name
+                        role
+                        m_f
+                        attend
+                        house
+                        lunch
+                        note
+                    ) },
+                );
+            }
+        }
+
         # TODO: add/update `schedule_church`
+            # $self->param('final')
     }
 
     $self->stash(
         %$next_meet,
-        no_edit =>
-            ( not $meet ) ||
-            $next_meet->{past_deadline} ||
-            grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $self->stash('user')->roles }
+        no_edit => (
+            (
+                not $meet or
+                $next_meet->{past_deadline} or
+                grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $self->stash('user')->roles }
+            ) ? 1 : 0
+        ),
     );
 }
 
