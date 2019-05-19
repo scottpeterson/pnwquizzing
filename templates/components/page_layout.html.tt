@@ -31,17 +31,23 @@
 
                 <br>
 
+                <a href="[% c.url_for('/tool/register') %]"
+                    [% IF c.url_for('/tool/register') == c.req.url.to_abs.path %]
+                        class="current"
+                    [% END %]
+                    >Registration</a>
+                |
                 <a href="[% c.url_for('/user/account') %]"
                     [% IF c.url_for('/user/account') == c.req.url.to_abs.path %]
                         class="current"
                     [% END %]
-                    >Edit Account</a>
+                    >Edit Profile</a>
                 |
                 <a href="[% c.url_for('/user/list') %]"
                     [% IF c.url_for('/user/list') == c.req.url.to_abs.path %]
                         class="current"
                     [% END %]
-                    >Accounts List</a>
+                    >User List</a>
             </p>
         [% END %]
     </div>

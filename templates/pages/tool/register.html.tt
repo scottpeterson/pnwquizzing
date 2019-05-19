@@ -19,6 +19,12 @@
     </p>
 [% END %]
 
+<p>
+    For hosts and other interested parties, please view the current
+    <b><a href="[% c.url_for('registration_list') %]">Quiz Meet Registration List</a></b>
+    with district-wide registration data.
+</p>
+
 <div id="register" v-cloak>
     <h2>Quizzers for {{ church.name }}</h2>
 

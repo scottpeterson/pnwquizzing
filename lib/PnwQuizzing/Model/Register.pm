@@ -274,4 +274,43 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
     return $next_meet;
 }
 
+sub current_data ( $self, $user ) {
+    my $next_meet = $self->next_meet($user);
+
+    my $current_data;
+    push( @{ $current_data->{ ( $_->{team} ) ? 'quizzers' : 'non_quizzers' } }, $_ ) for ( @{
+        $self->dq->sql(q{
+            SELECT
+                c.name AS church,
+                c.acronym,
+                r.team,
+                r.name,
+                r.bib,
+                r.role,
+                r.m_f,
+                r.grade,
+                r.rookie,
+                r.attend,
+                r.house,
+                r.lunch,
+                r.notes,
+                r.last_modified,
+                r.created,
+                (
+                    SELECT sc.last_modified
+                    FROM schedule_church AS sc
+                    WHERE sc.schedule_id = ? AND sc.church_id = c.church_id
+                ) AS registration_last_modified
+            FROM registration AS r
+            JOIN church AS c USING (church_id)
+            ORDER BY c.acronym, r.team, r.bib, r.role, r.name
+        })->run( $next_meet->{schedule_id} )->all({})
+    } );
+
+    return {
+        %$next_meet,
+        current_data => $current_data,
+    };
+}
+
 1;

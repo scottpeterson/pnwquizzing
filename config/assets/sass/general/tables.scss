@@ -32,4 +32,16 @@ table {
     th.center, td.center {
         text-align: center;
     }
+
+    tr.red td {
+        background-color: #fcc;
+    }
+
+    tr.green td {
+        background-color: #cfc;
+    }
+
+    tr.blue td {
+        background-color: #ccf;
+    }
 }

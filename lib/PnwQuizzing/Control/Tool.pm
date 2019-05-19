@@ -151,4 +151,8 @@ sub register_save ($self) {
     return $self->redirect_to('/tool/register');
 }
 
+sub registration_list ($self) {
+    $self->stash( %{ $self->registration->current_data( $self->stash('user') ) } );
+}
+
 1;

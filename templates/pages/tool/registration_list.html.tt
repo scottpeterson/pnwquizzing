@@ -1,0 +1,147 @@
+[% page.title = 'Registration List' %]
+
+<h1>Quiz Meet Registration List</h1>
+
+[% IF schedule_id %]
+    <ul>
+        <li>Next Quiz Meet: <b>[% meet %]</b></li>
+        <li>Meet Location: <b>[% location %], <a href="[% address_url %]">[% address %]</a></b></li>
+        <li>Start Date: <b>[% start %]</b></li>
+        <li[% IF past_deadline %] style="color: red"[% END %]>Registration Deadline: <b>[% deadline %]</b>
+    </ul>
+[% ELSE %]
+    <p>
+        There doesn't appear to be an upcoming meet scheduled.
+    </p>
+[% END %]
+
+[%
+    counts.m = 0;
+    counts.f = 0;
+    counts.rookie = 0;
+    counts.attend = 0;
+    counts.house = 0;
+    counts.lunch = 0;
+%]
+
+<h2>Quizzers</h2>
+
+[% IF current_data.quizzers AND current_data.quizzers.size > 0 %]
+    <p>
+        Rows in white are from churches that have indicated their data is "final"
+        for the upcoming meet. Rows in red are churches that have not so indicated.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Bib</th>
+                <th>Name</th>
+                <th>M/F</th>
+                <th>Grade</th>
+                <th>Rookie</th>
+                <th>House</th>
+                <th>Lunch</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            [% FOR quizzer IN current_data.quizzers %]
+                [% NEXT UNLESS quizzer.attend %]
+                [%
+                    counts.attend = counts.attend + 1;
+                    IF quizzer.m_f == 'M';
+                        counts.m = counts.m + 1;
+                    END;
+                    IF quizzer.m_f == 'F';
+                        counts.f = counts.f + 1;
+                    END;
+                    IF quizzer.house;
+                        counts.house  = counts.house + 1;
+                    END;
+                    IF quizzer.lunch;
+                        counts.lunch  = counts.lunch + 1;
+                    END;
+                %]
+                <tr[% IF NOT quizzer.registration_last_modified %] class="red"[% END %]>
+                    <td>[% quizzer.acronym %] [% quizzer.team %]</td>
+                    <td class="right">[% quizzer.bib %]</td>
+                    <td>[% quizzer.name %]</td>
+                    <td class="center">[% quizzer.m_f %]</td>
+                    <td class="right">[% quizzer.grade %]</td>
+                    <td class="center">[% ( quizzer.rookie ) ? 'Yes' : 'No' %]</td>
+                    <td class="center">[% ( quizzer.house ) ? 'Yes' : 'No' %]</td>
+                    <td class="center">[% ( quizzer.lunch ) ? 'Yes' : 'No' %]</td>
+                    <td>[% quizzer.notes %]</td>
+                </tr>
+            [% END %]
+        </tbody>
+    </table>
+[% ELSE %]
+    <p>There are currently no quizzers registered.</p>
+[% END %]
+
+<h2>Non-Quizzers</h2>
+
+[% IF current_data.non_quizzers AND current_data.non_quizzers.size > 0 %]
+    <p>
+        Rows in white are from churches that have indicated their data is "final"
+        for the upcoming meet. Rows in red are churches that have not so indicated.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Church</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>M/F</th>
+                <th>House</th>
+                <th>Lunch</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            [% FOR non_quizzer IN current_data.non_quizzers %]
+                [% NEXT UNLESS non_quizzer.attend %]
+                [%
+                    counts.attend = counts.attend + 1;
+                    IF non_quizzer.m_f == 'M';
+                        counts.m = counts.m + 1;
+                    END;
+                    IF non_quizzer.m_f == 'F';
+                        counts.f = counts.f + 1;
+                    END;
+                    IF non_quizzer.house;
+                        counts.house  = counts.house + 1;
+                    END;
+                    IF non_quizzer.lunch;
+                        counts.lunch  = counts.lunch + 1;
+                    END;
+                %]
+                <tr[% IF NOT non_quizzer.registration_last_modified %] class="red"[% END %]>
+                    <td>[% non_quizzer.acronym %]</td>
+                    <td>[% non_quizzer.name %]</td>
+                    <td>[% non_quizzer.role %]</td>
+                    <td class="center">[% non_quizzer.m_f %]</td>
+                    <td class="center">[% ( non_quizzer.house ) ? 'Yes' : 'No' %]</td>
+                    <td class="center">[% ( non_quizzer.lunch ) ? 'Yes' : 'No' %]</td>
+                    <td>[% non_quizzer.notes %]</td>
+                </tr>
+            [% END %]
+        </tbody>
+    </table>
+[% ELSE %]
+    <p>There are currently no non-quizzers registered.</p>
+[% END %]
+
+<h2>Registration Totals</h2>
+
+<ul>
+    <li>Attending: <b>[% counts.attend %]</b></li>
+    <li>Housing: <b>[% counts.house %]</b></li>
+    <li>Males: <b>[% counts.m %]</b></li>
+    <li>Females: <b>[% counts.f %]</b></li>
+    <li>Lunch: <b>[% counts.lunch %]</b></li>
+</ul>
