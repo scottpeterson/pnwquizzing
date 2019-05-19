@@ -61,7 +61,6 @@
                     <td class="center">
                         [% UNLESS no_edit %]
                             <select name="m_f" v-model="quizzer.m_f">
-                                <option></option>
                                 <option>M</option>
                                 <option>F</option>
                             </select>
@@ -164,7 +163,6 @@
                 <td>
                     [% UNLESS no_edit %]
                         <select name="role" v-model="person.role">
-                            <option></option>
                             <option>Coach</option>
                             <option>Official</option>
                         </select>
@@ -175,7 +173,6 @@
                 <td class="center">
                     [% UNLESS no_edit %]
                         <select name="m_f" v-model="person.m_f">
-                            <option></option>
                             <option>M</option>
                             <option>F</option>
                         </select>
@@ -237,7 +234,7 @@
         </p>
         <p>
             <label>
-                <input type="checkbox" name="final" value="1">
+                <input type="checkbox" name="final" v-model="final_registration">
                 Final Meet Registration
             </label>
             <br>

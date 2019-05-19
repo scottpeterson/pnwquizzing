@@ -1,5 +1,7 @@
 Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
-    var data = response.body;
+    var data                = response.body;
+    data.deleted_persons    = [];
+    data.final_registration = 0;
 
     var vm = new Vue({
         el      : "#register",
@@ -29,6 +31,8 @@ Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
                             this.teams[target].unshift(element);
                         }
                     }
+
+                    if ( this.teams[team_index].length == 0 ) this.teams.splice( team_index, 1 );
                 }
                 else {
                     var element = this.non_quizzers.splice( person_index, 1 )[0];
@@ -54,40 +58,40 @@ Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
 
             delete_person : function ( person_index, team_index ) {
                 if ( team_index > -1 ) {
+                    var registration_id = this.teams[team_index][person_index].registration_id || 0;
+                    if (registration_id) this.deleted_persons.push(registration_id);
+
                     this.teams[team_index].splice( person_index, 1 );
                     if ( this.teams[team_index].length == 0 ) this.teams.splice( team_index, 1 );
                 }
                 else {
+                    var registration_id = this.non_quizzers[person_index].registration_id || 0;
+                    if (registration_id) this.deleted_persons.push(registration_id);
+
                     this.non_quizzers.splice( person_index, 1 );
                 }
 
-                this.$nextTick( function () {
-                    nav_content_align.align();
-                } );
+                this.nav_content_align();
             },
 
             add_team : function () {
-                this.teams.push([{ attend : true, house : true, lunch : true }]);
-
-                this.$nextTick( function () {
-                    nav_content_align.align();
-                } );
+                var team = [];
+                this.teams.push(team);
+                this.add_quizzer(team);
             },
 
             add_quizzer : function (team) {
-                team.push({ attend : true, house : true, lunch : true });
-
-                this.$nextTick( function () {
-                    nav_content_align.align();
-                } );
+                var quizzer = { attend : true, house : true, lunch : true };
+                team.push(quizzer);
+                this.add_watch(quizzer);
+                this.nav_content_align();
             },
 
             add_non_quizzer : function () {
-                this.non_quizzers.push({ attend : true, house : true, lunch : true });
-
-                this.$nextTick( function () {
-                    nav_content_align.align();
-                } );
+                var non_quizzer = { attend : true, house : true, lunch : true };
+                this.non_quizzers.push(non_quizzer);
+                this.add_watch(non_quizzer);
+                this.nav_content_align();
             },
 
             save_registration : function () {
@@ -104,44 +108,44 @@ Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
                 document.body.appendChild(register);
 
                 register.submit();
+            },
+
+            add_watch : function (record) {
+                this.$watch(
+                    function () {
+                        return record.attend;
+                    },
+                    ( function () {
+                        var _record = record;
+
+                        return function (attend) {
+                            if ( attend == null ) return;
+                            _record.house = attend;
+                            _record.lunch = attend;
+                        }
+                    } )()
+                );
+            },
+
+            nav_content_align : function () {
+                this.$nextTick( function () {
+                    nav_content_align.align();
+                } );
             }
         },
 
         mounted : function () {
-            nav_content_align.align();
+            for ( var t = 0; t < this.teams.length; t++ ) {
+                for ( var q = 0; q < this.teams[t].length; q++ ) {
+                    this.add_watch( this.teams[t][q] );
+                }
+            }
+
+            for ( var n = 0; n < this.non_quizzers.length; n++ ) {
+                this.add_watch( this.non_quizzers[n] );
+            }
+
+            this.nav_content_align();
         }
     });
-
-    for ( var t = 0; t < data.teams.length; t++ ) {
-        for ( var q = 0; q < data.teams[t].length; q++ ) {
-            vm.$watch(
-                "teams." + t + "." + q + ".attend",
-                ( function () {
-                    var _t = t;
-                    var _q = q;
-
-                    return function (attend) {
-                        if ( attend == null ) return;
-                        this.teams[_t][_q].house = attend;
-                        this.teams[_t][_q].lunch = attend;
-                    }
-                } )()
-            );
-        }
-    }
-
-    for ( var n = 0; n < data.non_quizzers.length; n++ ) {
-        vm.$watch(
-            "non_quizzers." + n + ".attend",
-            ( function () {
-                var _n = n;
-
-                return function (attend) {
-                    if ( attend == null ) return;
-                    this.non_quizzers[_n].house = attend;
-                    this.non_quizzers[_n].lunch = attend;
-                }
-            } )()
-        );
-    }
 });

@@ -136,19 +136,39 @@ sub register ($self) {
         past_deadline
     ) } = @{ ($meet) ? $meet->row : [] };
 
-    if ( $self->param('data') ) {
+    my $no_edit = (
+        not $meet or
+        $next_meet->{past_deadline} or
+        not scalar( grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $self->stash('user')->roles } )
+    ) ? 1 : 0;
+
+    $self->stash(
+        %$next_meet,
+        no_edit => $no_edit,
+    );
+
+    if ( $self->param('data') and not $no_edit ) {
         my $data = decode_json( $self->param('data') );
 
+        $self->dq->sql(
+            'DELETE FROM registration WHERE registration_id IN (' .
+                join( ', ', map { $self->dq->quote($_) } @{ $data->{deleted_persons} } )
+            . ')'
+        )->run if ( ref $data->{deleted_persons} eq 'ARRAY' and @{ $data->{deleted_persons} } );
+
+        my ( $team_number, $bib );
         for my $team ( @{ $data->{teams} } ) {
-            for my $quizzer (@$teams) {
+            $team_number++;
+
+            for my $quizzer (@$team) {
                 unless ( $quizzer->{registration_id} ) {
                     $self->dq->sql(q{
                         INSERT INTO registration (
                             church_id,
                             role,
-                            team
-                            name,
+                            team,
                             bib,
+                            name,
                             grade,
                             rookie,
                             m_f,
@@ -156,21 +176,21 @@ sub register ($self) {
                             house,
                             lunch,
                             notes
-                        ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                        ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
                     })->run(
-                        $data->{church}{church_id},
+                        $self->stash('user')->church->{church_id},
                         'Quizzer',
-                        'team', # TODO ................................................
-                        ${$quizzer}{ qw(
+                        $team_number,
+                        ++$bib,
+                        @{$quizzer}{ qw(
                             name
-                            bib
                             grade
                             rookie
                             m_f
                             attend
                             house
                             lunch
-                            note
+                            notes
                         ) },
                     );
                 }
@@ -178,33 +198,34 @@ sub register ($self) {
                     $self->dq->sql(q{
                         UPDATE registration SET
                             team = ?,
-                            name = ?,
                             bib = ?,
+                            name = ?,
                             role = ?,
                             m_f = ?,
                             attend = ?,
                             house = ?,
                             lunch = ?,
-                            note = ?
+                            notes = ?
                         WHERE registration_id = ?
                     })->run(
-                        'team', # TODO ................................................
-                        ${$quizzer}{ qw(
+                        $team_number,
+                        ++$bib,
+                        @{$quizzer}{ qw(
                             name
-                            bib
                             role
                             m_f
                             attend
                             house
                             lunch
-                            note
+                            notes
+                            registration_id
                         ) },
                     );
                 }
             }
         }
 
-        my $bib;
+        $bib = 0;
         for my $non_quizzer ( @{ $data->{non_quizzers} } ) {
             unless ( $non_quizzer->{registration_id} ) {
                 $self->dq->sql(q{
@@ -220,16 +241,16 @@ sub register ($self) {
                         notes
                     ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
                 })->run(
-                    $data->{church}{church_id},
+                    $self->stash('user')->church->{church_id},
                     ++$bib,
-                    ${$non_quizzer}{ qw(
+                    @{$non_quizzer}{ qw(
                         name
                         role
                         m_f
                         attend
                         house
                         lunch
-                        note
+                        notes
                     ) },
                 );
             }
@@ -243,37 +264,51 @@ sub register ($self) {
                         attend = ?,
                         house = ?,
                         lunch = ?,
-                        note = ?
+                        notes = ?
                     WHERE registration_id = ?
                 })->run(
                     ++$bib,
-                    ${$non_quizzer}{ qw(
+                    @{$non_quizzer}{ qw(
                         name
                         role
                         m_f
                         attend
                         house
                         lunch
-                        note
+                        notes
+                        registration_id
                     ) },
                 );
             }
         }
 
-        # TODO: add/update `schedule_church`
-            # $self->param('final')
+        if ( $data->{final_registration} ) {
+            if (
+                my $schedule_church_id = $self->dq->sql(q{
+                    SELECT schedule_church_id
+                    FROM schedule_church
+                    WHERE schedule_id = ? AND church_id = ?
+                })->run(
+                    $next_meet->{schedule_id},
+                    $self->stash('user')->church->{church_id},
+                )->value
+            ) {
+                $self->dq->sql(q{
+                    UPDATE schedule_church
+                    SET last_modified = STRFTIME( '%Y-%m-%d %H:%M:%S:%s', 'NOW', 'LOCALTIME' )
+                    WHERE schedule_id = ?
+                })->run( $next_meet->{schedule_id} );
+            }
+            else {
+                $self->dq->sql(q{
+                    INSERT INTO schedule_church ( schedule_id, church_id ) VALUES ( ?, ? )
+                })->run(
+                    $next_meet->{schedule_id},
+                    $self->stash('user')->church->{church_id},
+                );
+            }
+        }
     }
-
-    $self->stash(
-        %$next_meet,
-        no_edit => (
-            (
-                not $meet or
-                $next_meet->{past_deadline} or
-                grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $self->stash('user')->roles }
-            ) ? 1 : 0
-        ),
-    );
 }
 
 sub register_data ($self) {
@@ -301,7 +336,7 @@ sub register_data ($self) {
         ORDER BY team, bib
     })->run( $self->stash('user')->id )->all({}) } ) {
         if ( $_->{team} ) {
-            $teams{ $_->{team} }{ $_->{bib} } = $_;
+            $teams{ $_->{team} }{ $_->{bib} || 0 } = $_;
         }
         else {
             $non_quizzers{ $_->{bib} } = $_;
@@ -310,10 +345,10 @@ sub register_data ($self) {
 
     $self->render( json => {
         church => $self->stash('user')->church,
-        teams => [
+        teams  => [
             map {
                 my $team = $_;
-                [ map { $teams{$team}{$_} } sort { $a <=> $b } keys %{ $teams{$team} } ];
+                [ map { $teams{$team}{$_} } sort { $a || 0 <=> $b || 0 } keys %{ $teams{$team} } ];
             } sort { $a <=> $b } keys %teams
         ],
         non_quizzers => [

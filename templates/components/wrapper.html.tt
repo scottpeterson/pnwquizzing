@@ -39,7 +39,7 @@
 
     [% IF page.vue %]
         <script type="text/javascript" src="[% c.url_for(
-            ( c.app.mode == 'production' ) ? '/js/vue.js' : '/js/vue.min.js'
+            ( c.app.mode == 'production' ) ? '/js/vue.min.js' : '/js/vue.js'
         ) %]"></script>
 
         <script type="text/javascript" src="[% c.url_for('/js/vue-resource.js') %]"></script>

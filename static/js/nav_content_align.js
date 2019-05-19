@@ -11,7 +11,7 @@ var nav_content_align = ( function () {
         },
 
         align: function () {
-            if ( nav.offsetHeight < content.offsetHeight ) {
+            if ( nav && content && header && nav.offsetHeight < content.offsetHeight ) {
                 var height = content.scrollHeight - header.scrollHeight;
 
                 nav.style.maxHeight = height + "px";
