@@ -96,7 +96,7 @@ Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
 
             save_registration : function () {
                 var register     = document.createElement("form");
-                register.action  = cntlr + "tool/register";
+                register.action  = cntlr + "tool/register_save";
                 register.method  = "post";
                 register.enctype = "multipart/form-data";
 

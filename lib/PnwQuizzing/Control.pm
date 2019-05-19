@@ -9,6 +9,7 @@ use Mojo::File;
 use TryCatch;
 use PnwQuizzing::Model::User;
 use File::Path 'make_path';
+use PnwQuizzing::Model::Register;
 
 with qw( PnwQuizzing::Role::Template PnwQuizzing::Role::DocsNav );
 
@@ -64,9 +65,10 @@ sub startup ($self) {
         }
     } );
 
-    my $docs_nav = $self->generate_docs_nav;
-    my $header   = length( $root_dir . '/static' );
-    my $photos   = Mojo::File
+    my $docs_nav     = $self->generate_docs_nav;
+    my $registration = PnwQuizzing::Model::Register->new;
+    my $header       = length( $root_dir . '/static' );
+    my $photos       = Mojo::File
         ->new( $root_dir . '/static/photos' )
         ->list_tree
         ->map( sub { substr( $_->to_string, $header ) } )
@@ -74,23 +76,11 @@ sub startup ($self) {
         ->to_array;
 
     my $all = $self->routes->under( sub ($self) {
-        # TODO: when logged in, church not registered, and we're not on the registration page already
-        if ( $self->stash('user') and 0 ) {
-            $self->stash(
-                message => {
-                    type => 'notice',
-                    text => q{
-                        It appears you
-                        (as a coach representing } . $self->stash('user')->church->{acronym} . q{)
-                        have not registered for the next upcoming quiz meet.
-                        Please register before the deadline. To register, visit the
-                        <a href="} . $self->url_for('/tool/register') . q{">Online Registration System</a>.
-                    },
-                },
-            );
-        }
-
-        $self->stash( docs_nav => $docs_nav, header_photos => $photos );
+        $self->stash(
+            docs_nav      => $docs_nav,
+            header_photos => $photos,
+            registration  => $registration,
+        );
     } );
 
     my $users = $all->under( sub ($self) {
