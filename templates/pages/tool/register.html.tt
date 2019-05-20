@@ -28,6 +28,14 @@
 <div id="register" v-cloak>
     <h2>Quizzers for {{ church.name }}</h2>
 
+    <p v-if="teams.length == 0">
+        There are currently no quizzers registered for {{ church.name }}.
+        [% IF no_edit %]
+            Only coaches can add or edit registration data.
+            <i>(You are not listed as a coach currently.)</i>
+        [% END %]
+    </p>
+
     <div v-for="( team, team_index ) in teams">
         <h3>{{ church.acronym }} {{ team_index + 1 }}</h3>
         <table>
@@ -137,6 +145,15 @@
     [% END %]
 
     <h2>Non-Quizzers from {{ church.name }}</h2>
+
+    <p v-if="non_quizzers.length == 0">
+        There are currently no non-quizzers registered from {{ church.name }}.
+        [% IF no_edit %]
+            Only coaches can add or edit registration data.
+            <i>(You are not listed as a coach currently.)</i>
+        [% END %]
+    </p>
+
     <table v-if="non_quizzers.length > 0">
         <thead>
             <tr>
