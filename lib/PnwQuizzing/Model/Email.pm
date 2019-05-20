@@ -56,8 +56,8 @@ sub send ( $self, $data ) {
     return undef unless ( $self->conf->get( 'email', 'active' ) );
     $self->info(
         'Sent email "' . $self->type . '"' . (
-            ( not ref $data->{to}        ) ? ' to: ' . $data->{to}               :
-            ( ref $data->{to} eq 'ARRAY' ) ? ' to: ' . join( ', ', $data->{to} ) : ''
+            ( $data->{to} and not ref $data->{to} ) ? ' to: ' . $data->{to}               :
+            ( ref $data->{to} eq 'ARRAY'          ) ? ' to: ' . join( ', ', $data->{to} ) : ''
         )
     );
     return $mailer->send($data);

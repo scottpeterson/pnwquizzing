@@ -29,6 +29,18 @@
             href="[% c.url_for('/line-awesome/css/line-awesome.min.css') %]" />
 
         <title>[% page.title %]</title>
+
+        [% IF c.app.mode == 'production' %]
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3112573-14"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag( "js", new Date() );
+                gtag( "config", "UA-3112573-14" );
+            </script>
+        [% END %]
     </head>
     <body[% IF page.body_class %] class="[% page.body_class %]"[% END %]>
         [% PROCESS page_layout.html.tt %]
