@@ -1,0 +1,33 @@
+<title>PNW Quizzing: Registration reminder</title>
+
+<p>Greetings [% first_name %],</p>
+
+<p>
+    This is a registration reminder email. The next quiz meet,
+    <b>[% meet %]</b> hosted at <b>[% location %]</b>, will begin on [% start %].
+</p>
+
+<ul>
+    <li>Meet: <b>[% meet %]</b></li>
+    <li>Location: <b>[% location %]</b></li>
+    <li>Address: <b><a href="[% address_url %]">[% address  %]</a></b></li>
+    <li>Start: <b>[% start %]</b></li>
+</ul>
+
+<p>
+    It appears that <b>[% church %] ([% acronym %])</b> has not finalized
+    registration for this upcoming quiz meet.
+
+    [% UNLESS days_before_deadline == 2 %]
+        Please use the link below to finalize your registration:
+    [% ELSE %]
+        Please remind your coach(es) to use the link below to finalize your registration:
+    [% END %]
+</p>
+
+<p><b><a href="[% url %]/tool/register">Online Meet Registration System</a></b></p>
+
+<p>
+    Note there are <b>[% days_before_deadline %]</b> days remaining before the
+    meet registration deadline.
+</p>

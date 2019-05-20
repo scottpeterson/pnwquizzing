@@ -1,5 +1,6 @@
 package PnwQuizzing::Model::Register;
 use Mojo::Base 'PnwQuizzing::Model', -signatures;
+use PnwQuizzing::Model::Email;
 
 my $singleton;
 
@@ -7,14 +8,15 @@ sub new ( $self, @params ) {
     return $singleton //= $self->SUPER::new(@params);
 }
 
-sub next_meet ( $self, $user ) {
+sub next_meet ( $self, $user = undef ) {
     my $next_meet;
     my $meet = $self->dq->sql(q{
         SELECT
             schedule_id,
             meet, location, address, address_url, start, deadline,
             STRFTIME( '%s', deadline ) < STRFTIME( '%s', 'now' ) AS past_deadline,
-            STRFTIME( '%s', 'now' ) > strftime( '%s', start, '-2 month' ) AS notice_active
+            STRFTIME( '%s', 'now' ) > strftime( '%s', start, '-2 month' ) AS notice_active,
+            ROUND( JULIANDAY(deadline) - JULIANDAY('now') ) AS days_before_deadline
         FROM schedule
         WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'now' )
         ORDER BY start
@@ -24,14 +26,16 @@ sub next_meet ( $self, $user ) {
     @$next_meet{ qw(
         schedule_id
         meet location address address_url start deadline
-        past_deadline notice_active
+        past_deadline notice_active days_before_deadline
     ) } = @{ ($meet) ? $meet->row : [] };
 
-    $next_meet->{no_edit} = (
-        not $meet or
-        $next_meet->{past_deadline} or
-        not scalar( grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $user->roles } )
-    ) ? 1 : 0;
+    if ($user) {
+        $next_meet->{no_edit} = (
+            not $meet or
+            $next_meet->{past_deadline} or
+            not scalar( grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $user->roles } )
+        ) ? 1 : 0;
+    }
 
     return $next_meet;
 }
@@ -311,6 +315,51 @@ sub current_data ( $self, $user ) {
         %$next_meet,
         current_data => $current_data,
     };
+}
+
+sub send_reminders ($self) {
+    my $email                 = PnwQuizzing::Model::Email->new( type => 'registration_reminder' );
+    my $next_meet             = $self->next_meet;
+    my @registered_church_ids = map { @$_ } @{
+        $self->dq->sql(q{
+            SELECT church_id
+            FROM schedule_church
+            WHERE schedule_id = ?
+        })->run( $next_meet->{schedule_id} )->all
+    };
+
+    if ( $next_meet->{days_before_deadline} == 10 or $next_meet->{days_before_deadline} == 2 ) {
+        for my $user ( @{ $self->dq->sql(
+            q{
+                SELECT c.church_id, c.name AS church, c.acronym, u.first_name, u.last_name, u.email
+                FROM user AS u
+            } .
+            (
+                ( $next_meet->{days_before_deadline} == 2 )
+                    ? q{
+                        JOIN church AS c USING (church_id)
+                        WHERE c.active AND u.active
+                    }
+                    : q{
+                        JOIN user_role AS ur USING (user_id)
+                        JOIN role AS r USING (role_id)
+                        JOIN church AS c USING (church_id)
+                        WHERE r.name = 'Coach' AND c.active AND u.active
+                    }
+            )
+        )->run->all({}) } ) {
+            next if ( grep { $_ == $user->{church_id} } @registered_church_ids );
+
+            $email->send({
+                to   => sprintf( '%s %s <%s>', map { $user->{$_} } qw( first_name last_name email ) ),
+                data => {
+                    %{$user},
+                    %{$next_meet},
+                    url => $self->conf->get('base_url'),
+                },
+            });
+        }
+    }
 }
 
 1;
