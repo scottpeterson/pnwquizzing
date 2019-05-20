@@ -57,4 +57,20 @@ div#register {
     tr.inactive td select {
         background-color: #f0f0f0;
     }
+
+    div.register_quizzers {
+        overflow-x: auto;
+
+        table {
+            min-width: 53.5em;
+        }
+    }
+
+    div.register_non_quizzers {
+        overflow-x: auto;
+
+        table {
+            min-width: 49.9em;
+        }
+    }
 }

@@ -3,8 +3,7 @@
     background-color : ghostwhite;
     font-size        : 14px;
     line-height      : 150%;
-    padding          : $div_body_padding;
-    padding-left     : 25px;
+    padding          : $div_body_padding $div_body_padding $div_body_padding 25px;
 }
 
 h1 { margin-left: -10px }

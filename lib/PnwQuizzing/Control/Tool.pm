@@ -128,6 +128,7 @@ sub register ($self) {
 sub register_data ($self) {
     $self->render( json => {
         church => $self->stash('user')->church,
+        roles  => $self->stash('user')->roles,
         %{ $self->registration->persons( $self->stash('user') ) },
     } );
 }

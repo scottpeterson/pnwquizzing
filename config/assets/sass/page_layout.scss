@@ -66,9 +66,11 @@ html {
         @import 'components/message';
 
         div#content {
-            overflow-x : hidden;
-            overflow-y : auto;
-            min-height : calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
+            min-height: calc( 100vh - #{ $header_height + $div_body_padding * 2 } );
+
+
+            // overflow: auto;
+
 
             grid-area: content;
             @import 'components/content';

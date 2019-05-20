@@ -38,106 +38,109 @@
 
     <div v-for="( team, team_index ) in teams">
         <h3>{{ church.acronym }} {{ team_index + 1 }}</h3>
-        <table>
-            <thead>
-                <tr>
-                    [% UNLESS no_edit %]<th></th>[% END %]
-                    <th>Bib</th>
-                    <th>Name</th>
-                    <th>M/F</th>
-                    <th>Grade</th>
-                    <th>Rookie</th>
-                    <th>Attend</th>
-                    <th>House</th>
-                    <th>Lunch</th>
-                    <th>Notes</th>
-                    [% UNLESS no_edit %]<th></th>[% END %]
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="( quizzer, person_index ) in team" v-bind:class="{ inactive: ! quizzer.attend }">
-                    [% UNLESS no_edit %]
-                        <td>
-                            <i class="la la-arrow-up" v-on:click="reorder( -1, person_index, team_index )"></i>
-                            <i class="la la-arrow-down" v-on:click="reorder( 1, person_index, team_index )"></i>
+
+        <div class="register_quizzers">
+            <table>
+                <thead>
+                    <tr>
+                        [% UNLESS no_edit %]<th></th>[% END %]
+                        <th>Bib</th>
+                        <th>Name</th>
+                        <th>M/F</th>
+                        <th>Grade</th>
+                        <th>Rookie</th>
+                        <th>Attend</th>
+                        <th>House</th>
+                        <th>Lunch</th>
+                        <th>Notes</th>
+                        [% UNLESS no_edit %]<th></th>[% END %]
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="( quizzer, person_index ) in team" v-bind:class="{ inactive: ! quizzer.attend }">
+                        [% UNLESS no_edit %]
+                            <td>
+                                <i class="la la-arrow-up" v-on:click="reorder( -1, person_index, team_index )"></i>
+                                <i class="la la-arrow-down" v-on:click="reorder( 1, person_index, team_index )"></i>
+                            </td>
+                        [% END %]
+                        <td class="right">
+                            {{ person_index + 1 }}
                         </td>
-                    [% END %]
-                    <td class="right">
-                        {{ person_index + 1 }}
-                    </td>
-                    <td>
+                        <td>
+                            [% UNLESS no_edit %]
+                                <input type="text" name="name" v-model="quizzer.name">
+                            [% ELSE %]
+                                {{ quizzer.name }}
+                            [% END %]
+                        </td>
+                        <td class="center">
+                            [% UNLESS no_edit %]
+                                <select name="m_f" v-model="quizzer.m_f">
+                                    <option>M</option>
+                                    <option>F</option>
+                                </select>
+                            [% ELSE %]
+                                {{ quizzer.m_f }}
+                            [% END %]
+                        </td>
+                        <td class="right">
+                            [% UNLESS no_edit %]
+                                <input type="text" class="short right"
+                                    name="grade" v-model="quizzer.grade">
+                            [% ELSE %]
+                                {{ quizzer.grade }}
+                            [% END %]
+                        </td>
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="quizzer.rookie">
+                            [% ELSE %]
+                                {{ ( quizzer.rookie ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="quizzer.attend">
+                            [% ELSE %]
+                                {{ ( quizzer.attend ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="quizzer.house" v-bind:disabled="! quizzer.attend">
+                            [% ELSE %]
+                                {{ ( quizzer.house ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="quizzer.lunch" v-bind:disabled="! quizzer.attend">
+                            [% ELSE %]
+                                {{ ( quizzer.lunch ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                        <td>
+                            [% UNLESS no_edit %]
+                                <input type="text" name="notes" v-model="quizzer.notes">
+                            [% ELSE %]
+                                {{ quizzer.notes }}
+                            [% END %]
+                        </td>
                         [% UNLESS no_edit %]
-                            <input type="text" name="name" v-model="quizzer.name">
-                        [% ELSE %]
-                            {{ quizzer.name }}
+                            <td><i class="la la-trash-o"
+                                v-on:click="delete_person( person_index, team_index )"
+                            ></i></td>
                         [% END %]
-                    </td>
-                    <td class="center">
-                        [% UNLESS no_edit %]
-                            <select name="m_f" v-model="quizzer.m_f">
-                                <option>M</option>
-                                <option>F</option>
-                            </select>
-                        [% ELSE %]
-                            {{ quizzer.m_f }}
-                        [% END %]
-                    </td>
-                    <td class="right">
-                        [% UNLESS no_edit %]
-                            <input type="text" class="short right"
-                                name="grade" v-model="quizzer.grade">
-                        [% ELSE %]
-                            {{ quizzer.grade }}
-                        [% END %]
-                    </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="quizzer.rookie">
-                        [% ELSE %]
-                            {{ ( quizzer.rookie ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="quizzer.attend">
-                        [% ELSE %]
-                            {{ ( quizzer.attend ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="quizzer.house" v-bind:disabled="! quizzer.attend">
-                        [% ELSE %]
-                            {{ ( quizzer.house ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="quizzer.lunch" v-bind:disabled="! quizzer.attend">
-                        [% ELSE %]
-                            {{ ( quizzer.lunch ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
-                    <td>
-                        [% UNLESS no_edit %]
-                            <input type="text" name="notes" v-model="quizzer.notes">
-                        [% ELSE %]
-                            {{ quizzer.notes }}
-                        [% END %]
-                    </td>
-                    [% UNLESS no_edit %]
-                        <td><i class="la la-trash-o"
-                            v-on:click="delete_person( person_index, team_index )"
-                        ></i></td>
-                    [% END %]
-                </tr>
-            </tbody>
-            [% UNLESS no_edit %]
-                <caption align="bottom">
-                    <button v-on:click="add_quizzer(team)">Add a Quizzer</button>
-                </caption>
-            [% END %]
-        </table>
+                    </tr>
+                </tbody>
+                [% UNLESS no_edit %]
+                    <caption align="bottom">
+                        <button v-on:click="add_quizzer(team)">Add a Quizzer</button>
+                    </caption>
+                [% END %]
+            </table>
+        </div>
     </div>
 
     [% UNLESS no_edit %]
@@ -154,94 +157,97 @@
         [% END %]
     </p>
 
-    <table v-if="non_quizzers.length > 0">
-        <thead>
-            <tr>
-                [% UNLESS no_edit %]<th></th>[% END %]
-                <th>Name</th>
-                <th>Role</th>
-                <th>M/F</th>
-                <th>Attend</th>
-                <th>House</th>
-                <th>Lunch</th>
-                <th>Notes</th>
-                [% UNLESS no_edit %]<th></th>[% END %]
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="( person, person_index ) in non_quizzers" v-bind:class="{ inactive: ! person.attend }">
-                [% UNLESS no_edit %]
+    <div class="register_non_quizzers" v-if="non_quizzers.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    [% UNLESS no_edit %]<th></th>[% END %]
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>M/F</th>
+                    <th>Attend</th>
+                    <th>House</th>
+                    <th>Lunch</th>
+                    <th>Notes</th>
+                    [% UNLESS no_edit %]<th></th>[% END %]
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="( person, person_index ) in non_quizzers"
+                    v-bind:class="{ inactive: ! person.attend }"
+                >
+                    [% UNLESS no_edit %]
+                        <td>
+                            <i class="la la-arrow-up" v-on:click="reorder( -1, person_index )"></i>
+                            <i class="la la-arrow-down" v-on:click="reorder( 1, person_index )"></i>
+                        </td>
+                    [% END %]
                     <td>
-                        <i class="la la-arrow-up" v-on:click="reorder( -1, person_index )"></i>
-                        <i class="la la-arrow-down" v-on:click="reorder( 1, person_index )"></i>
+                        [% UNLESS no_edit %]
+                            <input type="text" name="name" v-model="person.name">
+                        [% ELSE %]
+                            {{ person.name }}
+                        [% END %]
                     </td>
-                [% END %]
-                <td>
+                    <td>
+                        [% UNLESS no_edit %]
+                            <select name="role" v-model="person.role">
+                                <option v-for="role in roles">{{ role.name }}</option>
+                            </select>
+                        [% ELSE %]
+                            {{ person.role }}
+                        [% END %]
+                    </td>
+                    <td class="center">
+                        [% UNLESS no_edit %]
+                            <select name="m_f" v-model="person.m_f">
+                                <option>M</option>
+                                <option>F</option>
+                            </select>
+                        [% ELSE %]
+                            {{ person.m_f }}
+                        [% END %]
+                    </td>
+                    <td class="checkbox">
+                        [% UNLESS no_edit %]
+                            <input type="checkbox" v-model="person.attend">
+                        [% ELSE %]
+                            {{ ( person.attend ) ? "Yes" : "No" }}
+                        [% END %]
+                    </td>
+                    <td class="checkbox">
+                        [% UNLESS no_edit %]
+                            <input type="checkbox" v-model="person.house" v-bind:disabled="! person.attend">
+                        [% ELSE %]
+                            {{ ( person.house ) ? "Yes" : "No" }}
+                        [% END %]
+                    </td>
+                    <td class="checkbox">
+                        [% UNLESS no_edit %]
+                            <input type="checkbox" v-model="person.lunch" v-bind:disabled="! person.attend">
+                        [% ELSE %]
+                            {{ ( person.lunch ) ? "Yes" : "No" }}
+                        [% END %]
+                    </td>
+                    <td>
+                        [% UNLESS no_edit %]
+                            <input type="text" name="notes" v-model="person.notes">
+                        [% ELSE %]
+                            {{ person.notes }}
+                        [% END %]
+                    </td>
                     [% UNLESS no_edit %]
-                        <input type="text" name="name" v-model="person.name">
-                    [% ELSE %]
-                        {{ person.name }}
+                        <td><i class="la la-trash-o" v-on:click="delete_person(person_index)"></i></td>
                     [% END %]
-                </td>
-                <td>
-                    [% UNLESS no_edit %]
-                        <select name="role" v-model="person.role">
-                            <option>Coach</option>
-                            <option>Official</option>
-                        </select>
-                    [% ELSE %]
-                        {{ person.role }}
-                    [% END %]
-                </td>
-                <td class="center">
-                    [% UNLESS no_edit %]
-                        <select name="m_f" v-model="person.m_f">
-                            <option>M</option>
-                            <option>F</option>
-                        </select>
-                    [% ELSE %]
-                        {{ person.m_f }}
-                    [% END %]
-                </td>
-                <td class="checkbox">
-                    [% UNLESS no_edit %]
-                        <input type="checkbox" v-model="person.attend">
-                    [% ELSE %]
-                        {{ ( person.attend ) ? "Yes" : "No" }}
-                    [% END %]
-                </td>
-                <td class="checkbox">
-                    [% UNLESS no_edit %]
-                        <input type="checkbox" v-model="person.house" v-bind:disabled="! person.attend">
-                    [% ELSE %]
-                        {{ ( person.house ) ? "Yes" : "No" }}
-                    [% END %]
-                </td>
-                <td class="checkbox">
-                    [% UNLESS no_edit %]
-                        <input type="checkbox" v-model="person.lunch" v-bind:disabled="! person.attend">
-                    [% ELSE %]
-                        {{ ( person.lunch ) ? "Yes" : "No" }}
-                    [% END %]
-                </td>
-                <td>
-                    [% UNLESS no_edit %]
-                        <input type="text" name="notes" v-model="person.notes">
-                    [% ELSE %]
-                        {{ person.notes }}
-                    [% END %]
-                </td>
-                [% UNLESS no_edit %]
-                    <td><i class="la la-trash-o" v-on:click="delete_person(person_index)"></i></td>
-                [% END %]
-            </tr>
-        </tbody>
-        [% UNLESS no_edit %]
-            <caption align="bottom">
-                <button v-on:click="add_non_quizzer">Add a Non-Quizzer</button>
-            </caption>
-        [% END %]
-    </table>
+                </tr>
+            </tbody>
+            [% UNLESS no_edit %]
+                <caption align="bottom">
+                    <button v-on:click="add_non_quizzer">Add a Non-Quizzer</button>
+                </caption>
+            [% END %]
+        </table>
+    </div>
 
     [% UNLESS no_edit %]
         <p v-if="non_quizzers.length == 0"><button v-on:click="add_non_quizzer">Add a Non-Quizzer</button></p>
