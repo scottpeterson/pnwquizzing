@@ -7,7 +7,7 @@ The following is the latest schedule for 2019-2020:
     - Alliance Bible Church (ABC)
     - <a href="https://www.google.com/maps/place/19320+SE+240th+St,+Covington,+WA+98042">19320 SE 240th St., Covington, WA 98042</a>
 - District Meet 1
-    - October 18-19
+    - October 11-12
     - Eastridge Baptist Church (EBC)
     - <a href="https://www.google.com/maps/place/12520+SE+240th+St,+Kent,+WA+98031">12520 SE 240th St, Kent, WA 98031</a>
 - District Meet 2
