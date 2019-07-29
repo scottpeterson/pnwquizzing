@@ -15,4 +15,4 @@ The members, voting and non-voting, of the General Assembly are defined in the
 The current members of the Board of Directors are listed in
 [the leadership page](../about_us/leadership.md).
 
-- [Sunday, July 28, 2019](_meeting_minutes/2019-04-27.md) via Google Hangouts
+- [Sunday, July 28, 2019](_meeting_minutes/2019-07-28.md) via Google Hangouts
