@@ -23,10 +23,12 @@ The following is the latest schedule for 2019-2020:
     - <a href="https://www.google.com/maps/place/3409+23rd+St+SW,+Puyallup,+WA+98373">3409 23rd St SW, Puyallup, WA 98373</a>
 - District Meet 5
     - March 27-28
-    - *(TBD location)*
+    - Dallas Alliance Church (DAC)
+    - <a href="https://www.google.com/maps/place/775+E+Ellendale+Ave,+Dallas,+OR+97338">775 E Ellendale Ave, Dallas, OR 97338</a>
 - Great West Invitational (GWI)
     - *(TBD date)*
-    - *(TBD location)*
+    - Crowsnest Lake Bible Camp
+    - <a href="https://www.google.com/maps/place/J8GR%2B6F+Coleman,+Crowsnest+Pass,+AB">J8GR+6F Coleman, Crowsnest Pass, AB</a>
 - District Championship
     - April 17-18
     - Double K Retreat Center (Easton, WA),
