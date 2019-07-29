@@ -26,7 +26,7 @@ The following are prerequisite requirements for candidates to fill the position 
 
 - Be considered by the Assembly to have demonstrated the requirements of an overseer from 1 Timothy 3:1-7, but there will be no requirement that candidates be male, married, or have children
 - Regularly attend a theologically traditional Christian church, meaning it is in alignment with the Nicene Creed (Symbolum Nicaenum), the English translation of the Armenian version
-- Have served as a quizzing official (quizmaster, answer judge, scorekeeper, or statistician) in PNW for at least the previous 2 consecutive quiz seasons
+- Have served as a quizzing official (quizmaster, answer judge, scorekeeper, or statistician) or coach in PNW for at least the previous 2 consecutive quiz seasons
 - Have served on the Board of Directors for at least the previous 2 consecutive quiz seasons
 - Promote and ensure the PNW is in alignment with it's mission
 - Attend all quiz meets
