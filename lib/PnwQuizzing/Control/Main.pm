@@ -17,8 +17,6 @@ sub home_page ($self) {
     my $payload = decode_utf8( ( $self->stash('user') ) ? $self->translate( $asset->slurp ) : $asset->slurp );
     my $title   = ( $payload =~ s/^#\s*([^#]+?)\s*$//ms ) ? $1 : '';
 
-    $payload = "## Welcome\n\n" . $payload;
-
     $self->stash( payload => markdown($payload), title => $title );
 }
 
