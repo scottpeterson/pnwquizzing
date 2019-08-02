@@ -103,23 +103,17 @@ sub git_push ($self) {
     my $response;
     if ( $payload and $payload->{ref} and $payload->{ref} eq 'refs/heads/master' ) {
         if ( my $git_push_command = $self->conf->get( qw( git push ) ) ) {
-            $response = { action => 1, message => 'release' };
             $self->notice('git push triggered release');
-
-            my $pid = fork();
-            if ( defined $pid and $pid == 0 ) {
-                system($git_push_command);
-                exit;
-            }
+            $response = { action => 1, message => 'release', output => `$git_push_command` };
         }
         else {
-            $response = { action => 2, message => 'no git push command in conf' };
             $self->notice('git push webhook called but no action taken');
+            $response = { action => 2, message => 'no git push command in conf' };
         }
     }
     else {
-        $response = { action => 0, message => 'no action' };
         $self->notice('git push webhook called but not of ref master');
+        $response = { action => 0, message => 'no action' };
     }
 
     return $self->render( json => { response => $response, payload => $payload } );
