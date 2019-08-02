@@ -6,6 +6,7 @@ use Text::MultiMarkdown 'markdown';
 use Text::CSV_XS 'csv';
 use Encode 'decode_utf8';
 use Role::Tiny::With;
+use Mojo::JSON 'decode_json';
 
 with 'PnwQuizzing::Role::Secret';
 
@@ -94,6 +95,34 @@ sub content ($self) {
     $self->res->content->asset($asset);
 
     return $self->rendered(200);
+}
+
+sub git_push ($self) {
+    my $payload = decode_json( $self->req->param('payload') );
+
+    my $response;
+    if ( $payload and $payload->{ref} and $payload->{ref} eq 'refs/heads/master' ) {
+        if ( my $git_push_command = $self->conf->get( qw( git push ) ) ) {
+            $response = { action => 1, message => 'release' };
+            $self->notice('git push triggered release');
+
+            my $pid = fork();
+            if ( defined $pid and $pid == 0 ) {
+                system($git_push_command);
+                exit;
+            }
+        }
+        else {
+            $response = { action => 2, message => 'no git push command in conf' };
+            $self->notice('git push webhook called but no action taken');
+        }
+    }
+    else {
+        $response = { action => 0, message => 'no action' };
+        $self->notice('git push webhook called but not of ref master');
+    }
+
+    return $self->render( json => { response => $response, payload => $payload } );
 }
 
 1;

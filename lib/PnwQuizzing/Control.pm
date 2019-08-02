@@ -99,6 +99,7 @@ sub startup ($self) {
     $all->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( login account ) );
 
     $all->any('/search')->to('tool#search');
+    $all->any('/git/push')->to('main#git_push');
     $all->any('/')->to('main#home_page');
     $all->any('/*name')->to('main#content');
 }
