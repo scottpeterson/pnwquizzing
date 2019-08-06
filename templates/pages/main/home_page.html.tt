@@ -40,11 +40,28 @@
         [% ELSIF node.name %]
             [% UNLESS seen_header %]<h2>General</h2>[% END %]
             [% seen_header = 1 %]
-            <div>[% PROCESS nav node = node %]</div>
+            <div class="big_button">[% PROCESS nav node = node %]</div>
         [% END %]
 
         [% FOREACH node IN node.nodes %]
-            <div>[% PROCESS nav node = node %]</div>
+            <div class="big_button">[% PROCESS nav node = node %]</div>
         [% END %]
     [% END %]
+
+    <h2>Tracking Changes</h2>
 </div>
+
+<p>
+    You can track changes to this webs site using the
+    <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom">RSS feed</a>
+    provided by
+    <a href="https://github.com/gryphonshafer/pnwquizzing">its GitHub project</a>.
+</p>
+
+<div class="big_button">
+    <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom" title="PNW Quizzing Web Site RSS Feed">
+    <span>PNW Quizzing Web Site RSS Feed</span></a></div>
+
+<div class="big_button">
+    <a href="https://github.com/gryphonshafer/pnwquizzing" title="PNW Quizzing Web Site GitHub Project">
+    <span>PNW Quizzing Web Site GitHub Project</span></a></div>

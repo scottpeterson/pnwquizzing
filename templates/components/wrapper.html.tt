@@ -20,13 +20,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="shortcut icon" type="image/x-icon"
-            href="[% c.url_for('/favicon.ico').query( version => constants.version ) %]" />
+            href="[% c.url_for('/favicon.ico').query( version => constants.version ) %]">
 
         <link rel="stylesheet" type="text/css"
-            href="[% c.url_for('/app.css').query( version => constants.version ) %]" />
+            href="[% c.url_for('/app.css').query( version => constants.version ) %]">
 
         <link rel="stylesheet" type="text/css"
-            href="[% c.url_for('/line-awesome/css/line-awesome.min.css') %]" />
+            href="[% c.url_for('/line-awesome/css/line-awesome.min.css') %]">
+
+        <link href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom"
+            rel="alternate" title="Recent Commits to pnwquizzing:master" type="application/atom+xml">
 
         <title>[% page.title %]</title>
 
