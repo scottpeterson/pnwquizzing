@@ -8,22 +8,31 @@
 
 - Cutty Welt, North Seattle Alliance Church
 - Gryphon Shafer, PNWTI
-- Jessica Monroe, Dallas
 - Kendra Gross, Grays Harbor
 - Micah Hollen, Grays Harbor
+- Tony Kong
 
-## Scorekeeper
+The following are substitute quizmasters available in case any of the primary above are unable to make a meet:
+
+- Jon VanSchenck, Christ Central
+- Kristine Delamarter, Madras
+
+## Answer Judges
+
+- Andrew Borden, ABC
+- Daniel Newman, NSA
+- Lawrence Kim, NSA
+
+## Scorekeepers
 
 - Ben Hoefs, Grays Harbor
-- Daniel Newman, NSA
 - Dave Beatty, Spanaway
 - Kim Rigg, Madras
-- Lawrence Kim, NSA
 - Sharalyn Shafer, PNWTI
 
 ## Statistics
 
-- Statisticians: Scott and Lillian Peterson, somewhere in the midwest
+- Scott Peterson
 
 ## Board of Directors
 
