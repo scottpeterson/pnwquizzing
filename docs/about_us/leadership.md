@@ -14,6 +14,7 @@
 
 The following are substitute quizmasters available in case any of the primary above are unable to make a meet:
 
+- Jeremy Swingle, Trinitas
 - Jon VanSchenck, Christ Central
 - Kristine Delamarter, Madras
 
