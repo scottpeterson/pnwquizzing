@@ -35,6 +35,11 @@ The following are substitute quizmasters available in case any of the primary ab
 
 - Scott Peterson
 
+## Meet Direction
+
+- **Meet Director:** Gryphon Shafer, PNWTI
+- **Master of Ceremonies (MC):** Jon VanSchenck, Christ Central
+
 ## Board of Directors
 
 - Gryphon Shafer, PNWTI (Chair by virtue of being District Coordinator)
