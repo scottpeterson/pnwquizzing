@@ -3,6 +3,8 @@
 The following is a new intrameet schedule we're going to try out for 2019-2020.
 Feedback and criticisms are welcomed.
 
+*Note that the Saturday-only Scramble meet schedule is a bit different: registration to start at 8:00 AM, worship/devotions start at 8:30 AM.*
+
 ## Friday
 
 | Event                                 | Start    | End      |
