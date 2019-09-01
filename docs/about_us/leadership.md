@@ -21,6 +21,7 @@ The following are substitute quizmasters available in case any of the primary ab
 ## Answer Judges
 
 - Andrew Borden, ABC
+- Claire Kong
 - Daniel Newman, NSA
 - Lawrence Kim, NSA
 
