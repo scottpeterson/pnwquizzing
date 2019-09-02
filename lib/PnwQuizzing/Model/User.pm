@@ -76,6 +76,7 @@ sub roles ( $self, $roles = undef ) {
                     WHERE ur.user_id = ? AND ur.role_id = r.role_id
                 ) AS has_role
             FROM role AS r
+            WHERE r.active
             ORDER BY r.created
         })->run( ( $self->data ) ? $self->id : -1 )->all({});
     }
@@ -92,6 +93,7 @@ sub churches ($self) {
                 WHERE u.user_id = ? AND u.church_id = c.church_id
             ) AS has_church
         FROM church AS c
+        WHERE c.active
         ORDER BY c.name
     })->run( ( $self->data ) ? $self->id : -1 )->all({});
 }
