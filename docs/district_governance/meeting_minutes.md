@@ -16,3 +16,4 @@ The current members of the Board of Directors are listed in
 [the leadership page](../about_us/leadership.md).
 
 - [Sunday, July 28, 2019](_meeting_minutes/2019-07-28.md) via Google Hangouts
+- [Monday, September 2, 2019](_meeting_minutes/2019-09-02.md) via Email

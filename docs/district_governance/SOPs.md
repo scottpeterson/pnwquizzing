@@ -162,3 +162,20 @@ There is a quoting requirement for all quizzers planning to attend International
 If 5 quizzers do not meet the quoting requirement in a given quiz year, the the remaining members of the team will comprise of the top-placing individuals who did not meet the requirement.
 
 The head coach has latitude for setting practice requirements. Any dispute shall be decided by the Board of Directors.
+
+### Fees
+
+The following are the fees associated with quiz meet attendance:
+
+- There is a fee of $20 per quizzer per meet for every regular District Meet and District Championships.
+- There is a fee of $100 per quizzer to attend the Great West Invitational.
+- There is a fee of $150 per quizzer to attend Internationals.
+
+For clarification:
+
+- There are no team fees.
+- There are no fees for the Scramble Meet.
+
+In addition:
+
+- All fees are waived for ministries in their first year of PNW Quizzing participation.
