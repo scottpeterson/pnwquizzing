@@ -179,3 +179,11 @@ For clarification:
 In addition:
 
 - All fees are waived for ministries in their first year of PNW Quizzing participation.
+
+### Host Facility Reimbursement
+
+Every facility that hosts a quiz meet will receive:
+
+- $100 for hosting
+- +$50 for providing lunch
+- +$50 for providing housing
