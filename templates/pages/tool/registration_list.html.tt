@@ -29,7 +29,8 @@
 [% IF current_data.quizzers AND current_data.quizzers.size > 0 %]
     <p>
         Rows in white are from churches that have indicated their data is "final"
-        for the upcoming meet. Rows in red are churches that have not so indicated.
+        for the upcoming meet. 
+        <span style="color: green">Rows in green are churches that have not so indicated.</span>
     </p>
 
     <table>
@@ -64,7 +65,7 @@
                         counts.lunch  = counts.lunch + 1;
                     END;
                 %]
-                <tr[% IF NOT quizzer.registration_last_modified %] class="red"[% END %]>
+                <tr[% IF NOT quizzer.registration_last_modified %] class="green"[% END %]>
                     <td>[% quizzer.acronym %] [% quizzer.team %]</td>
                     <td class="right">[% quizzer.bib %]</td>
                     <td>[% quizzer.name %]</td>
@@ -87,7 +88,8 @@
 [% IF current_data.non_quizzers AND current_data.non_quizzers.size > 0 %]
     <p>
         Rows in white are from churches that have indicated their data is "final"
-        for the upcoming meet. Rows in red are churches that have not so indicated.
+        for the upcoming meet. 
+        <span style="color: green">Rows in green are churches that have not so indicated.</span>
     </p>
 
     <table>
@@ -120,7 +122,7 @@
                         counts.lunch  = counts.lunch + 1;
                     END;
                 %]
-                <tr[% IF NOT non_quizzer.registration_last_modified %] class="red"[% END %]>
+                <tr[% IF NOT non_quizzer.registration_last_modified %] class="green"[% END %]>
                     <td>[% non_quizzer.acronym %]</td>
                     <td>[% non_quizzer.name %]</td>
                     <td>[% non_quizzer.role %]</td>
