@@ -309,7 +309,14 @@ sub current_data ( $self, $user ) {
                 ) AS registration_last_modified
             FROM registration AS r
             JOIN church AS c USING (church_id)
-            ORDER BY c.acronym, r.team, r.bib, r.role, r.name
+            ORDER BY
+                c.acronym,
+                CASE WHEN r.team IS NOT NULL THEN
+                    r.team || r.bib
+                ELSE
+                    r.role
+                END,
+                r.name
         })->run( $next_meet->{schedule_id} )->all({})
     } );
 
