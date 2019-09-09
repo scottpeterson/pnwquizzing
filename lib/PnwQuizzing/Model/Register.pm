@@ -311,11 +311,8 @@ sub current_data ( $self, $user ) {
             JOIN church AS c USING (church_id)
             ORDER BY
                 c.acronym,
-                CASE WHEN r.team IS NOT NULL THEN
-                    r.team || r.bib
-                ELSE
-                    r.role
-                END,
+                CASE WHEN r.team IS NOT NULL THEN r.team ELSE r.role END,
+                CASE WHEN r.team IS NOT NULL THEN r.bib ELSE NULL END,
                 r.name
         })->run( $next_meet->{schedule_id} )->all({})
     } );
