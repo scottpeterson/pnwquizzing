@@ -49,7 +49,7 @@ The following are substitute quizmasters available in case any of the primary ab
 ## Board of Directors
 
 - Gryphon Shafer, PNWTI (Chair by virtue of being District Coordinator)
-- Jeremy Swingle, Trinitas (Vice-Chair by virtue of being Rules Commmittee Chair)
+- Jeremy Swingle, Trinitas (Vice-Chair by virtue of being Rules Committee Chair)
 - Sharalyn Shafer, PNWTI (Treasurer)
 - Kristine Delamarter, Madras
 - Sarah Davis, Dallas Alliance Church
