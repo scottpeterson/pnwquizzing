@@ -15,7 +15,7 @@
 The following are substitute quizmasters available in case any of the primary above are unable to make a meet:
 
 - Jeremy Swingle, Trinitas
-- Jon VanSchenck, Christ Central
+- Jon Van Schenck, Christ Central
 - Kristine Delamarter, Madras
 
 ## Answer Judges
@@ -32,14 +32,19 @@ The following are substitute quizmasters available in case any of the primary ab
 - Kim Rigg, Madras
 - Sharalyn Shafer, PNWTI
 
-## Statistics
-
-- Scott Peterson
-
 ## Meet Direction
 
 - **Meet Director:** Gryphon Shafer, PNWTI
-- **Master of Ceremonies (MC):** Jon VanSchenck, Christ Central
+- **Master of Ceremonies (MC):** Jon Van Schenck, Christ Central
+- **Greeter/Guide:** Caylee Van Schenck, Christ Central
+
+## Senior Statistician
+
+- Scott Peterson
+
+## Head Evangelist
+
+- Caylee Van Schenck, Christ Central
 
 ## Board of Directors
 

@@ -46,7 +46,7 @@ The following is the latest schedule for 2019-2020:
 **District Championship**
 
 - April 17-18
-- Double K Retreat Center (Easton, WA),
+- Double K Retreat Center (Easton, WA)
 - <a href="https://www.google.com/maps/place/620+Tall+Timber+Trail,+Easton,+WA+98925">620 Tall Timber Trail, Cle Elum, WA 98922</a>
 
 **International Bible Quizzing (IBQ)**
