@@ -167,6 +167,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                         bib = ?,
                         name = ?,
                         role = ?,
+                        rookie = ?,
                         m_f = ?,
                         attend = ?,
                         house = ?,
@@ -179,6 +180,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     @{$quizzer}{ qw(
                         name
                         role
+                        rookie
                         m_f
                         attend
                         house
