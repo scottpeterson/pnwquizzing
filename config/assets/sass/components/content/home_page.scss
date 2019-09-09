@@ -102,6 +102,18 @@ iframe.youtube {
     max-height : 315px;
 }
 
+p.social {
+    a {
+        font-size       : 64px;
+        text-decoration : none;
+        color           : black;
+    }
+
+    a:hover {
+        color : blue;
+    }
+}
+
 @media (max-width: 810px) {
     iframe.youtube {
         float       : none;

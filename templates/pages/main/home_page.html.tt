@@ -49,35 +49,29 @@
     [% END %]
 
     <h2>Tracking Changes</h2>
+
+    <p>
+        You can track changes to this webs site using the
+        <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom">RSS feed</a>
+        provided by
+        <a href="https://github.com/gryphonshafer/pnwquizzing">its GitHub project</a>.
+    </p>
+
+    <div class="big_button">
+        <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom"
+        title="PNW Quizzing Web Site RSS Feed">
+        <span>PNW Quizzing Web Site RSS Feed</span></a></div>
+
+    <div class="big_button">
+        <a href="https://github.com/gryphonshafer/pnwquizzing"
+        title="PNW Quizzing Web Site GitHub Project">
+        <span>PNW Quizzing Web Site GitHub Project</span></a></div>
+
+    <h2>Social Media</h2>
+
+    <p class="social">
+        <a href="https://www.facebook.com/groups/110424762306800"><i class="la la-facebook-official"></i></a>
+        <a href="https://twitter.com/pnwquizzing"><i class="la la-twitter-square"></i></a>
+        <a href="https://instagram.com/pnw_biblequizzing"><i class="la la-instagram"></i></a>
+    </p>
 </div>
-
-<p>
-    You can track changes to this webs site using the
-    <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom">RSS feed</a>
-    provided by
-    <a href="https://github.com/gryphonshafer/pnwquizzing">its GitHub project</a>.
-</p>
-
-<div class="big_button">
-    <a href="https://github.com/gryphonshafer/pnwquizzing/commits/master.atom" title="PNW Quizzing Web Site RSS Feed">
-    <span>PNW Quizzing Web Site RSS Feed</span></a></div>
-
-<div class="big_button">
-    <a href="https://github.com/gryphonshafer/pnwquizzing" title="PNW Quizzing Web Site GitHub Project">
-    <span>PNW Quizzing Web Site GitHub Project</span></a></div>
-
-<h2 style="font-size: 24px; border-top: 1px dashed lightgrey; padding-top: 10px">Social Media</h2>
-
-<p>
-    <a href="https://www.facebook.com/groups/110424762306800"
-        style="font-size: 64px; text-decoration: none; color: black"><i 
-        class="la la-facebook-official"></i></a>
-
-    <a href="https://twitter.com/pnwquizzing"
-        style="font-size: 64px; text-decoration: none; color: black"><i 
-        class="la la-twitter-square"></i></a>
-
-    <a href="https://instagram.com/pnw_biblequizzing"
-        style="font-size: 64px; text-decoration: none; color: black"><i 
-        class="la la-instagram"></i></a>
-</p>
