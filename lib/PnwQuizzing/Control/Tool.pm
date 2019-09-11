@@ -8,6 +8,7 @@ use Email::Mailer;
 use Text::MultiMarkdown 'markdown';
 use Mojo::JSON 'decode_json';
 use PnwQuizzing::Model::Register;
+use Text::CSV_XS 'csv';
 
 with 'PnwQuizzing::Role::Secret';
 
@@ -153,7 +154,54 @@ sub register_save ($self) {
 }
 
 sub registration_list ($self) {
-    $self->stash( %{ $self->registration->current_data( $self->stash('user') ) } );
+    my $list = $self->registration->current_data( $self->stash('user') );
+
+    unless ( $self->req->url->path->trailing_slash(0)->to_string =~ /\.(\w+)$/ and lc($1) eq 'csv' ) {
+        $self->stash(%$list);
+    }
+    else {
+        $self->app->types->type( 'csv' => [ qw( text/csv application/csv ) ] );
+
+        my @fields = qw(
+            church
+            acronym
+            role
+            team
+            bib
+            name
+            m_f
+            attend
+            house
+            lunch
+            rookie
+            grade
+            notes
+            created
+            last_modified
+            registration_last_modified
+        );
+
+        csv( out => \my $csv, in => [
+            [ map { join( ' ', map { ucfirst } split('_') ) } @fields],
+            map {
+                if ( not $_->{role} or $_->{role} ne 'Quizzer' ) {
+                    $_->{team}   = '';
+                    $_->{bib}    = '';
+                    $_->{rookie} = '';
+                    $_->{grade}  = '';
+                }
+                else {
+                    $_->{rookie} //= 0;
+                }
+
+                [ map { defined ? $_ : '' } @$_{@fields} ]
+            }
+            @{ $list->{current_data}{quizzers} },
+            @{ $list->{current_data}{non_quizzers} }
+        ] );
+
+        $self->render( text => $csv );
+    }
 }
 
 1;

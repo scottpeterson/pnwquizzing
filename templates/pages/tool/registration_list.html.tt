@@ -29,7 +29,7 @@
 [% IF current_data.quizzers AND current_data.quizzers.size > 0 %]
     <p>
         Rows in white are from churches that have indicated their data is "final"
-        for the upcoming meet. 
+        for the upcoming meet.
         <span style="color: green">Rows in green are churches that have not so indicated.</span>
     </p>
 
@@ -88,7 +88,7 @@
 [% IF current_data.non_quizzers AND current_data.non_quizzers.size > 0 %]
     <p>
         Rows in white are from churches that have indicated their data is "final"
-        for the upcoming meet. 
+        for the upcoming meet.
         <span style="color: green">Rows in green are churches that have not so indicated.</span>
     </p>
 
@@ -147,3 +147,9 @@
     <li>Females: <b>[% counts.f %]</b></li>
     <li>Lunch: <b>[% counts.lunch %]</b></li>
 </ul>
+
+<h2>Download CSV Data</h2>
+
+<form action="[% c.url_for( format => 'csv' ).to_string %]">
+    <input type="submit" value="Download CSV Data" />
+</form>
