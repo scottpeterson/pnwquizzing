@@ -39,7 +39,7 @@ The following is the latest schedule for 2019-2020:
 
 **Great West Invitational (GWI)**
 
-- April 3-5 *(unconfirmed)*
+- April 3-5
 - Crowsnest Lake Bible Camp
 - <a href="https://www.google.com/maps/place/J8GR%2B6F+Coleman,+Crowsnest+Pass,+AB">J8GR+6F Coleman, Crowsnest Pass, AB</a>
 
@@ -51,5 +51,5 @@ The following is the latest schedule for 2019-2020:
 
 **International Bible Quizzing (IBQ)**
 
-- *(TBD date)*
-- *(TBD location)*
+- *(TBD date; sometime in July)*
+- *(TBD location; maybe Crown)*
