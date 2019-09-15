@@ -49,7 +49,6 @@
 
 ## Individual Statistics
 
-- [Scramble Meet](/downloads/past_seasons/2011-2012/scramble_meet_2011-2012.pdf)
 - [District Meet #1](/downloads/past_seasons/2011-2012/2011-12_district_meet_1_-_individual.pdf)
 - [District Meet #2](/downloads/past_seasons/2011-2012/2011-2012_district_2_.pdf)
 - [District Meet #3](/downloads/past_seasons/2011-2012/2011-12_district_meet_3.pdf)
