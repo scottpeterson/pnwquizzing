@@ -46,6 +46,7 @@ shared Google Drive for all officials.
 - Open a copies of the:
     - [CMA Rulebook](/references_for_quizzing/CMA_rule_book.md)
     - [PNW Rulebook](/references_for_quizzing/PNW_rules.md)
+- Verify you are synchronizing Google Drive correctly, or at least, that you can access the Google Drive shared folder for officials
 
 ### Meet Director
 
