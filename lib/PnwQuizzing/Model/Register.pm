@@ -323,7 +323,7 @@ sub current_data ( $self, $user ) {
     };
 }
 
-sub send_reminders ($self) {
+sub send_reminders ( $self, $dry_run = 0 ) {
     my $email                 = PnwQuizzing::Model::Email->new( type => 'registration_reminder' );
     my $next_meet             = $self->next_meet;
     my @registered_church_ids = map { @$_ } @{
@@ -334,6 +334,7 @@ sub send_reminders ($self) {
         })->run( $next_meet->{schedule_id} )->all
     };
 
+    my @to_emails_addresses;
     if ( $next_meet->{days_before_deadline} == 10 or $next_meet->{days_before_deadline} == 2 ) {
         for my $user ( @{ $self->dq->sql(
             q{
@@ -355,17 +356,24 @@ sub send_reminders ($self) {
             )
         )->run->all({}) } ) {
             next if ( grep { $_ == $user->{church_id} } @registered_church_ids );
+            my $email_address = sprintf( '%s %s <%s>', map { $user->{$_} } qw( first_name last_name email ) );
+            push( @to_emails_addresses, $email_address );
 
             $email->send({
-                to   => sprintf( '%s %s <%s>', map { $user->{$_} } qw( first_name last_name email ) ),
+                to   => $email_address,
                 data => {
                     %{$user},
                     %{$next_meet},
                     url => $self->conf->get('base_url'),
                 },
-            });
+            }) unless ($dry_run);
         }
     }
+
+    return {
+        next_meet           => $next_meet,
+        to_emails_addresses => \@to_emails_addresses,
+    };
 }
 
 1;
