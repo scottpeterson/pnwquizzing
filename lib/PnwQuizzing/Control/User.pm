@@ -12,18 +12,23 @@ sub login ($self) {
     }
     catch {
         $self->info('Login failure (in controller)');
-        $self->flash( message => 'Login failed. Please try again.' );
+        $self->flash( message =>
+            'Login failed. Please try again, or try the ' .
+            '<a href="' . $self->url_for('/user/reset_password') . '">Reset Password page</a>.'
+        );
         return $self->redirect_to('/');
     }
 
-    $self->info( 'Login success for: ' . $user->prop('username') );
+    $self->_login($user);
+    return $self->redirect_to('/');
+}
 
+sub _login ( $self, $user ) {
+    $self->info( 'Login success for: ' . $user->prop('username') );
     $self->session(
         'user_id'           => $user->id,
         'last_request_time' => time,
     );
-
-    return $self->redirect_to('/');
 }
 
 sub logout ($self) {
@@ -128,6 +133,53 @@ sub verify ($self) {
 
 sub list ($self) {
     $self->stash( users => PnwQuizzing::Model::User->new->all_users_data );
+}
+
+sub reset_password ($self) {
+    return $self->redirect_to('/') if ( $self->stash('user') );
+
+    if ( $self->param('username') or $self->param('email') ) {
+        my $url = $self->req->url->to_abs;
+        try {
+            PnwQuizzing::Model::User->new->reset_password_email(
+                $self->param('username'),
+                $self->param('email'),
+                $url->protocol . '://' . $url->host_port,
+            );
+            $self->stash(
+                message => {
+                    type => 'success',
+                    text => 'Successfully send a reset password confirmation email.',
+                }
+            );
+        }
+        catch ($e) {
+            $self->stash( message => 'Unable to locate user account using the input values provided.' );
+        }
+    }
+    elsif ( $self->param('form_post') ) {
+        $self->stash( message => 'Unable to locate user account using the input values provided.' );
+    }
+    elsif ( $self->stash('reset_user_id') and $self->stash('reset_passwd') ) {
+        try {
+            my $new_passwd = PnwQuizzing::Model::User->new->reset_password(
+                $self->stash('reset_user_id'),
+                $self->stash('reset_passwd'),
+            );
+
+            $self->_login( PnwQuizzing::Model::User->new->load( $self->stash('reset_user_id') ) );
+            $self->session_login;
+            $self->stash( new_passwd => $new_passwd );
+        }
+        catch ($e) {
+            $self->warn($e);
+            $self->stash( message =>
+                'Unable to reset user password. ' .
+                'This is likely due to an expired link in an email. ' .
+                'Please try filling out the form again for a fresh reset link.'
+            );
+        }
+    }
 }
 
 1;

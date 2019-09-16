@@ -21,6 +21,7 @@ sub startup ($self) {
     $self->build_css($root_dir);
     $self->setup_mojo_logging;
     $self->setup_templating($root_dir);
+    $self->setup_session_login;
 
     $self->static->paths->[0] =~ s|/public$|/static|;
     $self->config( $self->conf->get( 'mojolicious', 'config' ) );
@@ -32,24 +33,7 @@ sub startup ($self) {
         load_class( 'PnwQuizzing::Control::' . $_ ) for qw( Main Tool User );
     }
 
-    $self->hook( 'before_dispatch' => sub ($self) {
-        if ( my $user_id = $self->session('user_id') ) {
-            my $user;
-            try {
-                $user = PnwQuizzing::Model::User->new->load($user_id);
-            }
-            catch {
-                $self->notice( 'Failed user load based on session "user_id" value: "' . $user_id . '"' );
-            }
-
-            if ($user) {
-                $self->stash( 'user' => $user );
-            }
-            else {
-                delete $self->session->{'user_id'};
-            }
-        }
-    } );
+    $self->hook( 'before_dispatch' => sub ($self) { $self->session_login } );
 
     $self->hook( 'after_dispatch' => sub ($self) {
         my $url = $self->req->url->to_string;
@@ -96,7 +80,8 @@ sub startup ($self) {
     $users->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( logout list ) );
 
     $all->any('/user/verify/:verify_user_id/:verify_passwd')->to('user#verify');
-    $all->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( login account ) );
+    $all->any('/user/reset_password/:reset_user_id/:reset_passwd')->to('user#reset_password');
+    $all->any( '/user/' . $_ )->to( 'user#' . $_ ) for ( qw( login account reset_password ) );
 
     $all->any('/search')->to('tool#search');
     $all->any('/git/push')->to('main#git_push');
@@ -168,6 +153,27 @@ sub setup_templating ( $self, $root_dir ) {
         $self->tt_settings('web'),
     );
     $self->renderer->default_handler('tt');
+}
+
+sub setup_session_login ($self) {
+    $self->helper( session_login => sub ($self) {
+        if ( my $user_id = $self->session('user_id') ) {
+            my $user;
+            try {
+                $user = PnwQuizzing::Model::User->new->load($user_id);
+            }
+            catch {
+                $self->notice( 'Failed user load based on session "user_id" value: "' . $user_id . '"' );
+            }
+
+            if ($user) {
+                $self->stash( 'user' => $user );
+            }
+            else {
+                delete $self->session->{'user_id'};
+            }
+        }
+    } );
 }
 
 1;

@@ -195,4 +195,41 @@ sub all_users_data ($self) {
     })->run->all({});
 }
 
+sub reset_password_email ( $self, $username = '', $email = '', $url = undef ) {
+    my $user_id = $self->dq->sql(q{
+        SELECT user_id
+        FROM user
+        WHERE active AND ( LOWER(username) = ? OR LOWER(email) = ? )
+    })->run( lc $username, lc $email )->value;
+
+    croak('Failed to find user based on username or email') unless ($user_id);
+
+    my $user = PnwQuizzing::Model::User->new->load($user_id);
+
+    $url ||= $self->conf->get('base_url');
+    $url .= '/user/reset_password/' . $user->id . '/' . substr( $user->prop('passwd'), 0, 12 );
+
+    PnwQuizzing::Model::Email->new( type => 'reset_password' )->send({
+        to   => sprintf( '%s %s <%s>', map { $user->prop($_) } qw( first_name last_name email ) ),
+        data => {
+            %{ $user->data },
+            url => $url,
+        },
+    });
+}
+
+sub reset_password ( $self, $user_id, $passwd ) {
+    croak('Unable to locate active user given user ID and password provided') unless (
+        $self->dq->sql(q{
+            SELECT COUNT(*) FROM user WHERE user_id = ? AND passwd LIKE ? AND active
+        })->run( $user_id, $passwd . '%' )->value
+    );
+
+    my $user = PnwQuizzing::Model::User->new->load($user_id);
+
+    my $new_passwd = substr( $self->bcrypt( $$ . time() . rand() ), 0, 12 );
+    $user->passwd($new_passwd);
+    return $new_passwd;
+}
+
 1;
