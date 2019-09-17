@@ -33,7 +33,13 @@ sub next_meet ( $self, $user = undef ) {
         $next_meet->{no_edit} = (
             not $meet or
             $next_meet->{past_deadline} or
-            not scalar( grep { $_->{has_role} and $_->{name} eq 'Coach' } @{ $user->roles } )
+            not scalar( grep {
+                $_->{has_role} and (
+                    $_->{name} eq 'Coach' or
+                    $_->{name} eq 'Volunteer' or
+                    $_->{name} eq 'Official'
+                )
+            } @{ $user->roles } )
         ) ? 1 : 0;
     }
 

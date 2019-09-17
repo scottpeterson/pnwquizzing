@@ -31,8 +31,8 @@
     <p v-if="teams.length == 0">
         There are currently no quizzers registered for {{ church.name }}.
         [% IF no_edit %]
-            Only coaches can add or edit registration data.
-            <i>(You are not listed as a coach currently.)</i>
+            Only coaches, officials, and volunteers can add or edit registration data.
+            <i>(You are not listed as one of these currently.)</i>
         [% END %]
     </p>
 
