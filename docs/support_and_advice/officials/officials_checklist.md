@@ -25,7 +25,8 @@ shared Google Drive for all officials.
 
 - Laptop with wifi capability
 - Extension cord
-- If your power cord is 3-prong, ensure you have [a 3-prong to 2-prong converter](http://www.amazon.com/CableWholesale-Wholesale-Grounding-Converter-30W1-32200/dp/B000I96AUM)
+- If your power cord is 3-prong, ensure you have
+  [a 3-prong to 2-prong converter](http://www.amazon.com/CableWholesale-Wholesale-Grounding-Converter-30W1-32200/dp/B000I96AUM)
 - Network hotspot or cell phone network bridge *(if available)*
 - Cell phone with camera *(if available)*
 - Audio recording device  *(if available and you've decided not to use your laptop)*
@@ -46,7 +47,8 @@ shared Google Drive for all officials.
 - Open a copies of the:
     - [CMA Rulebook](/references_for_quizzing/CMA_rule_book.md)
     - [PNW Rulebook](/references_for_quizzing/PNW_rules.md)
-- Verify you are synchronizing Google Drive correctly, or at least, that you can access the Google Drive shared folder for officials
+- Verify you are synchronizing Google Drive correctly, or at least, that you can access the Google Drive
+  shared folder for officials
 
 ### Meet Director
 
@@ -82,6 +84,12 @@ shared Google Drive for all officials.
 ### Scorekeeper
 
 - Prior to each quiz, ensure scoresheet is correct and fully ready
+- When filling out scoresheets:
+    - Fill in Team Name, Raw Points, and Team Points in the top right corner of the scoresheet
+    - Fill in the Correct and Incorrect counts for each individual quizzer. Please do not write anything if
+      the value should be zero (if a quizzer get 0 right and 0 wrong, you can leave their cells completely
+      blank)
+    - Fill in Quiz Number, Room Number, QM Name, SK Name
 - At the close of each quiz, send a picture of the scoresheet to the Head Statistician by at least one of
   these means:
     - Email [stats@pnwquizzing.org](mailto:stats@pnwquizzing.org)
