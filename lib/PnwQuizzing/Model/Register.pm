@@ -66,9 +66,12 @@ sub show_notice ( $self, $user, $url ) {
         text => q{
             It appears you
             (as a coach representing } . $user->church->{acronym} . q{)
-            have not registered for the next upcoming quiz meet.
-            Please register before the deadline. To register, visit the
-            <a href="} . $url . q{">Online Registration System</a>.
+            have not <i>finalized</i> registration for the next upcoming quiz
+            meet. Please finalize your registration before the deadline.
+            Visit the
+            <a href="} . $url . q{">Online Registration System</a>, check and
+            update the data, and when ready, check the "Final Meet Registration"
+            checkbox and click the "Save Registration Data" button.
         },
     };
 }
