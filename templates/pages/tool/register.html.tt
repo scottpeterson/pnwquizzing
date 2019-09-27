@@ -147,10 +147,10 @@
         <p><button v-on:click="add_team">Add a Team</button></p>
     [% END %]
 
-    <h2>Non-Quizzers from {{ church.name }}</h2>
+    <h2>Nonquizzers from {{ church.name }}</h2>
 
     <p v-if="non_quizzers.length == 0">
-        There are currently no non-quizzers registered from {{ church.name }}.
+        There are currently no nonquizzers registered from {{ church.name }}.
         [% IF no_edit %]
             Only coaches can add or edit registration data.
             <i>(You are not listed as a coach currently.)</i>
@@ -243,14 +243,14 @@
             </tbody>
             [% UNLESS no_edit %]
                 <caption align="bottom">
-                    <button v-on:click="add_non_quizzer">Add a Non-Quizzer</button>
+                    <button v-on:click="add_non_quizzer">Add a Nonquizzer</button>
                 </caption>
             [% END %]
         </table>
     </div>
 
     [% UNLESS no_edit %]
-        <p v-if="non_quizzers.length == 0"><button v-on:click="add_non_quizzer">Add a Non-Quizzer</button></p>
+        <p v-if="non_quizzers.length == 0"><button v-on:click="add_non_quizzer">Add a Nonquizzer</button></p>
     [% END %]
 
     [% UNLESS no_edit %]
