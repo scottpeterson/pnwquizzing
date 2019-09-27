@@ -15,8 +15,10 @@
 </ul>
 
 <p>
-    It appears that <b>[% church %] ([% acronym %])</b> has not finalized
-    registration for this upcoming quiz meet.
+    It appears that <b>[% church %] ([% acronym %])</b> has not <i>finalized</i>
+    registration for this upcoming quiz meet. (Meaning, has not clicked the
+    "Final Meet Registration" checkbox before clicking the "Save Registration
+    Data" button for this upcoming quiz meet.)
 
     [% UNLESS days_before_deadline == 2 %]
         Please use the link below to finalize your registration:
@@ -29,5 +31,6 @@
 
 <p>
     Note there are <b>[% days_before_deadline %]</b> days remaining before the
-    meet registration deadline.
+    meet registration deadline. The registration deadline is [% deadline %],
+    and the meet start is [% start %].
 </p>
