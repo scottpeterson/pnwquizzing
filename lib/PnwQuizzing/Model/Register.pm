@@ -85,11 +85,13 @@ sub persons ( $self, $user ) {
             r.team,
             r.name,
             r.bib,
+            r.captain,
             r.role,
             r.m_f,
             r.grade,
             r.rookie,
             r.attend,
+            r.drive,
             r.house,
             r.lunch,
             r.notes,
@@ -136,6 +138,10 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
         $team_number++;
 
         for my $quizzer (@$team) {
+            for ( qw( team captain m_f grade rookie drive notes ) ) {
+                $quizzer->{$_} = undef unless ( $quizzer->{$_} );
+            }
+
             unless ( $quizzer->{registration_id} ) {
                 $self->dq->sql(q{
                     INSERT INTO registration (
@@ -143,6 +149,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                         role,
                         team,
                         bib,
+                        captain,
                         name,
                         grade,
                         rookie,
@@ -151,13 +158,14 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                         house,
                         lunch,
                         notes
-                    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
                 })->run(
                     $user->church->{church_id},
                     'Quizzer',
                     $team_number,
                     ++$bib,
                     @{$quizzer}{ qw(
+                        captain
                         name
                         grade
                         rookie
@@ -174,6 +182,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     UPDATE registration SET
                         team = ?,
                         bib = ?,
+                        captain = ?,
                         name = ?,
                         role = ?,
                         rookie = ?,
@@ -187,6 +196,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     $team_number,
                     ++$bib,
                     @{$quizzer}{ qw(
+                        captain
                         name
                         role
                         rookie
@@ -204,6 +214,10 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
 
     $bib = 0;
     for my $non_quizzer ( @{ $data->{non_quizzers} } ) {
+        for ( qw( team captain m_f grade rookie drive notes ) ) {
+            $non_quizzer->{$_} = undef unless ( $non_quizzer->{$_} );
+        }
+
         unless ( $non_quizzer->{registration_id} ) {
             $self->dq->sql(q{
                 INSERT INTO registration (
@@ -213,10 +227,11 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     role,
                     m_f,
                     attend,
+                    drive,
                     house,
                     lunch,
                     notes
-                ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
             })->run(
                 $user->church->{church_id},
                 ++$bib,
@@ -225,6 +240,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     role
                     m_f
                     attend
+                    drive
                     house
                     lunch
                     notes
@@ -239,6 +255,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     role = ?,
                     m_f = ?,
                     attend = ?,
+                    drive = ?,
                     house = ?,
                     lunch = ?,
                     notes = ?
@@ -250,6 +267,7 @@ sub save_registration ( $self, $data, $user, $next_meet = undef ) {
                     role
                     m_f
                     attend
+                    drive
                     house
                     lunch
                     notes
@@ -301,11 +319,13 @@ sub current_data ( $self, $user ) {
                 r.team,
                 r.name,
                 r.bib,
+                r.captain,
                 r.role,
                 r.m_f,
                 r.grade,
                 r.rookie,
                 r.attend,
+                r.drive,
                 r.house,
                 r.lunch,
                 r.notes,

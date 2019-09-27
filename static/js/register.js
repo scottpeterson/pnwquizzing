@@ -120,8 +120,9 @@ Vue.http.get( cntlr + "tool/register_data" ).then( function (response) {
 
                         return function (attend) {
                             if ( attend == null ) return;
-                            _record.house = attend;
-                            _record.lunch = attend;
+                            _record.house  = attend;
+                            _record.lunch  = attend;
+                            _record.driver = null;
                         }
                     } )()
                 );

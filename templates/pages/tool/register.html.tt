@@ -46,6 +46,7 @@
                         [% UNLESS no_edit %]<th></th>[% END %]
                         <th>Bib</th>
                         <th>Name</th>
+                        <th>Cap</th>
                         <th>M/F</th>
                         <th>Grade</th>
                         <th>Rookie</th>
@@ -72,6 +73,17 @@
                                 <input type="text" name="name" v-model="quizzer.name">
                             [% ELSE %]
                                 {{ quizzer.name }}
+                            [% END %]
+                        </td>
+                        <td class="center">
+                            [% UNLESS no_edit %]
+                                <select name="captain" v-model="quizzer.captain">
+                                    <option></option>
+                                    <option>Cap</option>
+                                    <option>CC</option>
+                                </select>
+                            [% ELSE %]
+                                {{ quizzer.captain }}
                             [% END %]
                         </td>
                         <td class="center">
@@ -166,6 +178,7 @@
                     <th>Role</th>
                     <th>M/F</th>
                     <th>Attend</th>
+                    <th>Drive</th>
                     <th>House</th>
                     <th>Lunch</th>
                     <th>Notes</th>
@@ -213,6 +226,13 @@
                             <input type="checkbox" v-model="person.attend">
                         [% ELSE %]
                             {{ ( person.attend ) ? "Yes" : "No" }}
+                        [% END %]
+                    </td>
+                    <td class="checkbox">
+                        [% UNLESS no_edit %]
+                            <input type="checkbox" v-model="person.drive" v-bind:disabled="! person.attend">
+                        [% ELSE %]
+                            {{ ( person.drive ) ? "Yes" : "No" }}
                         [% END %]
                     </td>
                     <td class="checkbox">

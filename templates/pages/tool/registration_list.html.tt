@@ -74,6 +74,7 @@
                 <th>Team</th>
                 <th>Bib</th>
                 <th>Name</th>
+                <th>Cap</th>
                 <th>M/F</th>
                 <th>Grade</th>
                 <th>Rookie</th>
@@ -90,6 +91,7 @@
                     <td>[% person.acronym %] [% person.team %]</td>
                     <td class="right">[% person.bib %]</td>
                     <td>[% person.name %]</td>
+                    <td>[% person.captain %]</td>
                     <td class="center">[% person.m_f %]</td>
                     <td class="right">[% person.grade %]</td>
                     <td class="center">[% ( person.rookie ) ? 'Yes' : 'No' %]</td>
@@ -120,6 +122,7 @@
                 <th>Name</th>
                 <th>Role</th>
                 <th>M/F</th>
+                <th>Drive</th>
                 <th>House</th>
                 <th>Lunch</th>
                 <th>Notes</th>
@@ -134,6 +137,7 @@
                     <td>[% person.name %]</td>
                     <td>[% person.role %]</td>
                     <td class="center">[% person.m_f %]</td>
+                    <td class="center">[% ( person.drive ) ? 'Yes' : 'No' %]</td>
                     <td class="center">[% ( person.house ) ? 'Yes' : 'No' %]</td>
                     <td class="center">[% ( person.lunch ) ? 'Yes' : 'No' %]</td>
                     <td>[% person.notes %]</td>

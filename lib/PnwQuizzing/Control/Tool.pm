@@ -169,8 +169,10 @@ sub registration_list ($self) {
             team
             bib
             name
+            captain
             m_f
             attend
+            drive
             house
             lunch
             rookie
@@ -189,6 +191,8 @@ sub registration_list ($self) {
                     $_->{bib}    = '';
                     $_->{rookie} = '';
                     $_->{grade}  = '';
+
+                    $_->{drive} //= 0;
                 }
                 else {
                     $_->{rookie} //= 0;
