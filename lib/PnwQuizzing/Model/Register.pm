@@ -109,7 +109,7 @@ sub persons ( $self, $user ) {
         teams => [
             map {
                 my $team = $_;
-                [ map { $teams{$team}{$_} } sort { $a || 0 <=> $b || 0 } keys %{ $teams{$team} } ];
+                [ map { $teams{$team}{$_} } sort { ( $a || 0 ) <=> ( $b || 0 ) } keys %{ $teams{$team} } ];
             } sort { $a <=> $b } keys %teams
         ],
         non_quizzers => [
