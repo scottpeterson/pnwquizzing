@@ -183,6 +183,9 @@ sub registration_list ($self) {
             registration_last_modified
         );
 
+        @fields = grep { $_ ne 'house' } @fields unless ( $list->{house} );
+        @fields = grep { $_ ne 'lunch' } @fields unless ( $list->{lunch} );
+
         csv( out => \my $csv, in => [
             [ map { join( ' ', map { ucfirst } split('_') ) } @fields],
             map {

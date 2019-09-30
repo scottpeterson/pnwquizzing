@@ -8,6 +8,8 @@
         <li>Meet Location: <b>[% location %], <a href="[% address_url %]">[% address %]</a></b></li>
         <li>Start Date: <b>[% start %]</b></li>
         <li[% IF past_deadline %] style="color: red"[% END %]>Registration Deadline: <b>[% deadline %]</b>
+        <li>Housing: <b>[% (house) ? '' : '<span style="color: red">Not</span> ' %]Available</b></li>
+        <li>Lunch: <b>[% (lunch) ? '' : '<span style="color: red">Not</span> ' %]Available</b></li>
     </ul>
 [% ELSE %]
     <p>
@@ -78,8 +80,8 @@
                 <th>M/F</th>
                 <th>Grade</th>
                 <th>Rookie</th>
-                <th>House</th>
-                <th>Lunch</th>
+                [% IF house %]<th>House</th>[% END %]
+                [% IF lunch %]<th>Lunch</th>[% END %]
                 <th>Notes</th>
             </tr>
         </thead>
@@ -95,8 +97,8 @@
                     <td class="center">[% person.m_f %]</td>
                     <td class="right">[% person.grade %]</td>
                     <td class="center">[% ( person.rookie ) ? 'Yes' : 'No' %]</td>
-                    <td class="center">[% ( person.house ) ? 'Yes' : 'No' %]</td>
-                    <td class="center">[% ( person.lunch ) ? 'Yes' : 'No' %]</td>
+                    [% IF house %]<td class="center">[% ( person.house ) ? 'Yes' : 'No' %]</td>[% END %]
+                    [% IF lunch %]<td class="center">[% ( person.lunch ) ? 'Yes' : 'No' %]</td>[% END %]
                     <td>[% person.notes %]</td>
                 </tr>
             [% END %]
@@ -123,8 +125,8 @@
                 <th>Role</th>
                 <th>M/F</th>
                 <th>Drive</th>
-                <th>House</th>
-                <th>Lunch</th>
+                [% IF house %]<th>House</th>[% END %]
+                [% IF lunch %]<th>Lunch</th>[% END %]
                 <th>Notes</th>
             </tr>
         </thead>
@@ -138,8 +140,8 @@
                     <td>[% person.role %]</td>
                     <td class="center">[% person.m_f %]</td>
                     <td class="center">[% ( person.drive ) ? 'Yes' : 'No' %]</td>
-                    <td class="center">[% ( person.house ) ? 'Yes' : 'No' %]</td>
-                    <td class="center">[% ( person.lunch ) ? 'Yes' : 'No' %]</td>
+                    [% IF house %]<td class="center">[% ( person.house ) ? 'Yes' : 'No' %]</td>[% END %]
+                    [% IF lunch %]<td class="center">[% ( person.lunch ) ? 'Yes' : 'No' %]</td>[% END %]
                     <td>[% person.notes %]</td>
                 </tr>
             [% END %]
@@ -156,6 +158,8 @@
         <tr>
             <th></th>
             [% FOR group IN groups %]
+                [% NEXT IF group == 'housing' AND NOT house %]
+                [% NEXT IF group == 'lunch' AND NOT lunch %]
                 <th>[% group.ucfirst %]</th>
             [% END %]
             <th>Teams</th>
@@ -166,6 +170,8 @@
             <tr class="right[% IF state == 'unconfirmed' %] green[% END %]">
                 <td>[% state.ucfirst %]</td>
                 [% FOR group IN groups %]
+                    [% NEXT IF group == 'housing' AND NOT house %]
+                    [% NEXT IF group == 'lunch' AND NOT lunch %]
                     <td>[% counts.$group.$state %]</td>
                 [% END %]
                 <td>[% seen.teams.$state.keys.size %]</td>
@@ -174,6 +180,8 @@
         <tr class="right blue bold">
             <td>Total</td>
             [% FOR group IN groups %]
+                [% NEXT IF group == 'housing' AND NOT house %]
+                [% NEXT IF group == 'lunch' AND NOT lunch %]
                 <td>[% counts.$group.confirmed + counts.$group.unconfirmed %]</td>
             [% END %]
             <td>[% seen.teams.confirmed.keys.size + seen.teams.unconfirmed.keys.size %]</td>

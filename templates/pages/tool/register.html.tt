@@ -11,6 +11,8 @@
         <li>Meet Location: <b>[% location %], <a href="[% address_url %]">[% address %]</a></b></li>
         <li>Start Date: <b>[% start %]</b></li>
         <li[% IF past_deadline %] style="color: red"[% END %]>Registration Deadline: <b>[% deadline %]</b>
+        <li>Housing: <b>[% (house) ? '' : '<span style="color: red">Not</span> ' %]Available</b></li>
+        <li>Lunch: <b>[% (lunch) ? '' : '<span style="color: red">Not</span> ' %]Available</b></li>
     </ul>
 [% ELSE %]
     <p>
@@ -51,8 +53,8 @@
                         <th>Grade</th>
                         <th>Rookie</th>
                         <th>Attend</th>
-                        <th>House</th>
-                        <th>Lunch</th>
+                        [% IF house %]<th>House</th>[% END %]
+                        [% IF lunch %]<th>Lunch</th>[% END %]
                         <th>Notes</th>
                         [% UNLESS no_edit %]<th></th>[% END %]
                     </tr>
@@ -118,19 +120,23 @@
                                 {{ ( quizzer.attend ) ? "Yes" : "No" }}
                             [% END %]
                         </td>
-                        <td class="checkbox">
-                            [% UNLESS no_edit %]
-                                <input type="checkbox" v-model="quizzer.house" v-bind:disabled="! quizzer.attend">
-                            [% ELSE %]
-                                {{ ( quizzer.house ) ? "Yes" : "No" }}
-                            [% END %]
-                        </td>
-                        <td class="checkbox">
-                            [% UNLESS no_edit %]
-                                <input type="checkbox" v-model="quizzer.lunch" v-bind:disabled="! quizzer.attend">
-                            [% ELSE %]
-                                {{ ( quizzer.lunch ) ? "Yes" : "No" }}
-                            [% END %]
+                        [% IF house %]
+                            <td class="checkbox">
+                                [% UNLESS no_edit %]
+                                    <input type="checkbox" v-model="quizzer.house" v-bind:disabled="! quizzer.attend">
+                                [% ELSE %]
+                                    {{ ( quizzer.house ) ? "Yes" : "No" }}
+                                [% END %]
+                            </td>
+                        [% END %]
+                        [% IF lunch %]
+                            <td class="checkbox">
+                                [% UNLESS no_edit %]
+                                    <input type="checkbox" v-model="quizzer.lunch" v-bind:disabled="! quizzer.attend">
+                                [% ELSE %]
+                                    {{ ( quizzer.lunch ) ? "Yes" : "No" }}
+                                [% END %]
+                        [% END %]
                         </td>
                         <td>
                             [% UNLESS no_edit %]
@@ -179,8 +185,8 @@
                     <th>M/F</th>
                     <th>Attend</th>
                     <th>Drive</th>
-                    <th>House</th>
-                    <th>Lunch</th>
+                    [% IF house %]<th>House</th>[% END %]
+                    [% IF lunch %]<th>Lunch</th>[% END %]
                     <th>Notes</th>
                     [% UNLESS no_edit %]<th></th>[% END %]
                 </tr>
@@ -235,20 +241,24 @@
                             {{ ( person.drive ) ? "Yes" : "No" }}
                         [% END %]
                     </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="person.house" v-bind:disabled="! person.attend">
-                        [% ELSE %]
-                            {{ ( person.house ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
-                    <td class="checkbox">
-                        [% UNLESS no_edit %]
-                            <input type="checkbox" v-model="person.lunch" v-bind:disabled="! person.attend">
-                        [% ELSE %]
-                            {{ ( person.lunch ) ? "Yes" : "No" }}
-                        [% END %]
-                    </td>
+                    [% IF house %]
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="person.house" v-bind:disabled="! person.attend">
+                            [% ELSE %]
+                                {{ ( person.house ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                    [% END %]
+                    [% IF lunch %]
+                        <td class="checkbox">
+                            [% UNLESS no_edit %]
+                                <input type="checkbox" v-model="person.lunch" v-bind:disabled="! person.attend">
+                            [% ELSE %]
+                                {{ ( person.lunch ) ? "Yes" : "No" }}
+                            [% END %]
+                        </td>
+                    [% END %]
                     <td>
                         [% UNLESS no_edit %]
                             <input type="text" name="notes" v-model="person.notes">

@@ -16,7 +16,8 @@ sub next_meet ( $self, $user = undef ) {
             meet, location, address, address_url, start, deadline,
             STRFTIME( '%s', deadline ) < STRFTIME( '%s', 'NOW', 'LOCALTIME' ) AS past_deadline,
             STRFTIME( '%s', 'NOW', 'LOCALTIME' ) > strftime( '%s', start, '-2 month' ) AS notice_active,
-            ROUND( JULIANDAY(deadline) - JULIANDAY( 'NOW', 'LOCALTIME' ) ) AS days_before_deadline
+            ROUND( JULIANDAY(deadline) - JULIANDAY( 'NOW', 'LOCALTIME' ) ) AS days_before_deadline,
+            house, lunch
         FROM schedule
         WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'NOW', 'LOCALTIME' )
         ORDER BY start
@@ -27,6 +28,7 @@ sub next_meet ( $self, $user = undef ) {
         schedule_id
         meet location address address_url start deadline
         past_deadline notice_active days_before_deadline
+        house lunch
     ) } = @{ ($meet) ? $meet->row : [] };
 
     if ($user) {
