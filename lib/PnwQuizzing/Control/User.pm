@@ -154,6 +154,7 @@ sub reset_password ($self) {
             );
         }
         catch ($e) {
+            $self->warn( $e->message );
             $self->stash( message => 'Unable to locate user account using the input values provided.' );
         }
     }
@@ -172,7 +173,7 @@ sub reset_password ($self) {
             $self->stash( new_passwd => $new_passwd );
         }
         catch ($e) {
-            $self->warn($e);
+            $self->warn( $e->message );
             $self->stash( message =>
                 'Unable to reset user password. ' .
                 'This is likely due to an expired link in an email. ' .

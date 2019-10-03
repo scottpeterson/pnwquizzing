@@ -199,8 +199,8 @@ sub reset_password_email ( $self, $username = '', $email = '', $url = undef ) {
     my $user_id = $self->dq->sql(q{
         SELECT user_id
         FROM user
-        WHERE active AND ( LOWER(username) = ? OR LOWER(email) = ? )
-    })->run( lc $username, lc $email )->value;
+        WHERE LOWER(username) = ? OR LOWER(email) = ?
+    })->run( lc($username), lc($email) )->value;
 
     croak('Failed to find user based on username or email') unless ($user_id);
 
@@ -229,6 +229,8 @@ sub reset_password ( $self, $user_id, $passwd ) {
 
     my $new_passwd = substr( $self->bcrypt( $$ . time() . rand() ), 0, 12 );
     $user->passwd($new_passwd);
+    $self->save( active => 1 );
+
     return $new_passwd;
 }
 
