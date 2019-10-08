@@ -164,14 +164,12 @@ sub registration_list ($self) {
 
         my @fields = qw(
             church
-            acronym
             role
             team
             bib
             name
             captain
             m_f
-            attend
             drive
             house
             lunch
@@ -186,23 +184,39 @@ sub registration_list ($self) {
         @fields = grep { $_ ne 'house' } @fields unless ( $list->{house} );
         @fields = grep { $_ ne 'lunch' } @fields unless ( $list->{lunch} );
 
+        my ( $last_team, $bib ) = ( '', 0 );
+
         csv( out => \my $csv, in => [
             [ map { join( ' ', map { ucfirst } split('_') ) } @fields],
             map {
+                $_->{created}                    =~ s/:\d{10}$// if ( $_->{created} );
+                $_->{last_modified}              =~ s/:\d{10}$// if ( $_->{last_modified} );
+                $_->{registration_last_modified} =~ s/:\d{10}$// if ( $_->{registration_last_modified} );
+
                 if ( not $_->{role} or $_->{role} ne 'Quizzer' ) {
                     $_->{team}   = '';
                     $_->{bib}    = '';
                     $_->{rookie} = '';
                     $_->{grade}  = '';
-
-                    $_->{drive} //= 0;
+                    $_->{drive}  = ( $_->{drive} ) ? 'Yes' : 'No';
                 }
                 else {
+                    $_->{team} = ( $_->{acronym} || '' ) . ' ' . ( $_->{team} || '' );
                     $_->{rookie} //= 0;
+
+                    if ( $last_team ne $_->{team} ) {
+                        $last_team = $_->{team};
+                        $bib = 0;
+                    }
+                    $_->{bib} = ++$bib;
+                    $_->{rookie} = ( $_->{rookie} ) ? 'Yes' : 'No';
                 }
+
+                $_->{house} = ( $_->{house} ) ? 'Yes' : 'No';
 
                 [ map { defined ? $_ : '' } @$_{@fields} ]
             }
+            grep { $_->{attend} }
             @{ $list->{current_data}{quizzers} },
             @{ $list->{current_data}{non_quizzers} }
         ] );
