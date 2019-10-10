@@ -2,7 +2,7 @@
 
 What follows are quizmaster best practices that overlay the rules and policies defined elsewhere. The following are required prerequisites and standard operations for all quizmasters in PNW Bible Quizzing. These are not the *only* duties, rules, and policies for the quizmaster to follow.
 
-## Rules and Material Acquaince
+## Rules and Material Acquaintance
 
 All quizmasters must be thoroughly acquainted with all rules relevant to the conduct of quizzes. This includes but is not limited to any and all governing rule books, district-specific rules, and local policies. A quizmaster should know the relevant, current rules sufficient enough to accurately describe them without reference to documentation.
 
