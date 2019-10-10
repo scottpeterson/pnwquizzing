@@ -47,13 +47,12 @@ The following are the CBQZ application setup instructions all quizmasters must f
     - not zoomed in or out
 3. Login to CBQZ (upper right-hand corner of the page)
 4. Click "Quiz Room"
-5. Set the "Meet Name" to "2018-2019 Meet 3"
+5. Set the "Meet Name" to a pattern like "2018-2019 Meet 3"
 6. Set the "Room" to your room number
 7. Ensure the "Official Quiz" checkbox is checked
-8. Under "Chapter Weighting," ensure the last 5 chapters are weighted at 50%
-9. Check chapters 1 through 13
-10. Open the Excel file: "CBQZ Teams Data.xlsx"
-11. "Alt-Tab" back to the web browser
+8. Under "Chapter Weighting," ensure the last period's chapters are weighted at 50%
+9. Check chapters 1 through current chapter limit
+10. Open the meet roster Excel file from Google Drive
 
 #### Per Quiz Setup
 
