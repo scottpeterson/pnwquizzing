@@ -71,7 +71,10 @@
             </fieldset>
         [% END %]
 
-        <div><input type="submit" value="[% IF c.stash.user %]Edit[% ELSE %]Create[% END %] User"></div>
+        <div>
+            <input type="submit"
+                value="[% IF c.stash.user %]Save Changes to[% ELSE %]Create[% END %] User Account">
+        </div>
         <input type="hidden" name="form_submit" value="1">
     </form>
 [% ELSE %]
