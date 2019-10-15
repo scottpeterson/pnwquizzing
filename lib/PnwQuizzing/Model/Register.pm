@@ -19,7 +19,7 @@ sub next_meet ( $self, $user = undef ) {
             ROUND( JULIANDAY(deadline) - JULIANDAY( 'NOW', 'LOCALTIME' ) ) AS days_before_deadline,
             house, lunch
         FROM schedule
-        WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'NOW', 'LOCALTIME' )
+        WHERE STRFTIME( '%s', start ) > STRFTIME( '%s', 'NOW', '-2 day', 'LOCALTIME' )
         ORDER BY start
         LIMIT 1
     })->run->next;
