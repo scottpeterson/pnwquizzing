@@ -12,7 +12,7 @@ sub _user_data_prep ( $self, $data ) {
         SELECT church_id FROM church WHERE acronym = ?
     })->run(
         delete $data->{church}
-    )->value or croak( q{"church" appears to not be a valid input value} );
+    )->value or croak( q{"ministry" appears to not be a valid input value} );
 
     return $data;
 }

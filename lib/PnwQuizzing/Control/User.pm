@@ -101,13 +101,11 @@ sub account ($self) {
         }
     }
 
-    if ( $self->stash('user') or not $self->param('form_submit') ) {
-        $user = $self->stash('user') if ( $self->stash('user') );
-        $self->stash(
-            churches => $user->churches,
-            roles    => $user->roles,
-        );
-    }
+    $user = $self->stash('user') if ( $self->stash('user') );
+    $self->stash(
+        churches => $user->churches,
+        roles    => $user->roles,
+    );
 }
 
 sub verify ($self) {

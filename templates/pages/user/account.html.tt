@@ -45,7 +45,7 @@
             <label>
                 Ministry:
                 <select name="church">
-                    <option value="">(Unspecified)</option>
+                    <option value=""></option>
                     [% FOR church IN churches %]
                         <option
                             value="[% church.acronym %]"
