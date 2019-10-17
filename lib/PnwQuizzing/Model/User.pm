@@ -226,12 +226,12 @@ sub reset_password ( $self, $user_id, $passwd ) {
     );
 
     my $user = PnwQuizzing::Model::User->new->load($user_id);
-
     my $new_passwd = substr( $self->bcrypt( $$ . time() . rand() ), 0, 12 );
-    $user->passwd($new_passwd);
-    $self->save( active => 1 );
 
-    return $new_passwd;
+    $user->passwd($new_passwd);
+    $user->save( active => 1 );
+
+    return $user;
 }
 
 1;

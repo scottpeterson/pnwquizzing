@@ -161,14 +161,14 @@ sub reset_password ($self) {
     }
     elsif ( $self->stash('reset_user_id') and $self->stash('reset_passwd') ) {
         try {
-            my $new_passwd = PnwQuizzing::Model::User->new->reset_password(
+            my $user = PnwQuizzing::Model::User->new->reset_password(
                 $self->stash('reset_user_id'),
                 $self->stash('reset_passwd'),
             );
 
-            $self->_login( PnwQuizzing::Model::User->new->load( $self->stash('reset_user_id') ) );
+            $self->_login($user);
             $self->session_login;
-            $self->stash( new_passwd => $new_passwd );
+            $self->stash( new_passwd => $user->data->{passwd} );
         }
         catch ($e) {
             $self->warn( $e->message );
