@@ -1,8 +1,6 @@
 package PnwQuizzing::Control::User;
-use Mojo::Base 'Mojolicious::Controller', -signatures;
-use parent 'PnwQuizzing';
+use exact 'Mojolicious::Controller', 'PnwQuizzing';
 use PnwQuizzing::Model::User;
-use TryCatch;
 
 sub login ($self) {
     my $user = PnwQuizzing::Model::User->new;
@@ -17,7 +15,7 @@ sub login ($self) {
             '<a href="' . $self->url_for('/user/reset_password') . '">Reset Password page</a>.'
         );
         return $self->redirect_to('/');
-    }
+    };
 
     $self->_login($user);
     return $self->redirect_to('/');
@@ -76,7 +74,7 @@ sub account ($self) {
             }
             catch ($e) {
                 $handle_user_error->($e);
-            }
+            };
 
             if ( $user and $user->data ) {
                 my $url = $self->req->url->to_abs;
@@ -97,7 +95,7 @@ sub account ($self) {
             }
             catch ($e) {
                 $handle_user_error->($e);
-            }
+            };
         }
     }
 
@@ -154,7 +152,7 @@ sub reset_password ($self) {
         catch ($e) {
             $self->warn( $e->message );
             $self->stash( message => 'Unable to locate user account using the input values provided.' );
-        }
+        };
     }
     elsif ( $self->param('form_post') ) {
         $self->stash( message => 'Unable to locate user account using the input values provided.' );
@@ -177,7 +175,7 @@ sub reset_password ($self) {
                 'This is likely due to an expired link in an email. ' .
                 'Please try filling out the form again for a fresh reset link.'
             );
-        }
+        };
     }
 }
 

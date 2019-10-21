@@ -1,14 +1,12 @@
 package PnwQuizzing::Control::Tool;
-use Mojo::Base 'Mojolicious::Controller', -signatures;
-use parent 'PnwQuizzing';
-use File::Find 'find';
-use Role::Tiny::With;
-use Mojo::File;
+use exact 'Mojolicious::Controller', 'PnwQuizzing';
 use Email::Mailer;
-use Text::MultiMarkdown 'markdown';
+use File::Find 'find';
+use Mojo::File;
 use Mojo::JSON 'decode_json';
-use PnwQuizzing::Model::Register;
 use Text::CSV_XS 'csv';
+use Text::MultiMarkdown 'markdown';
+use PnwQuizzing::Model::Register;
 
 with 'PnwQuizzing::Role::Secret';
 

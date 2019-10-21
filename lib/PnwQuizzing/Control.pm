@@ -1,14 +1,11 @@
 package PnwQuizzing::Control;
-use Mojo::Base 'Mojolicious', -signatures;
-use Role::Tiny::With;
-use parent 'PnwQuizzing';
-use MojoX::Log::Dispatch::Simple;
-use Mojo::Loader 'load_class';
+use exact 'Mojolicious', 'PnwQuizzing';
 use CSS::Sass;
-use Mojo::File;
-use TryCatch;
-use PnwQuizzing::Model::User;
 use File::Path 'make_path';
+use Mojo::File;
+use Mojo::Loader 'load_class';
+use MojoX::Log::Dispatch::Simple;
+use PnwQuizzing::Model::User;
 use PnwQuizzing::Model::Register;
 
 with qw( PnwQuizzing::Role::Template PnwQuizzing::Role::DocsNav );
@@ -164,7 +161,7 @@ sub setup_session_login ($self) {
             }
             catch {
                 $self->notice( 'Failed user load based on session "user_id" value: "' . $user_id . '"' );
-            }
+            };
 
             if ($user) {
                 $self->stash( 'user' => $user );

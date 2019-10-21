@@ -1,7 +1,6 @@
 package PnwQuizzing::Role::Conf;
-use Mojo::Base -role, -signatures;
-use Config::App;
+use exact -role, -conf;
 
-has conf => sub { Config::App->new };
+has conf => sub { conf() };
 
 1;

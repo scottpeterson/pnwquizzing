@@ -1,5 +1,5 @@
 package PnwQuizzing::Model::Register;
-use Mojo::Base 'PnwQuizzing::Model', -signatures;
+use exact 'PnwQuizzing::Model';
 use PnwQuizzing::Model::Email;
 
 my $singleton;

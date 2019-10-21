@@ -1,6 +1,5 @@
 package PnwQuizzing::Role::Template;
-use Mojo::Base -role, -signatures;
-use Role::Tiny::With;
+use exact -role;
 use Template;
 
 with 'PnwQuizzing::Role::Conf';

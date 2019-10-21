@@ -22,12 +22,12 @@ Then perform the following from within the project's root folder:
 To run the application for a development enviornment with auto-restart on code
 changes, you can perform the following:
 
-    morbo -v -w docs -w config -w lib -w templates app.pl
+    morbo -v -w docs -w config -w lib -w templates app.psgi
 
 To run the application for a production enviornment, you can perform the
 following:
 
-    hypnotoad app.pl
+    hypnotoad app.psgi
 
 ## Photo Optimization
 

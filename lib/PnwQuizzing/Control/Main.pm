@@ -1,12 +1,10 @@
 package PnwQuizzing::Control::Main;
-use Mojo::Base 'Mojolicious::Controller', -signatures;
-use parent 'PnwQuizzing';
-use Mojo::Asset::File;
-use Text::MultiMarkdown 'markdown';
-use Text::CSV_XS 'csv';
+use exact 'Mojolicious::Controller', 'PnwQuizzing';
 use Encode 'decode_utf8';
-use Role::Tiny::With;
+use Mojo::Asset::File;
 use Mojo::JSON 'decode_json';
+use Text::CSV_XS 'csv';
+use Text::MultiMarkdown 'markdown';
 
 with 'PnwQuizzing::Role::Secret';
 

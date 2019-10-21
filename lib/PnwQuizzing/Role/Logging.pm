@@ -1,10 +1,9 @@
 package PnwQuizzing::Role::Logging;
-use Mojo::Base -role, -signatures;
-use Role::Tiny::With;
-use Log::Dispatch;
-use Term::ANSIColor;
+use exact -role;
 use Data::Printer return_value => 'dump', colored => 1;
 use File::Path 'make_path';
+use Log::Dispatch;
+use Term::ANSIColor;
 
 with 'PnwQuizzing::Role::Conf';
 

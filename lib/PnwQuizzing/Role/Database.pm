@@ -1,11 +1,9 @@
 package PnwQuizzing::Role::Database;
-use Mojo::Base -role, -signatures;
-use Role::Tiny::With;
+use exact -role;
+use App::Dest;
 use DBIx::Query;
 use File::Path 'make_path';
-use App::Dest;
 use PnwQuizzing;
-use TryCatch;
 
 with 'PnwQuizzing::Role::Conf';
 
@@ -23,7 +21,7 @@ sub import {
         try {
             App::Dest->init;
             App::Dest->update;
-        }
+        };
     }
 }
 

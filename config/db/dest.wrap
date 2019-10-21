@@ -1,9 +1,7 @@
 #!/usr/bin/env perl
-use Mojo::Base -strict, -signatures;
-use Config::App;
+use exact;
 use Mojo::File;
 use PnwQuizzing;
-use TryCatch;
 
 my $pnw = PnwQuizzing->new;
 $pnw->conf->put( qw( database settings sqlite_allow_multiple_statements ) => 1 );
@@ -23,7 +21,7 @@ unless ( $ARGV[1] eq 'verify' ) {
         my $e = $dq->errstr;
         $dq->rollback;
         die $e;
-    }
+    };
 
     $dq->do('PRAGMA foreign_keys = ON');
 }

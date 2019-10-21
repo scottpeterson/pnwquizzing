@@ -1,7 +1,5 @@
 #!/usr/bin/env perl
-use Mojo::Base -strict, -signatures;
-use Config::App;
-use Util::CommandLine 'options';
+use exact -cli;
 use PnwQuizzing::Model::Register;
 
 my $settings = options('dryrun|d');
