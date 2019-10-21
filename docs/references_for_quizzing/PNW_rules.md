@@ -129,3 +129,7 @@ During the 30-second answering period, the quizmaster prompts rules shall be ame
 - If a quizzer, upon clearly pausing in reply after having attempted a full answer, is missing information required in either the question or answer, the quizmaster will, when the quizzer is not speaking, say, `More.`
 - If a quizzer, upon clearly pausing in reply after having attempted a full answer, has said a word or phrase which is not incorrect but also not yet correct, the quizmaster will, when the quizzer is not speaking, say, `Again.`
 - If a quizzer provided all the information in the answer except the clarification of a pronoun present which is part of the answer, the quizmaster will say, `Clarify PRONOUN.` *(Note that "PRONOUN" should be replaced with the actual pronoun to be clarified. For example, "Clarify 'he.'")*
+
+## Team On-Time Bonus
+
+For the purposes of awarding the starting 20-point team bonus, the officials will consider a quiz's scheduled start time to be 3 minutes after the close of any previous quiz in which any team in the upcoming quiz participates.
