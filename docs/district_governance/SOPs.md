@@ -187,3 +187,22 @@ Every facility that hosts a quiz meet will receive:
 - $100 for hosting
 - +$50 for providing lunch
 - +$50 for providing housing
+
+### Weather Minimums
+
+There may arise situations where the weather forecast predicts conditions unsafe for travel to, from, or about the meet location.
+
+**General Principles:** We don't want to cancel any meet, but we have an obligation to cancel whenever the safe outcome of travel is ever in doubt. There isn't an easy way to decide this because there isn't a uniform standard weather minimum for safe travel shared across all drivers, vehicles, and locations. A meet shouldn't be canceled if most teams can safely travel to and from the meet; however, if any coach believes safe travel is in doubt due to weather and declines travel to a meet that isn't canceled, their teams should not be statistically penalized.
+
+The following are the weather-related meet policies:
+
+- A coach may, by citing what they feel is unsafe forecast weather conditions, decline to commute their teams to any meet. Such a decision must be made prior to the start of the meet. The coach needs to contact the District Coordinator as soon as possible following the decision. Given this case, the quizzers and teams from that ministry will have their averages calculated with the missing meet removed from the sum denominator.
+- If more than a third of ministries decide to decline participation in a meet due to weather, the Board will cancel the meet.
+- The Board will cancel the meet if at the meet location or along any common roadway where a majority of ministries will likely commute the following weather minimums are expected to be exceeded:
+    - Ice on the roadway.
+    - Snow accumulation of 2".
+    - Freezing rain.
+    - Visibility below 1 statue mile except for morning fog.
+    - Flooding.
+    - Electrical power loss at the meet location with no backup power capability.
+- If the Board cancels a meet, all teams will have their averages calculated with the missing meet removed from the sum denominator.
